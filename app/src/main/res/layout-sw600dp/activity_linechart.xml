@@ -1,0 +1,126 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Buttons-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:orientation="horizontal"
+            android:gravity="top"
+            android:background="@color/black">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage1"
+                android:text="@string/day"
+                android:textSize="@dimen/text_size_title"/>
+
+            <Button
+                android:id="@+id/button11"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage11"
+                android:paddingLeft="7dp"
+                android:textSize="@dimen/text_size_title"
+                android:text="@string/threeday"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/ButtonStyleX"
+                android:textSize="@dimen/text_size_title"
+                android:onClick="sendMessage2"
+                android:paddingLeft="7dp"
+                android:text="@string/week" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage3"
+                android:textSize="@dimen/text_size_title"
+                android:text="@string/month"
+                android:elegantTextHeight="true"
+                android:paddingLeft="7dp" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage4"
+                android:text="@string/year"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_title"
+                android:paddingLeft="7dp" />
+        </LinearLayout>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <!-- Metric spinner-->
+
+    <LinearLayout
+        android:id="@+id/llDistance"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtMetric"
+            style="@style/ButtonStyleX"
+            android:gravity="center_horizontal"
+            android:text="@string/unit"
+            android:textSize="@dimen/text_size_title" />
+
+        <Spinner
+            android:id="@+id/metric_spinner"
+            style="@style/ButtonStyleX"
+            android:foreground="@color/white"/>
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:paddingRight="30dp"
+        android:paddingBottom="140dp"
+        android:addStatesFromChildren="true"
+        android:paddingTop="@dimen/bar_height">
+
+        <ImageView
+            android:id="@+id/imgView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/ic_wave"
+            android:contentDescription="@string/tide" />
+
+        <ImageView
+            android:id="@+id/imgView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:foregroundGravity="right"
+            android:src="@drawable/ic_wave" />
+
+    </ViewFlipper>
+
+
+</FrameLayout>

@@ -1,0 +1,197 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+             xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/vwMap">
+
+    <fragment
+        android:id="@+id/map"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/animate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textColor="@color/white"
+                android:textOff="@string/animate"
+                android:textOn="@string/animate"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnRoute"
+                style="@style/ButtonStyleX"
+                android:text="@string/route"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/btnZones"
+                style="@style/ButtonStyleX"
+                android:text="@string/zones"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/btnBeaches"
+                style="@style/ButtonStyleX"
+                android:text="@string/beaches"
+                android:textSize="@dimen/text_size_title"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnGPS"
+                style="@style/ButtonStyleX"
+                android:text="@string/gps"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/btnSwell"
+                style="@style/ButtonStyleX"
+                android:enabled="true"
+                android:onClick="InitSwell"
+                android:text="@string/swell"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/btnOrientation"
+                style="@style/ButtonStyleX"
+                android:text="@string/orientation"
+                android:visibility="gone"
+                android:textSize="@dimen/text_size_title" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llDistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black_overlay"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/distance"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+            <Spinner
+                android:id="@+id/metric_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llModes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rg_modes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mode"
+                    android:textSize="@dimen/text_size_title" />
+
+                <RadioButton
+                    android:id="@+id/rb_driving"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/str_rb_driving" />
+
+                <RadioButton
+                    android:id="@+id/rb_bicycling"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/str_rb_bicycling" />
+
+                <RadioButton
+                    android:id="@+id/rb_walking"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/str_rb_walking" />
+            </RadioGroup>
+
+
+            <RadioGroup
+                android:id="@+id/rg_routes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/route"
+                    android:textSize="@dimen/text_size" />
+
+                <RadioButton
+                    android:id="@+id/rb_normal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="@string/str_rb_normal" />
+
+                <RadioButton
+                    android:id="@+id/rb_alternative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/str_rb_alternative" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <!-- A set of test checkboxes. -->
+
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="FULL_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_gravity="bottom"
+        android:visibility="gone">
+    </com.google.android.gms.ads.AdView>
+
+</FrameLayout>

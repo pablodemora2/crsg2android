@@ -1,0 +1,295 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<!--    <com.istudio.blureffect.TopCenterImageView-->
+<!--        android:id="@+id/normal_image"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="fill_parent"-->
+<!--        android:gravity="center"-->
+<!--        android:orientation="vertical"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:background="@drawable/background" />-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height">
+
+<!--        <com.istudio.blureffect.ScrollableImageView-->
+<!--            android:id="@+id/blurred_image_header"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/bar_height" />-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage1"
+                android:text="@string/info" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage2"
+                android:text="@string/beaches" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage3"
+                android:text="@string/online" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage4"
+                android:text="@string/gallery" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingTop="@dimen/bar_height">
+
+<!--        <ViewFlipper-->
+<!--            android:id="@+id/viewFlipper2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:addStatesFromChildren="true">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgView22"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:clickable="true"-->
+<!--                android:src="@drawable/ic_star" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgView21"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:clickable="true"-->
+<!--                android:foregroundGravity="right"-->
+<!--                android:src="@drawable/ic_star" />-->
+
+<!--        </ViewFlipper>-->
+
+    </LinearLayout>
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="right"-->
+<!--        android:addStatesFromChildren="true"-->
+<!--        android:paddingTop="@dimen/bar_height">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:clickable="true"-->
+<!--            android:src="@drawable/ic_wave"-->
+<!--            android:contentDescription="@string/tide" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:clickable="true"-->
+<!--            android:foregroundGravity="right"-->
+<!--            android:src="@drawable/ic_wave" />-->
+
+<!--    </ViewFlipper>-->
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="140dp"-->
+<!--        android:paddingEnd="70dp"-->
+<!--        android:layout_gravity="center_horizontal|bottom"-->
+<!--        android:paddingRight="70dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView31"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/centralpacific"-->
+<!--            android:src="@drawable/ic_wave" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView32"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center_horizontal|bottom"-->
+<!--            android:src="@drawable/ic_wave" />-->
+
+<!--    </ViewFlipper>-->
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_vertical|start"-->
+<!--        android:paddingBottom="125dp"-->
+<!--        android:paddingLeft="5dp"-->
+<!--        android:paddingStart="5dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView41"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/northpacific"-->
+<!--            android:src="@drawable/ic_witchrock" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView42"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/northpacific"-->
+<!--            android:src="@drawable/ic_witchrock" />-->
+
+<!--    </ViewFlipper>-->
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper5"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="70dp"-->
+<!--        android:paddingEnd="40dp"-->
+<!--        android:paddingRight="40dp"-->
+<!--        android:layout_gravity="center_vertical|end">-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView51"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/southcaribbean"-->
+<!--            android:src="@drawable/ic_wave" />-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView52"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_wave" />-->
+
+<!--    </ViewFlipper>-->
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper6"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="end|bottom"-->
+<!--        android:paddingBottom="70dp"-->
+<!--        android:paddingEnd="80dp"-->
+<!--        android:paddingRight="80dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView61"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/southpacific"-->
+<!--            android:src="@drawable/ic_palmtree" />-->
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView62"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_palmtree" />-->
+<!--    </ViewFlipper>-->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|bottom"
+        android:padding="3dp"
+        android:paddingBottom="0dp"
+        android:paddingEnd="0dp"
+        android:paddingRight="0dp"
+        >
+
+<!--        <ViewFlipper-->
+<!--            android:id="@+id/viewFlipper8"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgMoon1"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                android:contentDescription="Moon"-->
+<!--      />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imgMoon2"-->
+<!--                android:layout_width="60dp"-->
+<!--                android:layout_height="60dp"-->
+<!--                />-->
+
+<!--        </ViewFlipper>-->
+
+        <TextView
+            android:id="@+id/txtMoonState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Moon"
+            android:textSize="18dp"
+            android:textColor="@color/white">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+<!--    <ViewFlipper-->
+<!--        android:id="@+id/viewFlipper7"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:paddingBottom="@dimen/bar_height"-->
+<!--        android:layout_gravity="center_vertical|center">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView71"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:contentDescription="@string/sanjose"-->
+<!--            android:src="@drawable/ic_skate" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imgView72"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_skate" />-->
+
+<!--    </ViewFlipper>-->
+
+<!--    <com.google.android.gms.ads.AdView-->
+<!--        android:id="@+id/adView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        ads:adSize="BANNER"-->
+<!--        ads:adUnitId="@string/banner_ad_unit_id"-->
+<!--        android:layout_gravity="bottom|center_horizontal"-->
+<!--        android:visibility="gone">-->
+<!--    </com.google.android.gms.ads.AdView>-->
+
+</FrameLayout>

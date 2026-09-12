@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="zone_array">
+        <item>Pacifique Nord</item>
+        <item>Pacifique Central</item>
+        <item>Pacifique Sud</item>
+        <item>Caraïbes du Sud</item>
+    </string-array>
+
+    <string-array name="distance_metrics_array">
+        <item>Km</item>
+        <item>Miles</item>
+    </string-array>
+
+    <string-array name="heigth_metric_array">
+        <item>Pieds</item>
+        <item>Mètre</item>
+    </string-array>
+
+    <!--- 1 -->
+    <string name="app_name">Surf Guide du Costa Rica</string>
+    <!--- 2 -->
+    <string name="intro">Prêt à surfer!</string>
+    <!--- 3 -->
+    <string name="northpacific">Pacifique Nord</string>
+    <!--- 4 -->
+    <string name="centralpacific">Pacifique Central</string>
+    <!--- 5 -->
+    <string name="southpacific">Pacifique Sud</string>
+    <!--- 6 -->
+    <string name="southcaribbean">Caraïbes du Sud</string>
+    <!--- 7 -->
+    <string name="zoneselection">Sélection de Zone</string>
+    <!--- 8 -->
+    <string name="beachselection">Sélection de Plage</string>
+    <!--- 9 -->
+    <string name="originselection">Sélection de l\’Origine</string>
+    <!--- 10 -->
+    <string name="mylocation">Ma Position</string>
+    <!--- 13 -->
+    <string name="notready">Pas prêt</string>
+    <!--- 14 -->
+    <string name="nopoints">Aucun point</string>
+    <!--- 15 -->
+    <string name="chooserighcoordenates">Choisissez les coordonnées correctes</string>
+    <!--- 16 -->
+    <string name="cantgetcurrentlocation">Impossible d\’obtenir l\’emplacement actuel</string>
+    <!--- 17 -->
+    <string name="generalinfo">Informations générales</string>
+    <!--- 18 -->
+    <string name="route">Route</string>
+    <!--- 19 -->
+    <string name="gallery">Galerie</string>
+    <!--- 20 -->
+    <string name="zones">Zones</string>
+    <!--- 21 -->
+    <string name="beaches">Plages</string>
+    <!--- 22 -->
+    <string name="period">Période</string>
+    <!--- 25 -->
+    <string name="wind">Vent</string>
+    <!--- 26 -->
+    <string name="pressure">Pression</string>
+    <!--- 27 -->
+    <string name="animate">Animer</string>
+    <!--- 30 -->
+    <string name="edit_message">Entrez un message</string>
+    <!--- 32 -->
+    <string name="title_activity_map">Carte</string>
+    <!--- 33 -->
+    <string name="title_activity_splash">Début</string>
+    <!--- 36 -->
+    <string name="title_activity_selector">Zones de Surf</string>
+    <!--- 37 -->
+    <string name="title_activity_image_gallery">Galerie</string>
+    <!--- 38 -->
+    <string name="title_activity_fullscreen">Démarrer plein écran</string>
+    <!--- 39 -->
+    <string name="title_activity_descripcion_lugar">Description du lieu</string>
+    <!--- 41 -->
+    <string name="title_activity_list_pacific_central">Pacifique Central</string>
+    <!--- 42 -->
+    <string name="title_activity_list_pacific_north">Pacifique Nord</string>
+    <!--- 43 -->
+    <string name="title_activity_list_caribbean">Caraïbes du Sud</string>
+    <!--- 44 -->
+    <string name="title_activity_list_pacific_south">Pacifique Sud</string>
+    <!--- 45 -->
+    <string name="action_settings">Paramètres d\’action</string>
+    <!--- 46 -->
+    <string name="menu_settings">Configurations</string>
+    <!--- 48 -->
+    <string name="str_rb_driving">En voiture</string>
+    <!--- 49 -->
+    <string name="str_rb_bicycling">A vélo</string>
+    <!--- 50 -->
+    <string name="str_rb_walking">A pied</string>
+    <!--- 51 -->
+    <string name="str_rb_alternative">Alternative</string>
+    <!--- 53 -->
+    <string name="mode">Mode</string>
+    <!--- 55 -->
+    <string name="beach">Plage</string>
+    <!--- 56 -->
+    <string name="best_swell_dirrection">Direction de Houle</string>
+    <!--- 57 -->
+    <string name="best_tide_position">Meilleur marée</string>
+    <!--- 59 -->
+    <string name="dangers">Dangers</string>
+    <!--- 60 -->
+    <string name="location">Emplacement:</string>
+    <!--- 61 -->
+    <string name="description">Description</string>
+    <!--- 62 -->
+    <string name="online">Carte</string>
+    <!--- 64 -->
+    <string name="alert">Alerte</string>
+    <!--- 65 -->
+    <string name="orientation">Orientation</string>
+    <!--- 66 -->
+    <string name="googleplayservicesavailable">Services de Google Play disponibles</string>
+    <!--- 67 -->
+    <string name="googleplayservicesarenotavailable">Services de Google Play no disponibles</string>
+    <!--- 68 -->
+    <string name="googleplayservicesmustinstall">Services de Google Play doivent être installé</string>
+    <!--- 69 -->
+    <string name="generalinfodetail">Il est tout à fait évident que Christophe Colomb ai nommé le Costa Rica comme il la fait. Après avoir atteint l\’île de Uvita dans son quatrième voyage en 1504; Il tomba amoureux des plages et l\’appela paraíso Costa Rica; Paradis Costa Rica. Il est arrivé sur des plages comme: Playa Negra, Playa Cocles y Playa Chiquita, Punta Uva et Manzanillo. Le Costa Rica est un paradis tropical avec 1290 km de côtes. Tant la côte du Pacifique et celle des Caraïbes sont idéales pour les surfeurs. Le Spot de surf le plus proche est à seulement 100 km de San José; La capital du Costa Rica.</string>
+    <!--- 70 -->
+    <string name="northpacificinfo">La région du Pacifique Nord ou Guanacaste est l\’une des zones de prédilection pour le surf, non seulement parce qu\’il a les plages les plus fréquentées comme Tamarindo, Roca Bruja, Playa Grande, Avellanas, Flamingo, y compris Playa Negra… Mais aussi pour ça vie nocturne, car il y a eu une grande croissance de touristes et d\’habitants dans les zones locales. Pour les endroit d\’aventure les plus expérimentés comme Roca Bruja, Laberintos et Ollie\’s Point, on parle de vagues de classe mondiale.</string>
+    <!--- 71 -->
+    <string name="centralpacificinfo">Le Pacifique central est l\’une des zones les plus accessibles. Non seulement parce que c\’est à une heure de San José, mais aussi en ayant Jaco Beach, qui est la capital du surf du pays, et vous pouvez obtenir une nouvelle table ou d\’autres accessoires dont vous avez besoin. Avec une vie nocturne animée et d\’autres plages à proximité comme Hermosa pour les surfeurs expérimentés, avec de magnifiques vagues toute l\’année. Vous pouvez également rencontrer d\’autres très bons points comme Puerto Caldera, Corralillo, Aiguilles Beach, Esterillos, Bejuco Beach, les plages de Manuel Antonio, entre autres.</string>
+    <!--- 72 -->
+    <string name="southpacificinfo">La région du Pacifique Sud est l\’une des régions les plus reculées où vous serez en plein et total contact avec la nature, pas grand-chose de la ville est venu jusqu\’ici, mais une chose est sûre, rien que d\’y aller c\’est une aventure incroyable, avec de merveilleux endroits pour surfer comme Pavonces, Matapalo, Backwash et Drake Bay qui est l\’un des endroits le plus renommé dans le pays pour être paisible et relaxant. Mais méfiez-vous de cette aventure, car ça peut être un long chemin.</string>
+    <!--- 73 -->
+    <string name="southcaribbeaninfo">La zone située au Sud des Caraïbes à l\’une des eaux les plus turquoises et cristallines dans le pays, malgré les rumeurs selon lesquelles c\’est une zone un peu dangereuse, vous pouvez profiter d\’un grand séjour de vacances a Puerto Viejo et Cahuita , deux petits villages à proximité de la plage avec une atmosphère très relaxante qui se fait sentir à peine arrivé sur place, les gens de la région sont très joyeux et calme, toujours dans la bonne ambiance. Les vagues de Salsa Brava, Cocles, Playa Negra et Manzanillo ne sont pas pour les débutants car le vent des Caraïbes est plus fort et la mer ouverte donnant place à des courants exposés. Ce lieu magique vous laissera stupéfait si vous allez à Cocles et Punta Uvita dans le parc national, où la mer a fusionné avec la forêt naturelle juste derrière la plage.</string>
+    <!--- 74 CHEKEAR ULTIMO PARRAFO ? EL BAR MAS IN ?-->
+    <string name="skateinfo">Le Costa Rica comme pour les points de surf, il offre plusieurs endroits où faire du Skate et du BMX. Si vous vous trouvez à San José, le meilleur endroit pour pratiquer le Skate c\’est à El Caño, situé dans Curridabat. C\’est littéralement un tube qui ressemble à une vague parfaite qui peut être surfé. C\’est un des endroits les plus amusants mais qui se rempli très vite dû à sa popularité. Habituellement, il y a des séances vidéo et photos pour ceux qui sont passionnés par le sport. Sans doute un très bon endroit pour rencontrer des gens, car il y a beaucoup de téléspectateurs, en particulier des filles. Pour les jours où les vagues ne sont pas abondantes, il existe différents skateparks sur les côtes pour retrouver le sentiment de surf, par exemple a Playa Tamarindo, Playa Negra, Playas del Coco, Playa Pavones, Jacó, Esterillos et Arenal (lac et volcan). Alors, qu\’es que nous attendons! Et si vous avez envie de sortir dans la région métropolitaine, nous vous recommandons le bar de la zone, El Gaff, avec une combinaison parfaite d\’un pub gastronomique avec micro-brasserie compris!.</string>
+    <!--- 75 -->
+    <string name="olliespoint">NO/SO-Faible a Moyen-Courants-4.0-Ollie´s Point-Potrero Grande, situé à 300 kilomètres au Nord de San José. Sans d\’accès public à la plage, vous devez aller à Coco Beach et payez une excursion en bateau. Potrero Grande est un point très amusant, c\’est une droite qui casse avec de très longues vagues. La plupart du temps il y a très peu de gens, mais parfois de bateaux. C\’est une vague assez facile à surfer. Vous n\’avez pas besoin d\’être professionnel pour surfer sur cette vague, c\’est probablement la droite la plus amusante et impressionnante au monde.</string>
+    <!--- 76 -->
+    <string name="rocabruja">NO/SO-Moyen a élevé-crocodiles-5.0-Roca Bruja-Roca Bruja alias Playa Naranjo est situé à 250 kilomètres au Nord de San José. Vous pouvez prendre un bateau à Playas del Coco ou vous pouvez rejoindre par voiture le parc national de Santa Rosa. Lorsque vous y arriver, vous allez vous rendre compte que les routes sont en très mauvais état, tellement que la route est fermée pendant les fortes pluies d\’hiver. C\’est un très bel endroit où aller même si vous ne pouvez pas surfer. C\’est un lieu mystique, avec un vent Off-Shore tout au long de l\’année et une faune très riche. La diversité des animaux est très nombreuse, il y a des serpents, des cerfs, des lézards, des chats sauvages, tortues, oiseaux exotiques, des singes et d\’autres mammifères et des reptiles aussi. Il faut essayer d\’être toujours accompagné quand vous surfer,  en raison du fait que vous pouvez vous sentir mal à l\’aise de voir des crocodiles qui nages d\’un côté à l\’autre de l\’embouchure de la rivière. C\’est un fait que c\’est l\’un des plus beaux endroits sur terre, et la nuit, vous verrez surement des tortues et d\’autres animaux. C\’est une des vagues les plus classiques. La vague est parfaite, rapide et creuse. Au cours de l\’été, vous pouvez trouver des vagues de 1.5 m jusqu\’à 2 m, alors que pendant la houle d\’hiver, les vagues montent jusqu\’à 3.5 m et 5.5 m. Les condition les plus favorables vous pouvez les trouver à partir de Novembre à Mai. Si vous êtes au Costa Rica et que vous voulez le tube de votre vie, vous ne pouvez pas manquer ce point.</string>
+    <!--- 78 -->
+    <string name="elbajo">NO/SO (210/220)-Moyen-Requins, Roches.-3.5-El Bajo-El Bajo est situé dans le Golfo de Papagayo. A 20 minutes en voiture de l\’aéroport national Libéria. Il est possible d\’aller en voiture près du point, mais le seul accès direct à la plage se fait par la Villa Privée Tín Ríos. Une autre façon possible d\’y aller est de prendre un bateau à Playas del Coco. Le point est à 10 min au sud de Roca Bruja. Lorsqu\’il y a du swell, ça peut être amusant de surfer là-bas, vous ne pouvez aller qu\’à gauche, parce que si vous allez à droite vous vous retrouvez dans les roches, et le fond a beaucoup de rochers coupants.</string>
+    <!--- 79 -->
+    <string name="iguanita">NO/SO (210/220)-Faible a Moyen-Lezards.-2.5-Playa Iguanita-Playa Iguanita se trouve dans le Golfo de Papagayo. Vous êtes très chanceux si vous trouver des vagues dans cet endroit, mais si ça vous arrive, c\’est votre jour de chance! C\’est une vague parfaite fessant habituellement 1.2 m, c\’est une longue gauche qui casse en face de l\’embouchure de la rivière quand les vagues sont grandes. Cet endroit est toujours vide.</string>
+    <!--- 80 -->
+    <string name="carbonal">NO/SO (210/220)-Moyen a élevé-Récifs, Requins.-3.5-Carbonal-Carbonal se trouve à 20 minutes en voiture de l\’aéroport National de Liberia. Pour arriver au point, il est préférable de se renseigner auprès des locales. Les vagues ici sont rares, mais quand il y en à, elles sont parfaites. C\’est une longue droite très constante. Vous pouvez accéder par voiture si vous avez les contacts qui faut. Sinon, vous devez demander à vous faire emmener par bateau de Playas del Coco.</string>
+    <!--- 81 -->
+    <string name="playahermosaguana">NO/SO(210/220)-Elevé-Aucun.-3.0-Playa Hermosa-Playa Hermosa c\’est une célèbre plage de sable blanc, avec beaucoup de tourisme tout au long de l\’année. Elle est située à 20 minutes en voiture de l\’aéroport National de Liberia. Hermosa est un point de rencontre très agréable pour les touristes de tous les âges. Quand il y a des vagues c\’est en face de l\’Hôtel Condovac Coast, elles sont très agréables à surfer mais sont très inconstante. C\’est un endroit très amusant pour passer la journée à faire du skinboarding.</string>
+    <!--- 82 -->
+    <string name="playasdelcoco">NO/SO (210/220)-Elevé-Aucun.-2.5-Playas del Coco-Playas del Coco c\’est un village de plage, très connue par son tourisme tout au long de l\’année, en particulier pendant le nouvel an. À peine 20 minutes en voiture de l\’aéroport National de Liberia. El Coco c\’est un beau point de rencontre pour les touristes de tous les âges. De temps en temps il y a quelques vagues qui cassent,  c\’est le skimboarding qui règne pratiquement tous les jours. Sinon la vagues est très agréable à surfer mais extrêmement variable. Quelques vagues cassent rarement près du fond de sable.</string>
+    <!--- 83 -->
+    <string name="flamingospoint">SO/NO (210/220)- Faible a Moyen -Roches, oursins.-3.0-Flamingo Point-Flamingo est situé à 20 km au nord de Playa Tamarindo. Playa Flamingo est une belle plage de sable blanc avec des touristes qui en profite toute l\’année. Au bout de la plage, sur le côté sud, casse rarement des vagues avec un bon mur et très rapide, c\’est un point très dangereux et instable, surnommé par les locales le lit du chirurgien, en raison des récifs très tranchants. Quand il y a un bon swell, les vagues peuvent atteindre entre 3 et 3.6 mètres avec un mur parfait, et vous de pouvez que la prendre de gauche, si vous aller vers la droite vous finirez droit contre les rochers coupants. Vous ne voulez pas vous faire prendre la dedans, mais si ça arrive il faut pagayer dur vers la droite pour chercher le canal, sinon vous allez finir par heurté le fond coupant.</string>
+    <!--- 84                  CHECKEAR UNA PLAZA DE FOOTBALL ?-->
+    <string name="brasilito">SO/NO (210/220)-Moyen-Roches, Contamination.-1.0-Playa Brasilito-La Punta, situé sur la route principal de Flamingo, c\’est un endroit qui a une place en forme de terrain de football et un petit village près de la plage. C\’est une vague très facile et amusante pour tous les surfeurs et son généralement inférieurs à 1.20 m. Il y a des chances pour que les vagues soit plus grandes mais c\’est difficile.</string>
+    <!--- 85 -->
+    <string name="bahiadelospiratas">SO/NO (210/220)-Faible a Moyen-Roches, Oursins.-3.0-Bahia Piratas-Est situé sur la route de Playa Grande. Vous devez aller à la ville de Matapalo et quand vous arrivez à la place du football vous tourner à droite et conduisez 10 km sur la route de terre. C\’est un endroit qui a un grand rocher au milieu de la mer. Ce point est très irrégulier, mais amusant à surfer. Vous ne pouvez que aller vers la gauche parce que sinon vous finirait sur les rochers, et vous pouvez rencontrer de locales un peu furieux et des requins aussi, alors faite attention.</string>
+    <!--- 86 -->
+    <string name="playagrande">NO/SO-Moyen a Elevé-Très locale.-3.5-Playa Grande-Playa Grande c\’est le point le plus constant sur la zone de Tamarindo. C\’est une bonne vague mais l\’endroit est toujours plein de surfeurs. C\’est là que la deuxième attaque de requin dans le pays s\’est produite, mais cette fois la victime est décédée. Face à la plage, le point principal est à gauche, l\’autre vers la droite, et les deux sont toujours plein. Les vents on-shore peuvent ruiner la session de l\’après-midi, alors il faut se levé tôt pour surfer des bonnes vagues. En été, Nov/Mai Playa Grande devient massif, des vents off-shore créent des tubes de droite et gauche tous les jours, il y a tellement de surfeurs que a moins que vous soyez un surfer pro, vous aller vous retrouver a plusieurs sur la même vague.</string>
+    <!--- 87 -->
+    <string name="tamarindo">NO/SO-Media a Alta-Localismo.-2.5-Playa Tamarindo-Playa Tamarindo est votre meilleur pari pour obtenir des facilité de surf rapidement. Il y a des magasins de surf, location de planche de surf et des hôtels a tous les prix. C\’est un endroit très facile a trouver, juste dans le centre de Tamarindo et ça peut être très drôle quand y a du swell. C\’est une ville bien développé avec de nombreux étrangers des Etats-Unis et l\’Europe. Il y a toujours une bonne ambiance, une vie nocturne animée et de belles femmes.</string>
+    <!--- 87 -->
+    <string name="langosta">SO/NO-Toutes-Roches.-3.0-Playa Langosta-A Tamarindo il y a une route de gravier vers le sud, il faut conduire 2 km sur cette route. La zone a été développée avec de nombreux bâtiments et c\’est une plage typique de Guanacaste avec son sable blanc et sa longue plage. Si la parée est basse, vous pouvez marcher 500 mètres au sud de la bouche de la rivière, à un endroit appelé Key Tan, ça casse toujours mieux avec une marée basse, mais un requin tigre de environ 2.4 m de long a été repéré alors il faut faire très attention.</string>
+    <!--- 89 -->
+    <string name="avellanas">NO/SO-Moyen a Elevé-Roches.-3.0-Playa Avellanas-Elle est situé à 10 km au sud de Tamarindo. Avellanas est une plage alternative pour Playa Negra, c\’est l\’endroit le plus calme pour les surfeurs. C\’est une plage typique de Guanacaste avec une longue plage de sable blanc. C\’est très connu pour Lola, un porc de 400 Kg qui aimait être dans cet endroit. Malheureusement, elle est morte en 2009, mais les vagues sont toujours là. En face du parking ya une formation rocheuse qui produit certaines gauches à marée moyenne ou élevée, mais le point principal est en face de l\’embouchure de la rivière au nord de la plage. La petite formation rocheuse qu\’il y a fait garder le sable et donne forme a des pics de très bonne qualité, toujours bondé, mais ça vaut la peine de connaître le lieu, si vous êtes a la recherche de paix, de vagues et de la nature, c\’est ici votre endroit!.</string>
+    <!--- 90 -->
+    <string name="playanegraguana">NO/SO-Moyen a Elevé-Roches.-4.0-Playa Negra-Playa Negra est l\’un des meilleurs spots de surf au Costa Rica. De Tamarindo il faut suivre les indications pour Playa Negra. Tu dois passer Playa Avellanas et conduire environ 5 min de plus. La vague est bien tubulaire. Ce sont de très bonnes vagues mais très fortes aussi. Elles cassent sur un fond rocheux et sa ce rempli de monde tous les jours.</string>
+    <!--- 91 -->
+    <string name="junquillal">NO/SO-Elevé-Raies mantas.-3.0-Junquillal-Situé à 40 km au sud de Tamarindo. C\’est un spot très drôle et amusant. A marée haute, il y a beaucoup de pics à choisir où y a de nombreuses gauches et droites. Les vagues cassent sur le sable et à proximité de la côte. C\’est une zone assez éloignée ou il y a peu de surfeurs. Si vous vous promenez près de Guanacaste, ne manquez pas cet endroit.</string>
+    <!--- 92 -->
+    <string name="marbella">NO/SO-Moyen a Elevé-Récifs, Requins.-4.0-Marbella-Marbella est l\’un des meilleurs spots de surf dans la région de Guanacaste. De nombreuses attaques de requins ont eu lieu, ce qui n\’est pas très commun au Costa Rica. Les pêcheurs ont réussi à en capturer quelques-uns. Les vagues peuvent devenir vraiment bonnes, mais méfiez-vous. Situé à 60 km au sud de Tamarindo, vous devez prendre la route du Junquillal. Au lieu de s\’arrêter à Junquillal, continue 20 km au sud et vous trouver l\’endroit. Vous allez trouver tous ce que vous voulez, des gauches, droites, des tubes, en plein d\’autres vagues pour tous les gouts. Ça vaut vraiment le détour. C\’est ici où la première attaque de requin a eu lieu dans l\’histoire du Costa Rica. </string>
+    <!--- 93 -->
+    <string name="callejones">SO/NO-Moyen-Roches.-3.0-Callejones-Si vous n\’êtes pas prêt pour surfer les vagues de Playa Negra ou si c\’est rempli de surfeurs, cette plage est une option. Mieux vaut surfer à marée basse ou à la montée du swell en provenance du nord ou du nord-ouest. Habituellement, les conditions sont bonnes de Décembre a Mars.</string>
+    <!--- 94 -->
+    <string name="ostional">NO/NO-Moyen-Recifs.-3.0-Ostional-Ostional c\’est un endroit très populaire pour regarder les tortues marines. Elles sont très nombreuses à venir pour pondre et enterrés leurs œufs. Parfois, quand les tortues sont dans le processus de ponte, le surf n\’est pas autorisé. Les vagues cassent en gauche et en droite. Ce spot est meilleur en marée moyenne et montante, de Décembre jusqu\’à Mars les conditions pour faire du surf sont au top, mais même en été il vous faut un 4x4 pour y accéder, surtout si vous venez du nord, car il y a des rivières a traverser.</string>
+    <!--- 95 -->
+    <string name="guiones">SO/NO-Toutes-Recifs.-3.5-Guiones-Guiones est situé à 5 heures de San José dans un village appelée Nosara. C\’est une belle plage avec des vagues toute l\’année. Nosara a de très bonnes vagues et la plupart des habitants sont très sympathiques. Il y a beaucoup de débutants dans l\’eau alors il faut s\’attendre à trouver cette endroit avec pas mal de surfeurs. Comme nul part ailleurs, les vagues peuvent être très bonne et deux secondes après très mauvaises. C\’est un spot généralement consistant avec une plage très propre et très belle.</string>
+    <!--- 96 -->
+    <string name="camaronal">SO/NO-Toutes-Recifs.-4.0-Camaronal-Situé a 20 minutes de Playa Samara. Vous arrivez a Carrillo et vous prenez la direction de Punta Islita, vous traverser la rivière en marée basse et vous continuer 2 km jusqu\’à ce que vous rencontrez la mer. Camaronal c\’est le point le plus consistant dans la zone de Samara. Parfois, les vagues sont très grandes, et il y a presque toujours des vagues qui cassent à la hauteur de la poitrine ou de la tête. En hiver, Juillet/Novembre, la rivière déborde alors vous devez prendre un bateau de Playa Samara.</string>
+    <!--- 97 -->
+    <string name="samara">NO/SO-Moyen-Aucun.-0.0-Samara-Il y a des magasins de surf et des écoles mais les grands swells n\’arrivent pas sur cette plage. Il y a quelques spots sur le récif, mais c\’est très loin de la plage. Cette plage est très calme, ce qui la rend meilleur pour la natation que pour le surf. Par rapport à d\’autres plage, celle-ci n\’as pas de courants dangereux. Cette plage est très connue pour être un endroit idéal pour voyager avec des enfants.</string>
+    <!--- 98 -->
+    <string name="playacarrillo">NO/SO-Moyen-Aucun.-0.0-Playa Carrillo-Carrillo est situé au sud de Playa Samara. Il s\’agit d\’une belle plage et des palmiers qui offrent beaucoup d\’ombre, il n\’y a pas de bâtiments près de la plage et les vagues ne sont généralement pas bonnes pour le surf. La baie est bien trop protégée de sorte que le swell n\’arrive jamais, il n\’y a presque jamais de vagues ici.</string>
+    <!--- 99 -->
+    <string name="puntaislita">NO/SO-Moyen-Aucun.-0.0-Punta Islita-Parfois les vagues peuvent être très amusantes ici. Il s\’agit d\’une très belle plage et elle est dominé par le luxueux Hôtel Punta Islita.</string>
+    <!--- 100 -->
+    <string name="bejuco">SO/NO-Moyen-Recifs.-2.0-Bejuco-Situé à 17 km au sud de Playa Carrillo, c\’est un spot consistant et il peut y avoir des swell de 3.6 m. dans le passé, plusieur nageurs se sont noyés ici, méfiez-vous des courants. </string>
+    <!--- 101 -->
+    <string name="playasanmiguel">SO/NO-Moyen-Recifs.-3.0-San Miguel-Situé entre les plages Playa Bejuco et Playa Coyote. Ce spot offre plusieurs types de vagues, des gauches et des droites, c\’est juste incroyable. Si vous avez toujours rêvé d\’avoir une session de surf au Costa Rica avec des amis et personne d\’autre, l\’endroit c\’est ici. Il y a rarement des gens qui viennent surfer ici.</string>
+    <!--- 102 -->
+    <string name="coyote">SO/NO-Moyen a Elevé-Recifs.-3.0-Playa Coyote-Ici vous pourrez surfer dans plusieurs endroit, sur des récifs ou sur du sable, et y a des droites et des gauches. Les vagues sont au top a moyenne marée et motante.</string>
+    <!--- 103 -->
+    <string name="caletas">N/NO-Moyen a Elevé-Recifs.-3.0-Playa Caletas-Situé a 10 min au sud de Playa Coyote. Cette longue plage cache plein de trésors, avec des spots sur des récifs et sur du sable aussi. Pour surfer sur le spot du récif il faut beaucoup ramer, c\’est loin.</string>
+    <!--- 104 -->
+    <string name="playamanzanilloguana">N/NO-Moyen-Recifs.-3.0-Manzanillo-Elle se situe entre Playa Cocal et Playa Santa Teresa. Il y a plusieurs spots sur récifs et sable qui sont rarement surfé. Si votre Surf Tour vous propose de surfer le long de la côte de la péninsule de Nicoya, prenez le temps de regarder les vagues de Playa Manzanillo. Vous pouvez avoir de la chance et trouver de bonne vagues sans devoir les partager avec qui que ce soit.</string>
+    <!--- 105 -->
+    <!--- 106 -->
+    <string name="santateresamalpais">O/SO-Toutes-Recifs-4.0-Santa Teresa-Santa Teresa est un vrai classique au Costa Rica. Les vagues son constantes tout au long de l\’année, mais la forme des vagues n\’est pas toujours parfaite. Il y a des endroits très confortables pour y rester et passer un ou plusieurs séjours très confortables, mais la plupart des restos sont chers. Pour y arriver, vous devez conduire de préférence un 4x4 jusqu\’à Punta Arenas et prendre le Ferry pour Cobano, après c\’est à une heure de route. Ou vous pouvez voyager de Nicoya et conduire 130 km sur des routes pavées, ou prendre la voie alternative de 50 km sur la route de gravier traversant trois rivières et les montagnes Nandayure. La dernière option, c\’est le plus beau voyage a faire mais un petit peut dangereux. Si vous décidez de venir ici, il faut prévoir plusieurs jours. C\’est un voyage long et fatigant, il est donc recommandé d\’y rester au moins deux nuits. L\’ambiance est génial, les habitants sont très sympathiques, de belles filles, la jungle, des propriétaires étrangers et des touristes américains et européens. Le spot de Santa Teresa est au large de la plage, le fond de sable sous l\’eau change tous les jours, ce qui fait que les vagues ne sont jamais pareilles. Habituellement, les gens viennent plusieurs jours par an, pour voir la compétition de la Reef Classic en été. La vie nocturne est extraordinaire les week-ends. Au Beach Bar, vous pouvez pratiquement faire ce que vous voulez et personne dira rien, la plupart des filles et des surfeurs restent traîner jusqu\’à l\’aube en parlant de surf.</string>
+    <!--- 107 -->
+    <string name="barrigona">O/SO-Faible a Moyen-Récifs, Courants, Roches.-3.0-Barrigona-Barrigona c\’est une très belle plage. Situé à environ 7 km de Samara en direction à Nosara. Après l\’arrivée à Playa Buena Vista, vous verrez une petite entrée sur la droite. Il est recommandé de prendre un 4x4 pour que ça soit possible de conduire sur cette route et arriver sur cette magnifique plage. Sur le chemin de la plage, vous pouvez voir de nombreux animaux exotiques et de végétation. C\’est a environ 10 min en voiture en prenant la route de gravier. Si la marée est basse, vous pouvez marcher et aller à la plage de sable fin. Il s\’agit d\’une belle plage de sable blanc et d\’eau claire. Si vous n\’êtes pas un bon nageur, je vous déconseille fortement de rentrer dans l\’eau,  beaucoup de gens ont eu des problèmes parce qu\’ils ont été balayés par les courants. En hiver, vous pouvez également trouver une cascade au sud de la plage. C\’est une superbe sensation de se baigner dans l\’eau douce après avoir surfer dans de l\’eau salée. Mel Gibson possède environ 500 hectares à proximité de la plage. Habituellement, les vagues font environ 1 m, mais si il y a un bon swell les vagues peuvent atteindre les 2 m, voir 3 m. Il y a une très bonne gauche sur un point spécifique.</string>
+    <!--- 108 -->
+    <string name="lossuecos">O/SO-Faible a Moyen- Récifs, Courants, Roches.-4.0-Los Suecos-Situé au sud de Malpais, de l\’hôtel Sunset Reef, vous devez marcher jusqu\’à l\’embouchure de la rivière. C\’est un vague qui casse au large et ver la gauche. Si vous êtes à Santa Teresa/Malpais et il y a un bon swell, vous allez expérimenter le tube de votre vie.</string>
+    <!--- 109 -->
+    <string name="bocabarranca">S/SO-Faible a Moyen-Contamination.-3.5-Boca Barranca- Situé à 45 minutes de Jaco. Prendre l\’autoroute à Puntarenas, après avoir franchis le pont de la rivière Barranca, prendre la première à gauche et continuer tout droit jusqu\’à ce que vous voyiez la plage et ces vagues. Boca Barranca offre de très belles gauches, longues et amusantes vagues de classe mondiale.</string>
+    <!--- 110 -->
+    <string name="donaana">S/SO-Tout-Très local.-2.5-Doña Ana-Playas de Doña Ana est un spot directement au sud de Boca Barranca. Vous y trouverez des vagues très rapides, et avec un bon swell cette vague rejoint celle de Boca Barranca en formant une gauche extrêmement longue. La vague en elle-même n\’est pas très lourde, mais quand ça devient bon, plein de gens viennent en profiter. Ce spot est une excellente alternative si Boca Barrance en rempli de surfeurs. Il faut juste faire attention aux roches quand vous rentrez et sortez.</string>
+    <!--- 111 -->
+    <string name="puertocaldera">S/SO-Moyen-Digue.-2.0-Puerto Caldera-Caldera est le spot de surf le plus proche de San José. C\’est a 45 min en voiture et il est situé à 20 km au sud de Puntarenas. Vous devez conduire jusqu\’à Playa Caldera et se garer le plus près du pont. A l\’embouchure de la riviere et à proximité de la digue, il y a une vague énorme qui apparait de temps en temps et casse devant la plage. C\’est une vague très amusante mais inconstante avec un accès instantané. Quand il y a un bon swell qui rentre, ça devient un super spot pour surfer.</string>
+    <!--- 112 -->
+    <string name="corralillo">SO/S-Fable a Moyen-Lézard.-3.0-Corralillo-Corralillo est situé à Puerto Caldera. Vous devez vous garer à l\’entrée du port. Il s\’agit d\’une promenade à pied de 2 km sur un chemin de terre. En été, c\’est de la terre et en hiver c\’est rempli de boue. A l\’entrée de la plage allez à gauche et marcher pendant 20 min. j\’ai entendu des histoires de crocodiles mais jamais entendu parler d\’attaques sur ce spot. A Corralillo il y a que des gauches qui peuvent être vraiment amusante à surfer. Les vagues n\’ont généralement pas beaucoup de vitesse, ce qui permet au débutants et longboarders de s\’amuser au max!. Mais si y a un bon swell qui rentre et la marée est de sèche a moyenne, une vague de 400 m de long se forme, avec un courant très très fort suivi par un set de vagues gigantesques.</string>
+    <!--- 113 -->
+    <string name="elhoyo">S/SO-Faible a Moyen-Digue.-3.5-El Hoyo-C\’est exactement au meme endroit que Corralillo, mais lorsque vous arriver à la plage, vous aller vers la droite jusqu\’à ce que vous atteigniez la digue. El Hoyo (Le Trou) dans Puerto Caldera est un point spécial crée accidentellement par l\’homme. Une vague très puissante et imprévisible apparait lors des moyennes marées. Elle casse comme à Wedge (Orange County, Etats-Unis) ou peut-être comme à Sebastian Inlet (North Florida, USA). Ici ça casse même lorsque Boca Barranca et Corralillo sont à plat. Très bonnes vagues pour faire des aerials, toujours plein de bodyboardeurs et surfeurs locaux dans l\’eau.</string>
+    <!--- 114 -->
+    <string name="calderapoints">S/SO-Elevé-Roches.-2.5-Barco quebrado-Dans le même sens que Corralillo, à l\’entrée de la plage, tournez à gauche et marcher 10/15 min. Il y a trois spots importants sur le chemin à Corralillo. Tout dépend de la taille et de la direction du swell (houle). Le deuxième spot c\’est le meilleur et il est super rapide. Il y a beaucoup de rochers mais les tubes son vraiment parfait.</string>
+    <!--- 115 -->
+    <string name="elsilencio">S/SO-Elevé-Récifs.-5.0-El Silencio- Situé à 15 min au sud de Corralillo, le seul accès se fait par bateau. La vague n\’est pas un jeu, ne pas y aller si vous n\’avez pas beaucoup d\’expérience. Cette vague se casse parfaitement vers la gauche, elle est très rapide et elle a un grand mur. La vague est très dangereuse ici mais elle vaut la peine d\’être surfer.</string>
+    <!--- 116 -->
+    <string name="guacalillo">S/SO-Faible a Moyen-Contamination.-2.5-Guacalillo-La plage de Guacalillo est situé juste avant le pont sur le Rio Grande de Tarcoles. C\’est sur la route en allant de San José vers Jaco. En suivant les indications Guacimo/Ceiba. C\’est une longue plage avec du sable noir et beaucoup d\’animaux sauvages, voici un autre spot pour surfer au Costa Rica. Surfer cette gauche à Playa Guacalillo n\’est pas donner pour tout le monde, surtout les surfeurs tranquilles, car on doit constamment lutter contre le courant pour revenir au spot.</string>
+    <!--- 117 -->
+    <string name="tivivesrivermouth">S/SO-Toutes-Lézards.-2.0-Tivives- Vous allez trouver cette plage sur la route de l\’autoroute à Jaco, mais il ne faut pas prendre vers le sud direction Jaco, mais plutôt prendre la route vers Puntarenas. Apres environ 15 km vous aller voir un panneau où c\’est écrit Tivives. De là, allez à gauche sur une route de gravier pendant 7 km, vous devez demander la permission a l\’agent officiel qui s\’y trouve, il faut tout simplement dire que vous voulez surfer. Les vagues (gauches et droites), avec un bon swell et de bonnes conditions vous réserveront une bonne session de surf. L\’embouchure de la riviere Tivives provoque de forts courants, donc vous devez ramer dur pour vous placer dans une bonne position. Quand ça devient grand, environ 2.5 m ou plus, la vague tend à ce fermer avec des sets très puissants. Pendant l\’hiver, vous devriez faire attention si vous voyez un tronc qui flotte que ça ne soit pas un crocodile. Et quand il n\’y a pas de vagues à surfer, vous pouvez traverser l\’embouchure du fleuve et aller à Punto Valor, qui a de bonnes vagues tubulaires.</string>
+    <!--- 118 -->
+    <string name="valorpoint">S/SO-Faible a Moyen-Roches.-2.5-Valor-Valor est dans la même direction que Tivives. Vous devez traverser l\’embouchure de la rivière et marcher 5 min vers le sud. Punto Valor peut être très amusant à basse marée, une vague creuse avec des tubes parfait se forme. Quand  le swell et petit mais le vent et la marée sont bons, cet endroit est une bonne alternative pour Tivives.</string>
+    <!--- 119 -->
+    <string name="agujas">S/SO-Faible a Moyen-Roches.-2.5-Agujas-Situé à 20 km au nord de Jaco. Prenez à gauche à la sortie de Playa Agujas. Puis rouler pendant 5 min sur la route de terre. Agujas (Aiguilles) est un village de pêcheurs près de Playa Herradura, avec peu de gens et de vagues. Vous avez de la chance si vous trouver cet endroit avec des bonnes vagues mais lorsque c\’est bon, c\’est bon! Même parfait, une grosse gauche casse de temps en temps devant l\’embouchure de la rivière. C\’est un spot très drôle mais très inconsistant avec des vagues large et parfaites. Avec un bon swell rentrant, ça devient génial! Si vous êtes un chasseur de vagues, vous devez absolument chercher ce spot.</string>
+    <!--- 120 -->
+    <string name="playablanca">S/SO-Moyen a Elevé-Aucun.-0.5-Playa Blanca-Situé dans le complexe touristique Punta Leona Club de Playa, vous devez conduire comme si vous aller a Jaco et 8 km apres Tarcoles, vous verrez l\’entrée de Punta Leona a votre droite. Ce spot et toujours plein de gosses de riches et la vague n\’est pas aussi bonne. C\’est une gauche courte et faible et cassent rarement  en face de la tour de sauveteur qu\’est sur la plage. Quand un très bon swell monte et tous les gamins sont en cours, ce spot peut être très amusant a surfer.</string>
+    <!--- 121 -->
+    <string name="eltragadero">S/SO-Moyen a Elevé-Roches.-2.0-El Tragadero-Situé dans le Punta Leona Club. Lorsque vous arrivez à Playa Blanca, vous devez nager vers la gauche de la plage. Il s\’agit d\’une nage de 15 min. Quand il y a un bon swell, c\’est très amusant, sinon cet endroit est plat.</string>
+    <!--- 122 -->
+    <string name="elculo">S/SO-Moyen a Elevé-Aucun.-2.0-El culo-El culo (Le Cul) est situé à Punta Leona Club. Vous devez aller à Playa Blanca et ramer vers la gauche jusqu\’au récif. C\’est à 25 min de rame. Quand il y a un bon swell, c\’est très amusant, sinon cet endroit est plat.</string>
+    <!--- 123 -->
+    <string name="playaescondida">S/SO-Moyen a Elevé-Roches.-5.0-Playa Escondida-C\’est une plage qu\’est un peu caché et n\’est pas facilement accessible par voie terrestre. Elle se trouve à 10 min de Plaza Herradura. De Plaza Herradura, vous prenez à droite et conduisez jusqu\’à Los Sueños Resort. Et au lieu d\’aller à gauche à L\’Hôtel, prenez la route alterne et poursuivez. Cette route vous mènera sur une colline et vous y trouverez l\’entrée de Hidden Beach. C\’est un club privé, donc si vous n\’avez pas les contacts pour y rentrer, le seul moyen d\’y accéder c\’est par bateau depuis le port de Los Sueños o de Jaco. Cette vague est parfaite, vous devez vivre la sensation de surfer cette vague. Selon le swell la vague casse royalement, il y a des gauches et des droites magnifiques. La seul façon de d\’attraper cette vague c\’est en face du récif et si vous aller tout droit vous allez vous le prendre de face, il faut les prendre vers la droite ou la gauche obligatoirement. De nombreux professionnels comme Shea Lopez, ont des maisons ici, et Kelly Slater (11 fois champion du monde) vient surfer à Escondida presque tout le temps. Cette vague a été filmée et photographiée pour de nombreuses couvertures de magazines et des vidéos de surf. Bien que ce spot ne soit pas très accessible, il peut se remplir très facilement. Le récif est tranchant et dangereux, les meilleures conditions pour surfer cette vague sont en moyenne marée, montante ou descendante. Cette plage est très belle et parfaite pour passer du temps en famille et vos amis si vous avez la possibilité de louer une maison.</string>
+    <!--- 124 -->
+    <string name="littlefiji">S/SO-Moyen a Elevé-Roches.-4.0-Little Fiji-Situé à 20 min au sud en bateau en partant de Playa Escondida. Vous pouvez accéder à la plage en voiture, mais la seule route appartient à l\’Hôtel Villa Caletas. Vous devez être un surfer expérimenté pour même y considéré de surfer ici, c\’est un spot avec un gauche très puissante. Les vagues sont très en outside (au large) alors vous devez demander à un bateau de vous emmener pour pouvoir les surfer. La vague casse sur le récif et les roches. Le récif peut former des vagues parfaites, et avec un bon swell elles peuvent atteindre 4.5 m ou plus!  .</string>
+    <!--- 125 -->
+    <string name="laisla">S/SO-Moyen a Elevé-Roches-3.5-Isla Herradura-Situé à Playa Herradura, vous allez la trouver à 5 min au nord de Jaco. C\’est une vague typique de récif avec des droites très longues et une eau cristalline. Vous devez vous rendre à Playa Herradura et prendre un bateau pour arriver à La Isla ou vous pouvez marcher pendant 40 min par les rochers quand la marée est basse.
+Isla Herradura est une destination très populaire dans le monde du surf avec ces vagues classiques. Ces vagues sont parfaites pour les surfeurs expérimentés, vous allez surement adorer ces amusantes longues vagues qu\’ont une longueur de 100 m et parfois jusqu\’à 250 m. Avec un bon swell ça devient la chine!</string>
+    <!--- 126 -->
+    <string name="jaco">S/SO-Elevé-Courants-2.5-Jacó-Se trouve à une heure de route de San José. C\’est un très beau village surfeur avec des gens sympathiques et des belles filles. C\’est la capitale du surf au Costa Rica. Tout est américanisé et il y a beaucoup d\’endroit pour dormir et manger. Il y a des bonnes vagues et pleins d\’endroit pour louer une planche de surf. Certains jours, les vagues peuvent être parfaites, mais d\’autres jours, ça se peut qu\’elles ne soient pas si bonnes. Jaco c\’est l\’endroit idéal pour apprendre à surfer. Il y a beaucoup d\’instructeurs dans la zone qui attendent pour vous apprendre à surfer.</string>
+    <!--- 127 -->
+    <string name="rocaloca">S/SO-Media a Alta-Rocas-3.5-Roca Loca-Information inconnue</string>
+    <!--- 128 -->
+    <string name="elgato">S/SO-Todo Marea-Rocas-3.5-El Gato-Information inconnue</string>
+    <!--- 129 -->
+    <string name="playahermosajaco">S/SO-Todo Marea-Corrientes-5.0-Playa Hermosa-Information inconnue</string>
+    <!--- 130 -->
+    <string name="esterillos">S/SO-Todo Marea-Arrecife-3.5-Esterillos-Information inconnue</string>
+    <!--- 131 -->
+    <string name="playabejuco">S/SO-Medio a Alto-Arrecifes-3.0-Playa Bejuco-Information inconnue</string>
+    <!--- 132 -->
+    <string name="bocaquepos">S/SO-Bajo a Medio-Cocodrilos-2.0-Boca Quepos-Information inconnue</string>
+    <!--- 133 -->
+    <string name="bocadamas">S/SO-Bajo a Medio-Cocodrilos-3.5-Boca Damas-Information inconnue</string>
+    <!--- 134 -->
+    <string name="playasmanuelantonio">S/SO-Bajo a Medio-Ninguno-3.5-Manuel Antonio-Information inconnue</string>
+    <!--- 135 -->
+    <string name="cuttersright">S/SO-Bajo a Medio-Arrecifes, Rocas-4.0-cortadores-Information inconnue</string>
+    <!--- 136 -->
+    <string name="playitas">S/SO-Media a Alta-Rocas-3.0-Playitas-Information inconnue</string>
+    <!--- 137 -->
+    <string name="northplayitas">S/SO-Media a Alta-Nudismo-2.5-Playa Nudista-Information inconnue</string>
+    <!--- 138 -->
+    <string name="playaelrey">S-todo Marea-Arrecifes-3.5-El Rey-Information inconnue</string>
+    <!--- 139 -->
+    <string name="playadominical">S/SO-Baja a Media-Arrecifes-3.5-Dominical-Information inconnue</string>
+    <!--- 140 -->
+    <string name="playadominicalito">S/SO-Media a Alta-Arrecifes-2.0-Dominicalito-Information inconnue</string>
+    <!--- 141 -->
+    <string name="lapunta">S/SO-Baja a Media-Rocas-3.5-Information inconnue</string>
+    <!--- 142 -->
+    <string name="playahermosaypuntahermosa">S-Media a Alta-Rocas.-3.0-Punta Hermosa-Information inconnue</string>
+    <!--- 143 -->
+    <string name="matapalohermosa">S-Todo Mareas-Rocas.-3.0-Matapalo-Information inconnue</string>
+    <!--- 144 -->
+    <string name="backwashway">S-Baja a media-Rocks.-3.0-Backwash-Information inconnue</string>
+    <!--- 145 -->
+    <string name="carate">S-Todo Marea-Rocas.-3.0-Carate-Information inconnue</string>
+    <!--- 146 -->
+    <string name="bahiadrake">S-Toda Marea.-Localismo-4.0-Bahia Drake-Information inconnue</string>
+    <!--- 147 -->
+    <string name="pavones">S-Baja a Media-Arrecifes.-4.5-Pavones-Information inconnue</string>
+    <!--- 148 -->
+    <string name="rioclaro">S-Toda Marea.-Lagartos-3.0-Rio Claro-Information inconnue</string>
+    <!--- 149 -->
+    <string name="riosierpe">S-Toda Marea.-Tiburones-4.5-Rio Sierpe-Information inconnue</string>
+    <!--- 150 -->
+    <string name="playazancudo">S-Toda Marea.-Arrecifes-3.5-Playa Zancudo-Information inconnue</string>
+    <!--- 151 -->
+    <string name="pandulce">S-Todo Marea.-Arrecifes-3.5-Pan Dulce-Information inconnue</string>
+    <!--- 152 -->
+    <string name="puntabanco">S-Baja a Media.-Rocas-3.5-Punta Banco-Information inconnue</string>
+    <!--- 153 -->
+    <string name="puntaburica">S-Baja a Media.-Rocas-3.5-Punta Burica-Information inconnue</string>
+    <!--- 154 -->
+    <string name="islauvita">NE/E-Todo Marea-Piedra.-4.0-Isla Uvita-Information inconnue</string>
+    <!--- 155 -->
+    <string name="playanegra">NE/E-Media a Alta-Arrecifes.-3.5-Playa Negra-Information inconnue</string>
+    <!--- 156 -->
+    <string name="salsabrava">NE/E-Todo Marea-Piedra.-5.0-Salsa Brava-Information inconnue</string>
+    <!--- 157 -->
+    <string name="cocles">NE/E-Media a Alta-Corrientes.-3.0-Cocles-Information inconnue</string>
+    <!--- 158 -->
+    <string name="manzanillo">NE/E-Toda Marea-Piedras.-3.5-Manzanillo-Information inconnue</string>
+    <!--- 159 -->
+    <string name="puntauva">NE/E-Toda Marea-Piedras.-3.0-Punta Uva-Information inconnue</string>
+    <!--- 160 -->
+    <string name="jahhanders">NE/E-Baja a Media-Piedras.-4.5-Jah Handers-Information inconnue</string>
+    <!--- 161 -->
+    <string name="lostumbos">NE/E-Media a Alta.-Corrientes-5.0-Los Tumbos-Information inconnue</string>
+    <!--- 162 -->
+    <string name="playagrandelimon">NE/E-Baja a Media-Contaminacíon.-2.5-Playa Grande-Information inconnue</string>
+    <!--- 162.1 -->
+    <string name="laescuelita">NE/E-Toda Marea-Rocas.-2.5-La Escuelita-Information inconnue</string>
+    <!--- 163 -->
+    <!---<string name="title_activity_swell">Swell</string>-->
+    <!--- 164 -->
+    <string name="smb1">ft. 0</string>
+    <!--- 165 -->
+    <string name="mainsealevel">Pression</string>
+    <!--- 175 -->
+    <string name="next">Suivant</string>
+    <!--- 176 -->
+    <string name="hiddenspot">Ceci est un point secrète!</string>
+    <!--- 177 -->
+    <string name="gradient">Gradient</string>
+    <!--- 178 -->
+    <string name="alreadyrunning">Il est en cours d\’´exécution</string>
+    <string name="elinside">NE/E-Media a Alta-Rocas.-4.0-El Inside (Bonita)-Localizado en Bonita en la punta izquierda de la playa. Es una izquierda que suele ponerse bien grande, no es tan rapida como los Tumbos pero el arrecife es muy seco. La ola a diferencia de Los Tumbos si quebraba desde antes del gran terremoto.</string>
+    <string name="elpuerto">SW/S-Media a Baja-Contaminacion-3.-El Puerto-Localizado en el centro de Puntarenas,Cuando hay un swell grande se puede poner bien bueno, las mejores olas rompen a la par del muelle de los cruceros en el paseo de los turistas.</string>
+    <string name="elshaman">SW/S-Media a Alta-Localismo.-4.0-El Shaman-Ubicada a 30 minutos caminando desde Bahia Ballena esto es todo lo que te puedo decir. Es una joya y puntos secretos como este quedan cientos en Costa Rica. Hay mas localismo en esta zona del País que en las otras por eso respeta y seras respetado.</string>
+    <string name="month">Mois</string>
+    <string name="norestedecostarica">Nord Est Costa Rica</string>
+    <string name="northplayitasn">Playitas Nord</string>
+    <string name="tide">Houle</string>
+    <string name="tivivesrivermouthn">Bouche Tivives</string>
+    <string name="im_elbajoweb">El Bajo</string>
+    <string name="im_elcano">El Caño, Curridabat, San José</string>
+    <string name="im_elgato">El Gato</string>
+    <string name="im_elrey">Playa El Rey</string>
+    <string name="im_escondidaweb1">Escondida</string>
+    <string name="im_flweb">Flamingo</string>
+    <string name="im_tuti11">Roca Bruja</string>
+    <string name="im_tortugagrande">Roca Bruja</string>
+    <string name="im_tortuga">Roca Bruja</string>
+    <string name="im_stsunset">Santa Teresa</string>
+    <string name="im_stroad">Santa Teresa</string>
+    <string name="im_stmap">Santa Teresa-Mal País</string>
+    <string name="im_stbarrel">Santa Teresa-Mal País</string>
+    <string name="im_santat">Santa Teresa-Mal País</string>
+    <string name="im_salsaweb">Salsa Brava</string>
+    <string name="im_rocaloca">Roca Loca</string>
+    <string name="im_rocaboom">Roca Loca</string>
+    <string name="im_roca1">Roca Loca</string>
+    <string name="im_robertama">Tamarindo</string>
+    <string name="im_queporrivermouth">Boca Quepos</string>
+    <string name="im_aRío">Costa Rica!</string>
+    <string name="im_bahia2">Bahía Del Pirata</string>
+    <string name="im_barrancaweb">Boca Barranca</string>
+    <string name="im_blancaweb">Playa Blanca</string>
+    <string name="im_brasilito">Playa Brasilito</string>
+    <string name="im_camaronal">Camaronal</string>
+    <string name="im_carbonal2web">Playa Carbonal</string>
+    <string name="im_carbonalweb">Playa Carbonal</string>
+    <string name="im_casonaf">La Casona d\’´Santa Rosa</string>
+    <string name="im_cocles">"Playa Cocles"</string>
+    <string name="im_coclesweb">Playa Cocles</string>
+    <string name="im_condovacweb">Playa Hermosa</string>
+    <string name="im_corralweb">Playa Corralillo</string>
+    <string name="im_crbeautis">Playa Avellanas</string>
+    <string name="im_dominical">Playa Dominical</string>
+    <string name="im_hermosa2">Playa Hermosa, Jaco</string>
+    <string name="im_hermosasunday">Playa Hermosa, Jaco</string>
+    <string name="im_jaco">Playa Jaco</string>
+    <string name="im_jaco1">Playa Jaco</string>
+    <string name="im_jaco4">Playa Jaco</string>
+    <string name="im_junquillal">Playa Junquillal</string>
+    <string name="im_laisla">Isla Uvita</string>
+    <string name="im_langosta">Playa Langosta</string>
+    <string name="im_lavweb">Laberintos</string>
+    <string name="im_littlefiji">Little Fiji</string>
+    <string name="im_littlefiji2">Little Fiji</string>
+    <string name="im_lolapig">Lola!</string>
+    <string name="alajuelaairport">Alajuela Aéroport</string>
+    <string name="dailytide">Tide ( Temps Vs. Unité)</string>
+    <string name="day">Jour</string>
+    <string name="im_baldir">Baldir.</string>
+    <string name="im_marazul">Los Suecos</string>
+    <string name="im_playaelcoco1">Playas del Coco</string>
+    <string name="im_playaelcoco2">Playas del Coco</string>
+    <string name="im_playitasnude">Playitas nu</string>
+    <string name="liberiaairport">Liberia Aéroport</string>
+    <string name="laberintos">NO/SO-Faible a Moyen-Roches-5.0-Laverintos-Ce point ne peut être atteint que par bateau. Il est situé entre Ollie\’s Point et Roca Bruja. Pour y arriver, vous devez prendre un bateau à Coco Beach et demander au local qui conduit le bateau s\’il peut vous emmener. La vague n\’est pas un jeu, ne pas y aller, sauf si vous avez de l\’expérience. Il n\’y a pas de plage, que des rochers et des précipices. Vous ne pouvez qu\’attraper la vague vers la droite parce que si vous prenez la gauche, vous finissez par frapper le récif. Cette vague se casse parfaitement à la droite, avec une ferme casse rapide et un grand tube derrière. Le récif de corail construit une vague très dangereuse, mais elle vaut vraiment la peine!.</string>
+    <string name="lasvaritas">NW/SW-Baja a Media-Tiburones.-4.0-Information inconnue</string>
+    <string name="maps">Cartes</string>
+    <string name="playahermosamalpais">SO/O-Moyen a Elevé-Recifs.-2.5-Playa Hermosa-Situé à environ 5 km au nord de Santa Teresa, prenez la route de gravier jusqu\’à ce que vous atteignez un spot rocheux, très drôle et presque toujours vide, les vagues peuvent devenir vraiment grande de temps en temps.</string>
+    <string name="im_olliesweb2">Ollie´s Point</string>
+    <string name="im_olliesweb">Ollie´s Point</string>
+    <string name="im_pavair">Playa Pavones</string>
+    <string name="im_negraentru">Playa Negra</string>
+    <string name="im_marbellatub">Playa Marbella</string>
+    <string name="golfopercico">NW/SW-Baja a Media-Tiburones.-3.5-Golfo Persico- </string>
+    <string name="frijolarpoint">NW/SW-Media a Alta-Rocas.-3.5-Frijolar Point- </string>
+    <string name="cieneguita">NE/E-Baja a Media-Contaminacion.-2.5- </string>
+    <string name="playitasnude">Nu Playitas</string>
+    <string name="savefailed">Sauver Erreur!</string>
+    <string name="savesuccesful">Sauvegarde réussie!</string>
+    <string name="settings">Paramètres</string>
+    <string name="signon">Se connecter</string>
+
+    <string name="top1">Top 5 houle d\'Costa Rica</string>
+
+    <string name="top2">1: Roca Bruja (Naranjo)\n2: Salsa Brava\n3: Hermosa de Jaco \n4: Marbella \n5: Santa Teresa-Mal Pais</string>
+
+    <string name="top3">Top 5 Zona de Guanacaste</string>
+
+    <string name="top4">1: Roca Bruja (Naranjo)\n2: Marbella\n3: Santa Teresa-Mal Pais\n4: Nosara-Guiones\n5: Grande</string>
+
+    <string name="top55">Top 5 Pacifique Central</string>
+
+    <string name="top6">1: Hermosa\n2: Escondida (El Faro)\n3: Los Esterillos\n4: Dominical\n5: Boca Barranca</string>
+
+    <string name="top7">Top 5 Pacifique Sud</string>
+
+    <string name="top8"> 1: Pavones\n2: Back Wash\n3: Río Sierpe\n4: Río Claro\n5: Zancudo</string>
+
+    <string name="top9">Top 5 Caraïbes du Sud</string>
+
+    <string name="top10">1: Salsa Brava\n2: Isla Uvita\n3: Los Tumbos\n4: Tambia Point (Manzanillo)\n5: Grande</string>
+
+
+    <string name="unit">Unité</string>
+    <string name="topmain">Top 5 Houle</string>
+    <string name="week">Semaine</string>
+    <string name="westfalia">NE/E-Media a Alta-Corrientes.-2- </string>
+    <string name="year">Année</string>
+    <string name="distance">Distance</string>
+    <string name="threeday">3 Jour</string>
+    <string name="top5">Top 5 olas de Costa Rica\n1: Roca Bruja (Naranjo)\n2: Salsa Brava\n3: Hermosa de Jaco \n4: Marbella \n5: Santa Teresa-Mal Pais\n\n**************\n\n*******Top 5 Zona de Guanacaste *******\n1: Roca Bruja(Naranjo)\n2: Marbella\n3: Santa Teresa-Mal Pais\n4: Nosara-Guiones\n5: Grande\n\n ******* Top 5 Pacifico Central ******* \n\n1: Hermosa\n2: Escondida(El Faro)\n3: Los Esterillos\n4: Dominical\n5: Boca Barranca\n\n******* Top 5 Pacifico Sur *******\n\n1: Pavones\n2: Back Wash\n3: Río Sierpe\n4: Río Claro\n5: Zancudo\n\n*******Top 5 Caribe*******\n\n1: Salsa Brava\n2: Isla Uvita\n3: Los Tumbos\n4: Tambia Point(Manzanillo)\n5: Grande.</string>
+    <string name="youneedtoselectadestinationfirst">Vous devez sélectionner une destination de premier</string>
+
+
+    <string name="im_playablanca">En bonne houle du Sud-Ouest , il a laissé une belle façon.</string>
+    <string name="getpro">Pour déverrouiller cette fonction obtenir la version pro!</string>
+    <string name="beachandwavedescription">La plage et la description de l\’onde</string>
+    <string name="yourlocationis">Votre emplacement est</string>
+    <string name="rating">Évaluation</string>
+    <string name="coordenatesnotavailable">Coordenates non disponible</string>
+    <string name="low">Faible</string>
+    <string name="high">Haute</string>
+    <string name="hi">"Salut, "</string>
+    <string name="auto">Auto</string>
+    <string name="routes">Rutas:</string>
+    <string name="tours">Tours:</string>
+    <string name="savetosd">Enregistrer sur la carte SD</string>
+    <string name="animatexy">Animer XY</string>
+    <string name="choosedate">Choisissez une date</string>
+    <string name="getproversion">Obtenez la version pro</string>
+    <string name="all_zones">Toutes les Zones</string>
+</resources>
+
+

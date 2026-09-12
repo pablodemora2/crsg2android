@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/chooseDate"
+        android:title="@string/choosedate"></item>
+
+    <item
+    android:id="@+id/actionFeet"
+    android:title="@string/feet"></item>
+    <item
+    android:id="@+id/actionMeter"
+    android:title="@string/mt"></item>
+
+    <item
+        android:id="@+id/animateXY"
+        android:title="@string/animatexy"></item>
+
+    <item
+        android:id="@+id/actionSave"
+        android:title="@string/savetosd"></item>
+
+    <item
+        android:id="@+id/actionMonth"
+        android:title="@string/month"></item>
+    <item
+        android:id="@+id/actionYear"
+        android:title="@string/year"></item>
+</menu>

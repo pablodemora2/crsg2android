@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="app_name" translatable="false">Costa Rica Surf Guide</string>
+    <string name="google_maps_api_key" translatable="false">AIzaSyCBhZgdJKOrw0FtcVvbK_tYrGEZh-rQ-p0</string>
+
+    <string name="title_activity_banner" translatable="false">BannerActivity</string>
+
+    <!-- -
+        This is an ad unit ID for a banner test ad. Replace with your own banner ad unit id.
+    <!- -->
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <!--<string name="banner_ad_unit_id2" translatable="false">ca-app-pub-1026086653136273/5795671342</string>-->
+    <!--<string name="banner_ad_unit_id3" translatable="false">ca-app-pub-1026086653136273/5935272142</string>-->
+
+    <!-- -
+    This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+    For more information, see https://support.google.com/admob/answer/3052638
+<!- -->
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+
+
+    <!--Production 1, 2. Banner & Interstitial-->
+    <!--<string name="banner_ad_unit_id" translatable="false">ca-app-pub-4024978621956329/2372153695</string>-->
+    <!--<string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-4024978621956329/6809768097</string>-->
+
+    <!--Magic Sea Weed API KEY-->
+    <string name="magicseaweedapikey" translatable="false"><![CDATA[https://magicseaweed.com/api/0r79ZlbW4u513Ya02U4Kr55R7Sf8K5SJ/forecast/?spot_id=987&fields=timestamp,charts.]]></string>
+
+    <string name="app_id" translatable="false">471883629604948</string>
+
+    <string-array name="zone_array">
+        <item>North Pacific</item>
+        <item>Central Pacific</item>
+        <item>South Pacific</item>
+        <item>South Caribean</item>
+    </string-array>
+
+    <string-array name="distance_metrics_array">
+        <item>km</item>
+        <item>Miles</item>
+    </string-array>
+
+    <string-array name="heigth_metric_array">
+        <item>Feet</item>
+        <item>Meter</item>
+    </string-array>
+
+    <string name="tide">Tide</string>
+    <string name="topmain">Top 5 Waves</string>
+    <string name="intro">Ready to surf!</string>
+    <string name="northpacific">North Pacific</string>
+    <string name="centralpacific">Central Pacific</string>
+    <string name="southpacific">South Pacific</string>
+    <string name="southcaribbean">South Caribbean</string>
+    <string name="zoneselection">Zone selection</string>
+    <string name="beachselection">Beach selection</string>
+    <string name="originselection">Origin selection</string>
+    <string name="sanjose" translatable="false">San José</string>
+    <string name="mylocation">My Location</string>
+    <string name="costarica" translatable="false">Costa Rica</string>
+    <string name="notready">Not ready</string>
+    <string name="nopoints">No Points</string>
+    <string name="chooserighcoordenates">Choose right coordenates</string>
+    <string name="cantgetcurrentlocation">Cannot get current location</string>
+    <string name="generalinfo">General Info.</string>
+    <string name="route">Route</string>
+    <string name="gallery">Gallery</string>
+    <string name="zones">Zones</string>
+    <string name="beaches">Beaches</string>
+    <string name="gps" translatable="false">GPS</string>
+    <string name="swell" translatable="false">Swell</string>
+    <string name="period">Period</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="sst" translatable="false">SST</string>
+    <string name="skate" translatable="false">Skate</string>
+    <string name="animate">Animate</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="title_activity_map">Online Map</string>
+    <string name="title_activity_splash">Splash</string>
+    <string name="title_activity_pop_up" translatable="false">Pop Up</string>
+    <string name="title_activity_main" translatable="false">General Info</string>
+    <string name="title_activity_selector">Surf Zones</string>
+    <string name="title_activity_image_gallery">Gallery</string>
+    <string name="title_activity_fullscreen">Fullscreen activity</string>
+    <string name="title_activity_list_pacific_central">Central Pacific</string>
+    <string name="title_activity_list_pacific_north">North Pacific</string>
+    <string name="title_activity_list_caribbean">South Caribbean</string>
+    <string name="title_activity_list_pacific_south">South Pacific</string>
+    <string name="str_rb_driving">Drive</string>
+    <string name="str_rb_bicycling">Bicycle</string>
+    <string name="str_rb_walking">Walk</string>
+    <string name="str_rb_normal" translatable="false">Normal</string>
+    <string name="str_rb_alternative">Alternative</string>
+    <string name="mode">Mode</string>
+    <string name="empty" translatable="false"> </string>
+    <string name="beach">Beach</string>
+    <string name="best_swell_dirrection">Best swell direction</string>
+    <string name="best_tide_position">Best tide position</string>
+    <string name="dangers">Dangers</string>
+    <string name="location">Location</string>
+    <string name="description">Wave description</string>
+    <string name="info" translatable="false">Info</string>
+    <string name="online">Forecast</string>
+    <string name="alert">Alert</string>
+    <string name="orientation">Orientation</string>
+    <string name="googleplayservicesavailable">Google Play Services are available</string>
+    <string name="googleplayservicesarenotavailable">Google Play Services are not available</string>
+    <string name="googleplayservicesmustinstall">Google Play services must be installed</string>
+    <string name="title_activity_swell" translatable="false">Swell</string>
+    <string name="smb1">ft. 0</string>
+    <string name="smb2" translatable="false">3</string>
+    <string name="smb3" translatable="false">6</string>
+    <string name="smb4" translatable="false">8</string>
+    <string name="smb5" translatable="false">10</string>
+    <string name="smb6" translatable="false">14</string>
+    <string name="smb7" translatable="false">18</string>
+    <string name="smb8" translatable="false">25</string>
+    <string name="smb9" translatable="false">40</string>
+    <string name="smb10" translatable="false">75</string>
+    <string name="mainsealevel">Pressure</string>
+    <string name="next">Next</string>
+    <string name="hiddenspot">This is a secret point!</string>
+    <string name="gradient">Gradient</string>
+    <string name="settings">Settings</string>
+    <string name="maps">Maps</string>
+    <string name="signon">Sign-on</string>
+    <string name="alreadyrunning">Already running</string>
+    <string name="distance">Distance</string>
+    <string name="tideplace" translatable="false">Punta Arenas, Costa Rica</string>
+    <string name="olliespointn" translatable="false">Ollie´s Point</string>
+    <string name="laberintosn" translatable="false">Laberintos</string>
+    <string name="lasvaritasn" translatable="false">Las Varitas</string>
+    <string name="rocabrujan" translatable="false">Roca Bruja</string>
+    <string name="elbajon" translatable="false">El Bajo</string>
+    <string name="playaiguanita" translatable="false">Iguanita</string>
+    <string name="carbonaln" translatable="false">Carbonal</string>
+    <string name="playahermosa" translatable="false">Hermosa</string>
+    <string name="playasdelcocon" translatable="false">Playas del Coco</string>
+    <string name="flamingopoint" translatable="false">Flamingo´s Point</string>
+    <string name="playabrasilito" translatable="false">Brasilito</string>
+    <string name="bahiadelospiratasn" translatable="false">Bahía de Piratas</string>
+    <string name="playagranden" translatable="false">Grande</string>
+    <string name="playaavellanas" translatable="false">Avellanas</string>
+    <string name="playanegran" translatable="false">Negra</string>
+    <string name="junquillaln" translatable="false">Junquillal</string>
+    <string name="playamarbella" translatable="false">Marbella</string>
+    <string name="callejonesn" translatable="false">Callejones</string>
+    <string name="ostinal" translatable="false">Ostional</string>
+    <string name="camaronaln" translatable="false">Camaronal</string>
+    <string name="playacarrillon" translatable="false">Carrillo</string>
+    <string name="puntaislitan" translatable="false">Punta Islita</string>
+    <string name="playabejucon" translatable="false">Bejuco</string>
+    <string name="playasanmigueln" translatable="false">San Miguel</string>
+    <string name="playamanzanillo" translatable="false">Manzanillo</string>
+    <string name="santateresamalpaisn" translatable="false">Santa Teresa</string>
+    <string name="barrigonan" translatable="false">Barrigona</string>
+    <string name="lossuecosn" translatable="false">Los Suecos</string>
+    <string name="im_generic" translatable="false">im_generic</string>
+    <string name="elpuerton" translatable="false">El Puerto</string>
+    <string name="bocabarrancan" translatable="false">Boca Barranca</string>
+    <string name="playasdedonaana" translatable="false">Playas de Doña Ana</string>
+    <string name="puertocalderan" translatable="false">Puerto Caldera</string>
+    <string name="corralillon" translatable="false">Corralillo</string>
+    <string name="elhoyon" translatable="false">El Hoyo</string>
+    <string name="elsilencion" translatable="false">El Silencio</string>
+    <string name="guacalillon" translatable="false">Guacalillo</string>
+    <string name="tivivesrivermouthn">Tivives Rivermouth</string>
+    <string name="valorpointn" translatable="false">Valor Point</string>
+    <string name="playaagujas" translatable="false">Agujas</string>
+    <string name="playablancan" translatable="false">Blanca</string>
+    <string name="eltragaderon" translatable="false">El Tragadero</string>
+    <string name="elculon" translatable="false">El Culo</string>
+    <string name="playaescondidan" translatable="false">Escondida</string>
+    <string name="littlefijin" translatable="false">Little Fiji</string>
+    <string name="laislan" translatable="false">La Isla</string>
+    <string name="rocalocan" translatable="false">Roca Loca</string>
+    <string name="elgaton" translatable="false">El Gato</string>
+    <string name="esterillosn" translatable="false">Esterillos</string>
+    <string name="bocaqueposn" translatable="false">Boca Quepos</string>
+    <string name="bocadamasn" translatable="false">Boca Damas</string>
+    <string name="manuelantonio" translatable="false">Manuel Antonio</string>
+    <string name="cutters" translatable="false">Cutter´s</string>
+    <string name="playitasn" translatable="false">Playitas</string>
+    <string name="playitasnude">Playitas (Nude)</string>
+    <string name="playaelreyn" translatable="false">El Rey</string>
+    <string name="dominical" translatable="false">Dominical</string>
+    <string name="dominicalito" translatable="false">Dominicalito</string>
+    <string name="lapuntan" translatable="false">La Punta</string>
+    <string name="bancoquebrado" translatable="false">Barco Quebrado</string>
+    <string name="title_activity_custom" translatable="false">Custom Activity</string>
+    <string name="alajuelaairport">Alajuela Airport</string>
+    <string name="liberiaairport">Liberia Airport</string>
+    <string name="iguanitan" translatable="false">Iguanita</string>
+    <string name="hermosadelcocon" translatable="false">Hermosa del Coco</string>
+    <string name="flamingon" translatable="false">Flamingo</string>
+    <string name="brasiliton" translatable="false">Brasilito</string>
+    <string name="playatamarindon" translatable="false">Tamarindo</string>
+    <string name="playalangostan" translatable="false">Langosta</string>
+    <string name="playaavellanasn" translatable="false">Avellanas</string>
+    <string name="golfon" translatable="false">Golfo</string>
+    <string name="playajunquillaln" translatable="false">Junquillal</string>
+    <string name="marbellan" translatable="false">Marbella</string>
+    <string name="playaostionaln" translatable="false">Ostinal</string>
+    <string name="playaguionesn" translatable="false">Guiones</string>
+    <string name="playasamaran" translatable="false">Samara</string>
+    <string name="title_activity_base" translatable="false"></string>
+    <string name="playacoyoten" translatable="false">Coyote</string>
+    <string name="manzanillodeguanacasten" translatable="false">Manzanillo de Guanacaste</string>
+    <string name="hermosademanzanillon" translatable="false">Hermosa de Manzanillo</string>
+    <string name="playasantateresan" translatable="false">Santa Teresa</string>
+    <string name="playaelcarmenn" translatable="false">El Carmen</string>
+    <string name="playamalpaisn" translatable="false">Malpaís</string>
+    <string name="puntabarrigonan" translatable="false">Punta Barrigona</string>
+    <string name="doñaanan" translatable="false">Doña Ana</string>
+    <string name="calderan" translatable="false">Caldera</string>
+    <string name="barcoquebradon" translatable="false">Barco Quebrado</string>
+    <string name="valorn" translatable="false">Valor</string>
+    <string name="agujasn" translatable="false">Agujas</string>
+    <string name="playajacon" translatable="false">Jacó</string>
+    <string name="playahermosan" translatable="false">Hermosa</string>
+    <string name="elarboln" translatable="false">El Árbol</string>
+    <string name="esterillosoesten" translatable="false">Esterillos Oeste</string>
+    <string name="esterilloscentraln" translatable="false">Esterillos Central</string>
+    <string name="esterillosesten" translatable="false">Esterillo Este</string>
+    <string name="bejucon" translatable="false">Bejuco</string>
+    <string name="queposn" translatable="false">Quepos</string>
+    <string name="manuelantonion" translatable="false">Manuel Antonio</string>
+    <string name="northplayitasn">North Playitas</string>
+    <string name="elreyn" translatable="false">El Rey</string>
+    <string name="hermosadematapalon" translatable="false">Hermosa de Matapalo</string>
+    <string name="matapalo" translatable="false">Matapalo</string>
+    <string name="backwash" translatable="false">Backwash</string>
+    <string name="playacaraten" translatable="false">Carate</string>
+    <string name="bahiadraken" translatable="false">Bahía Drake</string>
+    <string name="pavonesn" translatable="false">Pavones</string>
+    <string name="rioclaron" translatable="false">Río Claro</string>
+    <string name="riosierpen" translatable="false">Río Sierpe</string>
+    <string name="playazancudon" translatable="false">Zancudo</string>
+    <string name="pandulcen" translatable="false">Pan Dulce</string>
+    <string name="puntabancon" translatable="false">Punta Banco</string>
+    <string name="puntaburican" translatable="false">Punta Burica</string>
+    <string name="norestedecostarica">North East Costa Rica</string>
+    <string name="porteten" translatable="false">Portete</string>
+    <string name="playabonitan" translatable="false">Bonita</string>
+    <string name="rocaaltan" translatable="false">Roca Alta</string>
+    <string name="islauvitan" translatable="false">Isla Uvita</string>
+    <string name="barcoquebradodelimon" translatable="false">Barco Quebrado de Limón</string>
+    <string name="westfalian" translatable="false">Westfalia</string>
+    <string name="cahuitan" translatable="false">Cahuita</string>
+    <string name="salsabravan" translatable="false">Salsa Brava</string>
+    <string name="longshoaln" translatable="false">Long Shoal</string>
+    <string name="coclesn" translatable="false">Cocles</string>
+    <string name="littleshoaln" translatable="false">Little Shoal</string>
+    <string name="manzanillodelimonn" translatable="false">Manzanillo de Limón</string>
+    <string name="playacaletasn" translatable="false">Caletas</string>
+    <string name="tivivesn" translatable="false">Tivives</string>
+    <string name="menu_settings">Configuration</string>
+    <string name="title_activity_descripcion_lugar">Description place</string>
+    <string name="action_settings">Settings</string>
+    <string name="unit">Unit</string>
+    <string name="title_activity_data_picker" translatable="false">DataPickerActivity</string>
+
+    <string name="puntahermosan" translatable="false">Punta Hermosa</string>
+    <string name="elshamann" translatable="false">El Shamán</string>
+    <string name="matapalon" translatable="false">Matapalo</string>
+    <string name="caraten" translatable="false">Carate</string>
+    <string name="elinsiden" translatable="false">El Inside</string>
+    <string name="cieneguitan" translatable="false">Cieneguita</string>
+    <string name="laesculitan" translatable="false">La Escuelita</string>
+    <string name="puntauvan" translatable="false">Punta Uva</string>
+    <string name="jahhandersn" translatable="false">Jah Handers</string>
+    <string name="lostumbosn" translatable="false">Los Tumbos</string>
+    <string name="savesuccesful">Saving succesfull!</string>
+    <string name="savefailed">Saving failed!</string>
+    <string name="title_activity_dialog" translatable="false">Dialog Activity</string>
+    <string name="day">Day</string>
+    <string name="week">Week</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="dailytide">Tide (Unit Vs. Time)</string>
+    <string name="tidelocation1" translatable="false">Punta Arenas, Costa Rica</string>
+    <string name="feet" translatable="false">"ft"</string>
+    <string name="mt" translatable="false">mt</string>
+    <string name="youneedtoprovidedataforthechart" translatable="false">You need to provide data for the chart</string>
+    <string name="title_activity_source" translatable="false">Source Activity</string>
+    <string name="title_activity_custom_activity_pro" translatable="false">Custom Activity Pro</string>
+    <string name="title_activity_pro" translatable="false">Pro Activity</string>
+    <string name="space" translatable="false">" "</string>
+
+    <!--Gallery-->
+    <string name="im_agujasweb" translatable="false">Big SW Swell has passed the stand-out spots but Playa Aguja\'s is working</string>
+    <string name="im_anaweb2" translatable="false">Playas de Doña Ana</string>
+    <string name="im_anaweb" translatable="false">Playas de Doña Ana</string>
+    <string name="im_aRío">Classic Sun set at Costa Rica!</string>
+    <string name="im_avesec" translatable="false">Playa Avellanas</string>
+    <string name="im_bahia1" translatable="false">Bahía Del Pirata</string>
+    <string name="im_bahia2">The SW swell is coming at Bahía Del Pirata</string>
+    <string name="im_baldir">Baldir is a exemplary surfer, loses one leg but he still surf everyday at Playa Avellanas</string>
+    <string name="im_barrancaweb">Barranca\'s Rivermouth</string>
+    <string name="im_bejuco" translatable="false">Playa Bejuco</string>
+    <string name="im_blancaweb">Waves at Playa Blanca</string>
+    <string name="im_bocadamas" translatable="false">Boca Damas</string>
+    <string name="im_brasilito">Sunset at Playa Brasilito</string>
+    <string name="im_cahuita" translatable="false">Playa Cahuita</string>
+    <string name="im_calderapointbreaks" translatable="false">Puerto Caldera</string>
+    <string name="im_calderaweb" translatable="false">Puerto Caldera</string>
+    <string name="im_camaronal">Barrel time at Camaronal</string>
+    <string name="im_carbonal2web">Air view of Playa Carbonal</string>
+    <string name="im_carbonalweb">Sunset at Playa Carbonal</string>
+    <string name="im_carrillo" translatable="false">Playa Carrillo</string>
+    <string name="im_casonaf">The Santa Rosa Casona on the way to Witch\'s Rock</string>
+    <string name="im_cocles">"beginners at Cocles "</string>
+    <string name="im_coclesweb">Barrel time at Playa Cocles</string>
+    <string name="im_condovacweb">Playa Hermosa at Guanacaste on fire, this wave rarely breaks and is only surfeable once week a year</string>
+    <string name="im_corralweb">Big wave at Playa Corralillo</string>
+    <string name="im_coyote" translatable="false">Playa Coyote</string>
+    <string name="im_crbeautis">Costa Rican girl\'s (ticas) at Playa Avellanas</string>
+    <string name="im_dominical">Small waves at Playa dominical</string>
+    <string name="im_drakebay" translatable="false">Bahía Drake</string>
+    <string name="im_elbajoweb">NE offshore at el Bajo, very remote spot</string>
+    <string name="im_elcano">El Caño, Curridabat, San José</string>
+    <string name="im_elgato">Cliff view of El Gato between Playa Hermosa and Playa Jacó, very dangerous point break</string>
+    <string name="im_elrey">Playa el Rey</string>
+    <string name="im_escondidaweb1">Playa Escondida breaking, empty as always</string>
+    <string name="im_escondidaweb2" translatable="false">Playa Escondida</string>
+    <string name="im_espadilla" translatable="false">Playa Espadilla</string>
+    <string name="im_esterillos" translatable="false">Playa Esterillos</string>
+    <string name="im_esterillosoeste" translatable="false">Esterillos Oeste</string>
+    <string name="im_flamweb" translatable="false">Flamingo point</string>
+    <string name="im_flweb">The Flamingo point</string>
+    <string name="im_guacalweb" translatable="false">Playa Guacalillo</string>
+    <string name="im_hermosa2">Classic sunday at Playa Hermosa</string>
+    <string name="im_hermosasunday">Playa Hermosa</string>
+    <string name="im_islauvita" translatable="false">Isla Uvita</string>
+    <string name="im_jaco">Classic day at Playa Jacó</string>
+    <string name="im_jaco1">Localism at Playa Jacó</string>
+    <string name="im_jaco4">Good waves at Playa Jacó</string>
+    <string name="im_junquillal">Playa Junquillal</string>
+    <string name="im_laisla">Small day at Isla Uvita</string>
+    <string name="im_langosta">Good waves at Playa Langosta</string>
+    <string name="im_lavweb">This wave is no joke. Laberintos</string>
+    <string name="im_littlefiji">Cliff view of Little Fiji from Playa Escondida mountains</string>
+    <string name="im_littlefiji2">Little Fiji from the mountain top</string>
+    <string name="im_lolapig">Lola The Pig, official pet of Playa Avellanas</string>
+    <string name="im_manuelantonio" translatable="false">Playas de Manuel Antonio</string>
+    <string name="im_manzanillo" translatable="false">Playa Manzanillo</string>
+    <string name="im_manzanilloguana" translatable="false">Playa Manzanillo</string>
+    <string name="im_marazul">Los Suecos near Santa Teresa</string>
+    <string name="im_marbellaset" translatable="false">Playa Marbella</string>
+    <string name="im_marbellatub">Barrel Time at Playa Marbella</string>
+    <string name="im_matapalo" translatable="false">Playa Matapalo</string>
+    <string name="im_negraentru">The entrance to Playa negra</string>
+    <string name="im_nosaraweb" translatable="false">Playa Guiones/Nosara</string>
+    <string name="im_olliesweb">Ollie\'s Point perfect as always</string>
+    <string name="im_olliesweb2">Small but fun at Ollie\'s Point</string>
+    <string name="im_olloweb" translatable="false">El Hoyo</string>
+    <string name="im_pandulce" translatable="false">Playa Pan Dulce</string>
+    <string name="im_pavair">Air view of Playa Pavones the second longest wave in the world</string>
+    <string name="im_pavones" translatable="false">Playa Pavones</string>
+    <string name="im_pg" translatable="false">Playa Grande</string>
+    <string name="im_pgweb" translatable="false">Playa Grande</string>
+    <string name="im_pirataswallyweb" translatable="false">Bahía del Pirata</string>
+    <string name="im_playaelcoco1">Playas del Coco with big swell!</string>
+    <string name="im_playaelcoco2">Playas del Coco, in front of the beach</string>
+    <string name="im_playagrande" translatable="false">Playa Grande</string>
+    <string name="im_playitas" translatable="false">Playitas</string>
+    <string name="im_playitasnude">Playitas nude beach</string>
+    <string name="im_puntaislita" translatable="false">Punta Islita</string>
+    <string name="im_puntauva" translatable="false">Punta Uva</string>
+    <string name="im_queporrivermouth">Quepos Rivermouth</string>
+    <string name="im_Ríoclaro" translatable="false">Río Claro</string>
+    <string name="im_robertama">Tamarindo\'s Rivermouth</string>
+    <string name="im_roca1">Witch\'s Rock</string>
+    <string name="im_rocaboom">Paddling hard to get in the line up on winter\'s big day at Witch\'s Rock</string>
+    <string name="im_rocaloca">Roca Loca near Jacó</string>
+    <string name="im_salsaweb">Big drop at Salsa Brava</string>
+    <string name="im_samara" translatable="false">Playa Samara</string>
+    <string name="im_santat">Big SW swell hit Santa Teresa-Mal País</string>
+    <string name="im_sierperivermouth" translatable="false">Río Sierpe</string>
+    <string name="im_splash" translatable="false">Playa Avellanas</string>
+    <string name="im_stbarrel">Perfection at Santa Teresa-Mal País</string>
+    <string name="im_stmap">Map Showing the three main roads to Santa Teresa-Mal País</string>
+    <string name="im_stroad">Santa Teresa town</string>
+    <string name="im_stsunset">Santa Teresa\'s sun set!</string>
+    <string name="im_tivives" translatable="false">Tivives</string>
+    <string name="im_tortuga">Baby turtle at Witch´s Rock</string>
+    <string name="im_tortugagrande">Big baula turtle hanging at Witch\'s rock</string>
+    <string name="im_tumbos" translatable="false">Los Tumbos</string>
+    <string name="im_tuti11">Witch\'s Rock</string>
+    <string name="im_valorweb" translatable="false">Playa Valor</string>
+    <string name="im_zancudo" translatable="false">Playa Zancudo</string>
+
+    <string name="top1">Top 5 Costa Rica Beaches</string>
+
+    <string name="top2">1: Witch\'s Rock (Naranjo)\n2: Hermosa Beach\n3: Salsa Brava\n4: Marbella Beach\n5: Santa Teresa/Mal País</string>
+
+    <string name="top3">Top 5 North Pacific</string>
+
+    <string name="top4">1: Witch\'s Rock (Naranjo)\n2: Marbella Beach\n3: Santa Teresa Mal País\n4: Nosara Guiones\n5: Playa Grande\n</string>
+
+    <string name="top55">Top 5 Central Pacific</string>
+
+    <string name="top6">1: Playa Hermosa \n2: Escondida (Faro)\n3: Esterillos\n4: Playa Dominical \n5: Barranca\'s Rivermouth\n</string>
+
+    <string name="top7">Top 5 South Pacific</string>
+
+    <string name="top8">1: Pavones Beach\n2: Backwash\n3: Sierpe Rivermouth\n4: Claro Rivermouth\n5: Zancudo Beach\n</string>
+
+    <string name="top9">Top 5 Caribbean</string>
+
+    <string name="top10">1: Salsa Brava\n2: Isla Uvita\n3: Los Tumbos\n4: Tambia Point (Manzanillo)\n5: Playa Grande\n</string>
+
+    <string name="generalinfodetail">It is completely obviouse why Cristobal Colon named Costa Rica the way he did. After landing in Isla Uvita on his 4th trip to America in 1504; he fell in love with the beaches and claimed it paradise Costa Rica; rich coast. He arrived at beaches like Negra, Cocles and Chiquita, Punta Uva and Manzanillo. Costa Rica is a tropical paradise with 1290 km (800 miles) of coast line. Both the Pacific and the Caribbean coast are very well developed for surfers. The closest beach point is only 62 miles away; from San José the capital of Costa Rica.</string>
+    <string name="northpacificinfo">The North Pacific zone or Guanacaste, is a place you can´t miss! It has one of the most visited beaches in the country; Tamarindo, Grande, Avellanas, Flamingo and Negra are also beaches that are visited here with more frequency. There is active night life, places to go and people to meet! For experienced surfers there are great waves and incredible spots such as Roca Bruja and Ollie’s Point. If you want to ride great waves Guanacaste is the place to go! The most recommended place to go if you want to catch great waves!</string>
+    <string name="centralpacificinfo">The Central Pacific area is one of the most accessible areas around. It is about an hour away from the capital of Costa Rica, San José. Jacó is known as the surf´s capital. You can receive surf lessons, rent boards, and leaves Costa Rica having ridden at least one wave! Jacó is an area that has about everything you could need. There are many restaurants, places to stay, spots to see, waves to ride. Jacó is also about ten minutes away from Hermosa. Hermosa is a beach that is not recommended for non-experienced surfers. In the surrounding area there are also beaches such as Playas de Doña Ana, Puerto Caldera, Corralillo, Tivives, Aguja, Blanca, Esterillos, Bejuco, Playas de Manuel Antonio, Dominical and La Punta.</string>
+    <string name="southpacificinfo">The South Pacific area is one of the most remote areas that you will encounter. It is totally a connection with nature. It is a complete adventure and has great spots to surf such as Pavones, Matapalo and Backwash. Bahía Drake is one of the most recognized places near here.</string>
+    <string name="southcaribbeaninfo">The Caribbean zone is one of the most beautiful places in the country. There is turquoise water and a lot of vegetation. You must be careful because it is beautiful but it is also dangerous. There are really nice places in the South Caribbean. Some well-known places are Puerto Viejo, Cahuita and old cities around these beaches. The people are very down to earth and there is an incredible atmosphere. There are waves at places like Salsa Brava, Cocles, Negra and Manzanillo. These waves are not for beginners because in the Caribbean the wind comes in a straight direction and the spots are at open sea. This causes strong rips and currents. This magical place will leave you amazed. If you can, you must go to Cocles and get to know the Punta Uvita National Park. This place is magical. The ocean and the trees becomes one with the deepest of the nature and forest just behind the beach.</string>
+    <string name="skateinfo">Costa Rica also offers several ideal locations to practice Skateboarding and BMX. If you are near San José the best option would be El Caño located in Curridabat. This is very similar to a long wave. It is a very fun but crowded spot. Usually there are a lot of cameras recording videos and taking picks for local magazines. There are always a lot of lovely girls watching the skaters on weekends. It is a very nice spot to meet friendly people. If you are at the beach and there are no waves, there are several halfs and bowls around the coast where you can go skate. They are located in: Tamarindo, Jacó, Esterillos, Negra, Playas del Coco, Arenal (Lake-Volcano) and even in Pavones. So what are you waiting for! If you want to get some night action go to El Gaff, one gastro bar that everyone is talking about and they make their own beer Also for the sea food lovers, the Sea-Praia restaurant in San Pedro is very recommended.</string>
+    <string name="olliespoint">NW/SW-Low to Mid-Rips, Rocks-4.0-Ollie´s Point-Potrero Grande is located 186 miles north from San José. It has no beach access, you must go to Playas del Coco and pay a boat tour. Potrero Grande is a really fun spot. It’s a right point break with long waves. Most of the time there is few people, although sometimes it is crowded with boats. It is a pretty easy wave to ride, the only danger are the rocks. You don´t have to be a pro to be able to surf this wave. It is probably the funniest most amazing right in the world.</string>
+    <string name="laberintos">NW/SW-Low to Mid-Rocks-4.0-Laberintos-This beach can be accessed by boat only. It is located between Ollie´s Point and Witch´s Rock. In order to get there you must take a boat from Playas del Coco and ask the local that drives the boat to take you there. The wave is no joke, don´t go there unless you have experience. There is no beach just cliffs and rocks. You can only ride the wave to the right because if you go left you will end up in the reef. This wave breaks perfectly towards the right, with a fast steep take off and a big tube behind it. The coral reef is really shallow and builds a very dangerous wave, but worth the ride.</string>
+    <string name="rocabruja">NW/SW-Mid to high-Alligators-5.0-Witch´s Rock-Witch´s Rock also known as Naranjo is located 93 miles north from San José. You can take a boat from Playas del Coco or you can drive into Santa Rosa National Park. When you arrive at a fork in the road take a left. The road it´s in very bad conditions and closed during the winter. It´s a very nice place to go even if you don´t surf, it´s a mystical place. It has off shore winds all year long, and is rich in wildlife. You can see a diverse amount of wildlife such as snakes, deer, lizards, wildcats, turtles, exotic birds, monkeys and other mammals and reptiles. You should try to always have company when you go surfing; due to the fact that you may feel a little bit uncomfortable watching big crocodiles swim from one side to the other in the river mouths. There are two river mouths. It is for sure one of the most beautiful places on earth. At night you can observe turtles and other wildlife as well as the beautiful start skies. It is one of the most classic waves I´ve surfed. The wave is perfect, fast and hollow, during the summer you can find 5ft 6ft waves and during the winter the swells can build up to 12ft 18ft waves. The most favorable surfing conditions can be found from November to May. If you are in Costa Rica and want the barrel of your life you can´t miss this spot. </string>
+    <string name="elbajo">NW/SW (210/220)-Mid-Sharks, Rocks.-3.5-El Bajo-El Bajo is located in Papagayo\'s Gulf. It is a 20 minute drive from Liberia National Airport. It is possible to drive close to the point, but the only beach access is by entering the Tin Ríos private farm. The only other possible way to get there is by taking a boat trip from Playas del Coco. The point is 10 minutes south from Roca Bruja. When there´s an actual swell it can be really fun to surf, you can only go left because if you go right you will end up in rocks, the wipe out here is forbidden, the bottom is very shallow with large sharp rocks.</string>
+    <string name="iguanita">NW/SW (210/220)-Low to Mid-Alligators.-2.5-Iguanita-Iguanita is located in Papagayo´s Gulf. It is a 20 minutes drive from Liberia´s National Airport. You are very lucky if you can catch this place with waves, but if you do it´s on fire! It´s a perfect wave and usually smaller than 4ft, it´s long lefts break in front of the river mouth when there are larger waves. This place is always empty.</string>
+    <string name="carbonal">NW/SW (210/220)-Mid to high-Rips, Sharks.-3.5-Carbonal-Carbonal is located 20 minutes from Liberia´s National Airport. I won´t say where it is but ask anyone in the area and they will tell you. You need to be lucky to find this place with waves, but when it´s on fire it´s a perfect wave. It´s a long right and very consistent. You can get there in a car if you have the contacts to get in by land. If you don´t your only option is a boat ride from Playas del Coco.</string>
+    <string name="playahermosaguana">NW/SW(210/220)-High-None.-3.0-Hermosa-Hermosa is a famous white sand beach with lots of tourism all year long. It is Located 20 minutes from Liberia´s National Airport in car. Hermosa is a beautiful Guanacaste meeting point for tourist of all ages. In front of Condovac, La Costa Hotel is where some waves rarely break over the sandy bottom, it´s a funny beach break very easy to find and perfect for skin boarding every day. It is a fun wave to surf for all surfers but very infrequent.</string>
+    <string name="playasdelcoco">NW/SW (210/220)-High-None.-2.0-Playas del Coco-Playas del Coco is a famous beach town with lots of tourism all year long, particularly during new year’s eve, all the streets will be crowded and everybody will have all the places full, it\'s very nice because all people from Guanacaste will come here at this night. It is located 20 minutes from Liberia´s National Airport in car.</string>
+    <string name="flamingospoint">SW (210/220)-Low to Mid-Rocks, Urchins.-3.0-Flamingo Point-Located 12.5 miles North from Tamarindo. Flamingo is a beautiful white sand beach with a lot of tourism all year. At the south end of Flamingo´s beach there is a fast and steep left wave rarely breaks over razor sharp rocks, it´s a funny and infrequent point break with plenty of tropical wildlife. When there´s actual swell it can be really big 10ft/12ft perfect walls, you can only go left because if you go right you will end up in rocks. You don´t want to get caught in the inside but if you do you need to paddle hard to the right looking for the channel, otherwise you will end up in a big shallow lava reef with large sharps rocks.</string>
+    <string name="brasilito">SW (210/220)-Mid-Rocks, Pollution.-1.0-Brasilito-Located in the main road to Flamingo, it is the place that has a soccer field and a small town close to the beach. It´s very easy and a fun wave to surf for all surfers and usually smaller than 4ft. I have only checked out Brasilito twice and the waves where 2/3 ft. but can get bigger at times.</string>
+    <string name="bahiadelospiratas">SW (210/220)-Low to Mid-Rocks, Urchins.-3.0-Bahía Piratas-Is on the way to Grande. You need to get to Matapalo´s town, when you get to the soccer field don´t turn left to Grande, turn right and drive 6.2 miles on rocky roads. It is the place that has a big rock in the middle of the sea. It´s very unfrequent point break but fun to surf. It´s similar to Flamingo´s point you can only go left because if you go right you will end up in rocks. There might be a few angry locals and a few sharks so watch out. Last time we saw three fins at lineup.</string>
+    <string name="playagrande">NW/SW-Mid to High-Localism.-3.5-Grande-Grande is the most consistent beach break around the Tamarindo area. It is a nice wave but the spot is always ultra crowded. It is the place where there was the second shark attack in Costa Rica but this time the victim passed away. Standing on the beach, the main break is to your left the other to your right, they are both crowded. The on shore winds can take action in the afternoon so wake up early to surf the glassy off shore. In summer Nov/May Grande frequently gets massive, offshore winds, left and right barrels everyday at higher tides, getting dropped in on happens a lot but if you´re an advanced surfer you can catch good ones.</string>
+    <string name="tamarindo">NW/SW-Mid to high-Localism.-2.5-Tamarindo-Tamarindo is your best bet for surf facilities in the northern Costa Rican area. It has surf shops, board rentals and hotels for everybody´s budget. It´s a very easy place to find, just in the center of Tamarindo city and can be really fun when the swell is good. It is a very developed surf city with lots of American and European people. It always has a great atmosphere, great nigthlife and beautiful girls.</string>
+    <string name="langosta">SW/W-All tides-Rocks.-3.0-Langosta-In Tamarindo there is a dirt road going south, on this road drive for about 1.5 miles. The area was being developed with lots of buildings and is a typical long sandy Guanacaste beach. Langosta is the best alternative to Tamarindo´s river mouth. If the tide is low you can walk 500 meters south from Langosta\´s River mouth to a spot called (Key Tan), it always breaks better at lower tides but one time I saw a big 8ft tiger shark there, so be careful.</string>
+    <string name="avellanas">W/SW-Mid to High-Rocks.-3.0-Avellanas-Is located 7 miles south of Tamarindo. Avellanas is an alternative to Negra being a less radical spot. It´s a typical long sandy Guanacaste beach. It is known for Lola the pig, a local 400kg pig who likes to hang out at this spot. Lola the pig passed away in May 2009, but the waves are still always there. In front of the parking lot a small rock platform produces some lefts at mid to high tide but the main spot is the river mouth at the Northern End. The small rocky area here holds sand and produces a quality peak. Always very crowded but worth going and visiting, if you are looking for peace, wave and nature this is your place. Nowadays this beach got a new pig as pet.</string>
+    <string name="playanegraguana">W/SW-Mid to High-Rocks.-4.0-Negra-Negra is one of the best surf spots in Costa Rica. From Tamarindo follow the signs to Negra. You have to pass Avellanas and then it´s like a 5 minutes drive from there. The wave´s shape is barrels and more barrels. They are very ripeable but very powerful too. It breaks over a shallow rock bottom and it gets pretty crowded everyday.</string>
+    <string name="junquillal">W/SW-High-Rips, Stingrays.-3.0-Junquillal-Located 25 miles south from Tamarindo. This break is really fun. During high tide there are many peaks that offer hollow rights and lefts. The waves break in shallow water over a sandy bottom very close to shore. It’s a pretty remote area with a few surfers and perfect waves. If you are traveling around Guanacaste don’t miss this spot.</string>
+    <string name="marbella">W/SW-Mid to High-Rips, Sharks.-4.0-Marbella-Marbella is one of the best surf spots around the Guanacaste area. Many shark attacks have been reported which is very uncommon for Costa Rica. Surfers have been attacked here! Fishermen have, unintentionally caught some sharks as well. Waves can get good but watch out! Located 37 miles south from Tamarindo, you need to take the road to Junquillal. Instead of stopping at Junquillal continue 12 miles south and you will find the place. You can find everything you want, lefts and rights, tubes, open face, lips and much more, really worth the long trip. Also here was the first shark attack in the Costa Rican history. Also visiting the quality restaurant Tiki-Hut is a good choice.</string>
+    <string name="callejones">N/NW-Mid-Rocks.-3.0-Callejones-If you are not ready to surf Negra or if it is too crowded, this beach is an option. It is best surfed at low or upcoming tide with swell from the north and the northwest. Usually conditions are good from December till March.</string>
+    <string name="ostional">N/NW-Mid-Rips.-3.0-Ostional-Ostional is a popular location to observe sea turtles. The turtles come one year round to this protected nesting area. At certain times they come in mass amounts, during that period surfing is not allowed so that the turtles aren´t bothered. The waves break to the left and to the right. This spot is best surfed on mid to high tide from December till March. The surfing conditions are the best, but even in the dry season you should drive here with a 4x4 especially when you are coming from the North there are some rivers to cross.</string>
+    <string name="guiones">SW/W-All tides-Rips.-3.5-Guiones-Guiones is located 5 hours from San José in a town called Nosara. It is a nice beach with consistent waves all year. Nosara is a fun wave and the locals are generally very friendly. There are lots of beginners in the water so expect heavy crowds during summer Nov/Jun. Like anywhere the waves can be good but then again they can also be bad. Generally, it is a consistent break with a nice clean beach break.</string>
+    <string name="camaronal">SW/W-All tides-Rips.-4.0-Camaronal-Located 20 minutes from Samara. You get to Carrillo and take the Punta Islita turn, go over the newly made Ora bridge, before you need to go cross the river at low tide and then go about a 2 miles until you see the ocean. Camaronal is the most consistent break around the Samara area. Sometimes holds up to double overhead, it is surf able all day and is rarely flat. It breaks chest to overhead on any day. In rainy season Jul/Nov the river is usually too high to cross so try a boat trip from Samara, this was off course before the bridge.</string>
+    <string name="samara">N/NW-Mid-None.-0.0-Samara-There are surf shops and surf schools in Samara but big swells don´t make it into the bay. There are some outside reef breaks, but they are way outside. This beach is more for swimming than for surfing. Compared to other beaches there are no dangerous currents. As a result this beach is popular amongst travelers with small children.</string>
+    <string name="playacarrillo">N/NW-Mid-None.-0.0-Carrillo-Carrillo is located south of Samara. It is a beautiful beach and the palm trees offer a lot of shade, there are no buildings close to the beach, the waves are usually not worth it for surfing. The bay is well protected for there to be a swell, so often there are no surf able waves at all.</string>
+    <string name="puntaislita">N/NW-Mid-None.-0.0-Punta Islita-At times the waves can be fun here. This is a beautiful beach cove and is dominated by the luxurious Punta Islita Hotel.</string>
+    <string name="bejuco">N/NW-Mid-Rips.-3.5-Bejuco-Located 10.5 miles south from Carrillo this is a consistent spot that can handle big swells up to 12 feet. In the past several swimmers have drowned here, watch out with the currents.</string>
+    <string name="playasanmiguel">N/NW-Mid-Rips.-3.0-San Miguel-Located between Bejuco and Coyote. This beach break offers several waves to the right and to the left. If you dreamed of surf session in Costa Rica just with your friends and no one else this might be the beach for you. Usually there is nobody out there surfing.</string>
+    <string name="coyote">N/NW-mid to high-Rips.-3.0-Coyote-At Coyote you can surf several outer reefs or the beach break, there are lefts and rights. The waves are best during medium tide up coming and high tide.</string>
+    <string name="caletas">N/NW-mid to high-Rips.-3.0-Caletas-Located 10 minutes south from Coyote. This long beach offers a hidden treasure with reef breaks and beach breaks. To surf the reef one needs to paddle a while, it´s way outside.</string>
+    <string name="playamanzanilloguana">N/NW-Mid-Rips.-3.0-Manzanillo-Located between Cocal and Santa Teresa. There are several reef and beach breaks that are rarely surfed. In case your surf trip takes you along the coast of the Nicoya Peninsula take your time to check the waves at Manzanillo. You might be lucky and find some good waves that you don´t have to share with anybody.</string>
+    <string name="playahermosamalpais">SW/W-Mid to High-Rips.-2.5-Hermosa-Located about 3 miles north of Santa Teresa, take the dirt road until you see a rocky point, very fun and empty place, the waves can get big at times.</string>
+    <string name="santateresamalpais">W/SW-All tides-Rips-4.0-Santa Teresa-Santa Teresa is a classic place in Costa Rica. The waves are very consistent all year long but the shape is not always perfect. It has very cheap accommodations but very expensive restaurants. To get there you have to take a drive to Puntarenas preferably in a 4x4 and there take a Ferry to Cobano. From there it is a short trip about an hour drive. Or you can also drive from Nicoya and either: one, drive 180 miles on paved roads or two, drive 31 miles on rocky roads and have to cross three rivers, the Orá and Bongo rivers among them, along the Nandayure Mountains. It is the coolest trip but it is a bit dangerous. I got lost a couple of times in these mountains! There is also a direct bus service available daily from San José to Malpaís. If you decide to come here you should plan to stay for a few days. It´s a heavy and tiring trip so I recommend you plan to stay a couple of days so it´s really worth it. The atmosphere here is not a problem, very friendly locals, beautiful girls, jungle, a lot of foreign landowners, American and European tourists. The Santa Teresa wave breaks in deep water and the sandbars change the wave’s size and shape every day. The nightlife in Santa Teresa is awesome on weekends! At the beach bar, you are able to do whatever you want, lol!, Most girls and surfers stay out until sunrise chilling and drinking.</string>
+    <string name="barrigona">W/SW-Low to Mid-Rip currents, Rocks.-3.0-Barrigona-Barrigona is a beautiful beach. It is located about 4.3 miles from Samara in the direction to Nosara. After you reach Buena Vista you will see a very hidden entrance on your right hand side. It is recommended that you have a 4x4 to be able to drive down the road. On your way to this beach you can observe lots of exotic animals and vegetation. It´s about a ten minute drive down the dirt road and you will reach an estuary. If it is low tide you can walk across the estuary and reach the white sandy beach. It is a beautiful beach with white sand and clear water. If you are not a good swimmer I don´t recommend you swim there. Many people have had problems being pulled in by the strong riptides. In the rainy season there is also a waterfall that can be enjoyed on the south side of the beach. It is especially nice to rinse off in the fresh water after surfing in the salt water. Mel Gibson owns about 500 acres right up to the beach. Usually the waves are around 3/4ft, but if you catch Barrigona with a swell the waves can reach about 7/9ft. There is a very nice left it´s a point break.</string>
+    <string name="lossuecos">W/SW-Low to Mid-Rip currents, Rocks.-4.0-Los Suecos-Located south of Malpaís at the Sunset Reef Hotel walk through the gates to the river mouth. The point is just like a mini Teahupoo, which is a beach in Indonesia. It´s a deep water hollow lefthander. If you are in Santa Teresa/Malpaís area and a pumping swell fills in you should go there and ride the barrel of your life.</string>
+    <string name="bocabarranca">S/SW-Low to Mid-Pollution.-3.5-Boca Barranca-Located 45 minutes north from Jacó. You take the highway to Puntarenas. Once you pass the Barranca´s river bridge take the first left and drive back next to the bridge. You must drive until the end of the road and you will see the waves. Boca Barranca offers a left point break with fast and fun world class waves.</string>
+    <string name="donaana">S/SW-All tides-Localism.-2.5-Doña Ana-Playas de Doña Ana is the break that is directly South of Boca Barranca. There are very fast waves and sometimes hollow at lower tides. On a huge swell this break will link up with Boca Barranca creating very long lefts. The wave itself is not heavy at all but when it´s good it can get very crowded. This spot is a wonderful alternative if Boca Baranca is crowded. Just watch out for the rocks at the entry/exit point.</string>
+    <string name="puertocaldera">S/SW-mid-Seawall.-2.0-Puerto Caldera-Caldera is the closest break to San José. It´s about a 45 minutes drive and is Located 12 miles south from Puntarenas. You drive to Caldera and park as close as you can to the bridge. At the river mouth and near the seawall a fat and steep wave rarely breaks over the sandbar. It´s a funny and infrequent point break with instant access. When there´s a big swell running it can be a really fun spot to surf.</string>
+    <string name="corralillo">SW/S-Low to Mid-Alligators.-3.0-Corralillo-It is located in Puerto Caldera. You must park in the entrance of the port. It´s about a 1.2 miles walk on dirt road. During the summer it´s a dirt road and a mud road during the winter. At the entrance of the beach take a left and walk for about 20 minutes. I´ve heard stories of crocs but never seen any at this spot. Corralillo is a left point that is really fun at times. It generally doesn´t have a lot of speed which makes it a great spot for beginners and long boarders. When it´s the right tide and a big SW swell this wave can be as long as 400 meters ride.</string>
+    <string name="elhoyo">S/SW-Low to Mid-Seawall.-3.5-El Hoyo-It is exactly the same direction to Corralillo. When you arrive at the entrance of the beach don´t take a left. Take a right and walk until you reach the seawall. El Hoyo at Puerto Caldera is a special man made point break for experienced surfers and body boarders. A very powerful and unpredictable wave appears during the tides´s transitions. It breaks like the Wedge (Orange County, USA) but a bit smaller or maybe like Sebastian Inlet (North Florida, USA). It will break even when Boca Barranca and Corralillo are flat, good for aerials but there are a lot of body boarders and localism.</string>
+    <string name="calderapoints">S/SW-High-Rocks.-2.5-Barco Quebrado-Same direction to Corralillo at the entrance of the beach turn to your left, walk 10/15 minutes and there are 3 point breaks on the road to Corralillo. It depends on the size and swells direction. The 2nd point is the best and is super-fast. There are lots of rocks, but perfect hollow tubes.</string>
+    <string name="elsilencio">S/SW-High-Rips.-5.0-El Silencio-Located 15 minutes south from Corralillo, the only access is by boat. The wave is no joke, don´t go there unless you have a lot of experience. This wave breaks perfectly to the left with a fast steep take off and a big wall behind it. It is a very dangerous wave but is worth the ride.</string>
+    <string name="guacalillo">S/SW-Low to Mid-Pollution.-2.5-Guacalillo-Guacalillo beach is located just before the Grande de Tárcoles River Bridge. It´s going from San José to Jacó follow the Guacimo/Ceiba signs. The beach is very long with black sand and plenty of wildlife, just another Costa Rican beach break. Surfing the left at Guacalillo is not for lazy surfers, one constantly has to fight the current to be at the right spot.</string>
+    <string name="tivivesrivermouth">S/SW-All tides-Alligators.-2.0-Tivives-You can find this beach on the highway to Jacó coming from San José. Don´t turn south to go to Jacó, go directly to Puntarenas. It´s like 9.3 miles and you will see a sign mentioning Tivives. From there take the left on a rocky road like 4.3 miles, you need to ask for a permission to the guard to enter, tell him you are going to surf. The waves (lefts and rights), on a nice swell and right conditions will give you excellent surfing. The Tivives river mouth causes strong currents so you will need to paddle for a while to get in the lineup. When it gets big 8ft or more, it tends to close out with the powerful sets. During the rainy season you should double check if that floating tree is not actually a crocodile! When there is no waves to surf, you can cross the river mouth and go to Valor Point which has some nice hollow waves, sometimes barrels too.</string>
+    <string name="valorpoint">S/SW-Low to Mid-Rocks.-2.5-Valor-It is the same direction to Tivives. You must cross the river mouth and walk 5 minutes south. Valor Point can get pretty fun on the lower tides, nice hollow waves and sometimes perfect tubes. When smaller swells are running but the wind and tide conditions are good, this place can be the best alternative to Tivives river mouth.</string>
+    <string name="agujas">S/SW-Low to Mid-Rocks.-2.5-Agujas-Located 12.4 miles north from Jacó. Take a left in Agujas exit. Then you drive for about 5 minutes on a rocky road. Agujas is a fishing village near Herradura with few people and few waves. You need to be lucky to find this place working but when it´s on fire it´s a perfect wave. A fat and steep left wave rarely breaks in front of the river mouth. It is a fun and infrequent point break with long perfect lines. When there´s a big swell running it can be really fun. If you are a wave hunter you should definitely check this place.</string>
+    <string name="playablanca">S/SW-Mid to High-None.-0.5-Blanca-Located in Punta Leona Beach Club. You drive as if you where going to Jacó and about 8 kilometers after the Tarcoles bridge you will see Punta Leona´s entrance on the right hand side. This spot is always crowded by rich kids and the wave definitely sucks. It´s a fat and short left wave that rarely breaks in front of the Baywatch tower buried on the beach. When there´s a big swell running and all the rich kids are back in school. It can be a really fun spot to surf.</string>
+    <string name="eltragadero">S/SW-Mid to High-Rocks.-2.0-El Tragadero-Located in Punta Leonas Beach Club. When you get to Blanca you must swim to the left part of the beach. It is about a 15 minutes swim. When there´s a big swell running it can be a fun wave to surf, otherwise it will probably be flat.</string>
+    <string name="elculo">S/SW-Mid to High-None.-2.0-El Culo-The Ass is located in Punta Leonas Beach Club. You need to go to Blanca and swim towards the left part of the beach. It is about 25 minutes swim. When there´s a big swell running it can be a fun wave to surf, otherwise it is flat.</string>
+    <string name="playaescondida">S/SW-Mid to High-Rocks.-5.0-Escondida-The translation for Escondida is hidden beach. It is kind of hidden and it isn´t really easy to get there. It is located about a 15 minute drive from Plaza Herradura located in Herradura. At Plaza Herradura you take a right and drive down the road until you reach Los Sueños Resort. Instead of going left towards the hotel you take the alternative road and follow it. That road will take you up a hill and you will reach the entrance of Escondida. It is a private club so if you don´t have the contacts to get it the only access is by taking a boat from Los Sueños Marina or Jacó. This wave is perfect! You must have experience to be able to surf/body board this wave. Depending on the swell the wave breaks heavenly. There are left and rights. The only catch about this wave is that is located on top of the reef and there is no beach you head into rocks both on your left and right side. Many pros like Shea Lopéz have houses here and Kelly Slater (11X World champion) came to surf Escondida many times. This wave has gotten coverage in many magazines and videos. Even though this wave is not so easy to access it can get very crowded. Don´t surf this spot during low tide. The reef is sharp and dangerous. The best conditions to surf this wave can be found during uprising mid-tide or when the tide is going down. This beach is also a beautiful place for families to visit if they have a chance to rent a house here. There are tide pools filled with exotic fish. It is a white sand beach and very good for skim boarding as well as playing volleyball, soccer and having a great time with you family! There are lots of trees on the beach so you can have a wonderful picnic with your family and friends!</string>
+    <string name="littlefiji">S/SW-Mid to High-Rocks.-4.0-Little Fiji-Located 5 minutes south by boat from Escondida. It is possible to access this beach by car but the only beach access is by a private club called Villa Caletas. You should only consider to surf at Little Fiji if you are an experienced surfer, It is a big left point break. It is out in the sea, so you have to hire a boat in order to surf there. The wave breaks over a reef and rocks. The reef can generate perfect waves even with bigger swells (up to 15 feet), surf here during low upcoming tide with swell from the Northwest or the South.</string>
+    <string name="laisla">S/SW-Mid to High-Rocks-3.5-Isla Herradura-Located at Herradura (5 minutes north from Jacó). It is a typical reef break with very long lefts waves and crystal water. You need to go to Herradura and take a boat ride to the island, or you can also choose to take a 40 minutes walk through rocks only at low tide. Isla Herradura is a popular surfing destination with a regional classic wave. These waves are perfect for the experienced surfers. You will love the long fun waves which average about 100 meters in length but which can sometimes be as long as 250 meters. When there´s a big swell running the spot can get crowded really fast.</string>
+    <string name="elshaman">S/SW-High-Localism-3.5-El Shaman-It is located 30 minutes walk from Bahía Ballena and thats all I am telling. This Place is an absolute jewel, secret spots like this are alive and pumping in Costa Rica and there is some localism in this region of the country, so respect to be respected.</string>
+    <string name="elinside">NE/E-Mid to High-Rocks-4.0-El Inside (Bonita)-Across Bonita you will find yourself in this beautiful place. It has public access and is very easy to find. It is located in the left tip of the beach, the actual point called the Inside! left wave with a nasty shallow reef, pretty big and powerful but not as fast as Tumbos wave! we have two great points in Bonita Beach.</string>
+    <string name="jaco">S/SW-High-Rips-2.5-Jacó-It is located about an hour drive from San José. It´s a beautiful surf town with friendly people and pretty girls. It is a classic base for surfing in Costa Rica. Everything is Americanized and there are lots of good places to stay and eat. There are good waves and plenty of spots to rent or buy surf boards. The wave there can be fun at times. At other times the waves can be bad. On some days the waves can be perfect, while on other days the waves can be not so great. Jacó is a great place for people to learn to surf. There are a lot of surf instructors that will be willing to teach you how to surf! If you want a very nice place to stay, a very good location/acomodation visit Riva Hostal starting at $13 for a bed in fan room. Nice garden, wi-fi, clean rooms and free coffe at mornings.</string>
+    <string name="rocaloca">S/SW-Mid to High-Rocks-3.5-Roca Loca-This beach is located between Jacó and Hermosa. It is about 1.2 miles south of Jacó. You will have to go down a steep cliff to be able to get there. The rocks and cliffs at the southern end of Jacó\'s bay are called Punta Guapinol. From there, a bit to the right is Roca Loca. The wave breaks over a big rock, it is best surfed during low upcoming tide. Don´t go out here if you are not an experienced surfer. The access isn´t easy, one has to climb down the cliff. When there is a strong swell coming from the Southwest, the rocks can create big powerful waves. Experiencing three times overhead is possible here all the time. It´s an impressive and powerful wave due to the obvious rock in the water and can get scary as hell at times, It´s a ripe able right with a hollow section that only works on bigger swells. Roca loca is for experienced surfers only and is rarely crowded.</string>
+    <string name="elgato">S/SW-All tides-Rocks-3.5-El Gato-The Cat is located between Jacó and Hermosa. It is about 1.8 miles south of Jacó and right next to Roca Loca. As well as in Roca Loca you will have to go down a steep cliff to arrive at the wave. The rocks and cliffs at the southern end of Jacó\'s bay are called Punta Guapinol. To your left is El Gato. On rising tides this wave may have a very nice shape, however the sharp rocks in the bottom make it a dangerous spot, so be careful to be caught in the impact zone and be dragged toward the rocks. It is best surfed at low upcoming tide and the swell has to come from the south. This wave still breaks nicely with bigger swells. It does not get as big as Roca Loca. </string>
+    <string name="playahermosajaco">S/SW-All tides-Rips-5.0-Hermosa-This beach is located 3 miles south from Jacó. Hermosa is the most consistent and powerful wave around Costa Rica. It is a well-known beach and is very easy to access. You can take a bicycle or drive from Jacó. The public transport it not very reliable, but taxis are also another option. The regional classic waves here are perfect for experienced surfers because there are numerous of different breaks all along the four miles beach. Some of the most known spots are: Terrazas, Marea Brava, La Pulpe, Los Olivos, Backyard, Desembocadura, El Árbol, Palmeras, Chanchera, Curva/Codo, Almendro, Budha, Refugio y Tulín. There are more places all around those are just some of the most known. The waves at this beach are pumping all day every day. The waves are powerful, fast and hollow but normally short, measuring less than 50 meters. Although they have been known to reach up to 200 meters, the size can reach over 15 feet and it is best to surf here on a mid tide. The World Surfing Games where held here in 2009. Hermosa and Costa Rica gained more recognition worldwide thanks to this tournament. This is definitely a beach that every surfer should visit.</string>
+    <string name="esterillos">S/SW-All tides-Rips-3.5-Esterillos-This beach and it’s point break are located about a 20 minute drive from Hermosa. You must head south on the highway and you will see the signs for Esterillos. Esterillos is one of the most consistent waves around the Jacó area. This is a beach break with a lava reef bottom and sand. You can choose whether to surf in Esterillos Oeste, Esterillos Centro and/ or Esterillos Este. Esterillos Este is where you will find the biggest waves. This place picks up even more swell than Hermosa and when it gets big it´s a creepy wave.</string>
+    <string name="playabejuco">S/SW-mid to high-Rips-3.0-Bejuco-Stay on the main highway going south out of Esterillos. You must pass Esterillos and there will be a sign directing you to Bejuco. Drive down the road and park anywhere. The wave can be fast, powerful and hollow. There are rights and some lefts that are ripe able too. Predominantly firing right barrels. This spot is definitely your best alternative when esterillos is flat.</string>
+    <string name="bocaquepos">S/SW-Low to Mid-Crocs-2.0-Boca Quepos-Quepos Rivermouth, Located in Quepos town is about a two hour drive south from Jacó. You must find the river mouth and the jetty. It is not an expert wave, they will only break if a very strong south swell rolls in. Boca Quepos rarely breaks but when it does it is a very long ripe able left wave. A marina was built and now the wave does not break as it used too. There are plenty of large crocs living there so be careful.</string>
+    <string name="bocadamas">S/SW-Low to mid-Crocs-3.5-Boca Damas-Located in the Damas River mouth there is only access by boat. The wave here is a hollow right and is in it’s best conditions when there is a swell coming from the S/SW. You can catch this wave when the tide is going up.</string>
+    <string name="playasmanuelantonio">S/SW-Low to Mid-None-3.5-Manuel Antonio-This beach is located 20 minutes south from Quepos. You continue to travel south after you have gone over the mountain you will find Manuel Antonio. This is also the main entrance to Manuel Antonio National Park, which is a great place to chill and see the Costa Rican wild life. Manuel Antonio is a popular international travel destination. People come in from all over the world and there is always nice people around. The wave only works at high tides. It´s usually crowded and needs a decent size swell before it starts to work. The surf school takes there students and beginners to the tiny waves that break on the main part of the beach. For those that can surf, there is only really one peak which can give some real fun but you won´t be alone.</string>
+    <string name="cuttersright">S/SW-Low to Mid-Rips, Rocks-4.0-cutters-Located at Manuel Antonio most people park on the beach and rent a kayak. You must paddle 20 minutes south past the park and stay in front of the third little island. The wave here rarely breaks but when it does it´s on fire. A powerful reef style right wave with hollow and fast section breaks over the rocky bottom. There is plenty of tropical wildlife to keep you entertained between sets.</string>
+    <string name="playitas">S/SW-Mid to High-Rocks-3.0-Playitas-Located at Manuel Antonio most people park on the beach and walk 20 minutes to the north. Or you can also turn right at the hotel Mariposa and follow this little dirt road down the mountain where you can park on the beach. When it gets big, it gets really big and you can surf it at all tides, but when it is small you have to wait to mid going to high tide to get any waves. If Manuel Antonio is flat, Playitas is maybe a good alternative but if Manuel Antonio is big, Playitas should be huge.</string>
+    <string name="northplayitas">S/SW-Mid to High-Nudism-2.5-Nude beach-Playitas Nude Beach is located in Manuel Antonio. Most people park on the beach and walk 20 minutes north to Playitas. Once at Playitas you can paddle or climb to the break off the rocks about 100 meters north around a rock point. Be careful walking there because it is a Nudist colony (french people only), a private beach with nice waves (lefts and rights) breaking over a sandy rocky bottom. Very Nice place but too much distraction, lol!</string>
+    <string name="playaelrey">S-All Tides-Rips-3.5-El Rey-This beach is between Manuel Antonio and Dominical. El Rey is a fantastic surfing location if you can find it. The waves here are best suited to experienced surfers as there are hazardous rocks which may pose a problem for the less experienced. There is an exposed beach break here with reliable offshore winds coming from the east or north east and waves peak on the left and the right. Surfing can be done on all tides but there are no restaurants or hotels in the area and it is difficult to access.</string>
+    <string name="playadominical">S/SW-Low to Mid-Rips-3.5-Dominical-Dominical is about 2 1\/2 hours south from Jacó. It is a sick spot similar to Hermosa. It’s a great surf town but less developed than Jacó and Tamarindo. Dominical is awesome. The breaks, the people, it´s still a virgin town with great waves and a beautiful forest that runs right into the break. The waves are very powerful at higher tides and you can spend half of the surf session paddling if the tide is low. Broken boards and snapped leashes are very common, definitely it’s not a place for beginners.</string>
+    <string name="playadominicalito">S/SW-Mid to High-Rips-2.0-Dominicalito-This small, beautiful bay is located south of Dominical. If you are not ready to surf Dominical, or are tired of getting pounded, this beach is an option. The surf is well protected by the bay in Dominicalito. The bottom of the bay is sandy, but there are several big rocks, watch out especially at lower tides. The wave breaks to the left and to the right in Dominicalito. It is possible to walk the 2.5 miles from Dominical to Dominicalito, but it takes at least half an hour. Walk to the southern end of the beach in Dominical and then walk up to the coastal road. You have to walk along the coastal road till you get to a sign that points to Dominicalito.</string>
+    <string name="lapunta">S/SW-Low to Mid-Rocks-3.5-La Punta-The tip further south of Dominicalito is La Punta. This is a good left point break. The powerful wave is not for people who are beginning to surf. The rides can get pretty long here when the swell comes from the South. The bottom is rocky, so watch out.</string>
+    <string name="playahermosaypuntahermosa">S-Mid to High-Rocks.-3.0-Punta Hermosa-There are many beaches that are named Hermosa. There is Hermosa in Jacó, Hermosa in the northern part of Costa Rica, north of Playas del Coco and Hermosa near Santa Teresa. This beach is located between Dominical and Uvita. It is a long beach break with many peaks. The waves here are smaller than in Dominical and break best at mid and high tide. In addition there is a right point break, Punta Hermosa</string>
+    <string name="matapalohermosa">S-All tides-Rocks.-3.0-Matapalo-This is a great wave. This wave breaks better when there is a swell from the South. This spot can be surfed at any tide. During high tide the rides are longer. It is a right reef break with some hidden rocks in some places, so watch out. This wave still curls perfectly over the reef with huge swells! Matapalo is a great wave, and that is why it attracts a lot of surfers. You will never have this spot to yourself. Sometimes it gets very crowded in the lineup.</string>
+    <string name="backwashway">S-Low to Mid-Rocks.-3.0-Backwash-Located in Matapalo. In order to be able to reach this point you will need to go for a good walk between 15 to 30 minutes long. It has public access and special access for cars that are 4x4. It’s a regional classic wave and is for experienced surfers. When it is good with nice wave direction a nice right comes out over a sandy rocky bottom. A powerful and fun wave. In a normal length of 50 to 150 meters and in a good swell from 150 meters to 300 meters. It is better to catch this point preferably at low tide rising and falling tides. During the week you will find just a few surfers and in the weekend very crowded, just take care of the rocks, they can hurt.</string>
+    <string name="carate">S-All tides-Rocks.-3.0-Carate-The road from Puerto Jiménez ends in Carate. The ride to this remote place is bumpy and a 4x4 vehicle is necessary. At the end of rainy season this area has the heaviest precipitation. During that time it is very humid, this is a beach break that is best surfed during low and upcoming tide. On Osa Peninsula there is plenty of wildlife. Not only on land but as well as in the water. Sharks have been sighted here.</string>
+    <string name="bahiadrake">S-All tides.-Localism-4.0-Bahía Drake-Bahía Drake is totally an experience. This will lead all your senses and your energy, in the spike of the good waves. You will be surrounded by all kinds of nature, fauna and a very tropical paradise. It is a very long area, but since the new road was opened you can get down by car or take a boat from Sierpe. In the winter season from June until the end of November the crossing for some rivers will be rough. So the boat ride from Sierpe might be necessary in the winter. Make sure you find out if the boot camps are open during this time most of them are closed. You can get here by inbound flights just within one hour from San José the capital, if you want to be relax make the reservation on time with the airlines. The airlines that have flights available are Nature Air or SANSA. They can also give great advice. You can get a long left in this point break, but it´s not so frequent. You should try to get in at rising or mid tide to have it working the way it should. The name of this place comes from the imminent of Sir Francis Drake a long time ago. You will find here a large amount of waves due to the constant movement. The sandbars will make a lot of beach breaking waves.</string>
+    <string name="pavones">S-Low to mid-Rips.-4.5-Pavones-Pavones beach is located in the middle of the south pacific. It is south from Golfo Dulces bay near the well distinct deposit Golfito. It\´s a long 7 hour drive from San José and 2 hour drive from Golfito. You can arrive at this beach by bus, rent a car or the most expensive but still an option\: grab a taxi. The journey is long but you will see a lot of vegetation, mountains, small rivers, and teka plantations in a lowland rainforest. It is about a 5 to 15 minute walk to arrive to this place and it is very easy to find. It has public access and special access for some 4x4. It has world quality waves for all kind of surfers. Very constant waves and point break style. It has a nice left, over a sandy and rocky bottom. It is a funny powerful and a long wave of about 300 to 500 meters. This is the second longest left in the world actually. The wave needs a big southern swell, if you want to get a long ride. This ride lasts forever and you will remember it always! This is one of the best left points in the world! Also there is a break in the south of Punta Banco. There are lefts and rights and it is a beautiful place with a lot of nice things to see! At night everybody goes to the cantina, but there are only a few cabins around so make sure you get yours! The sport fishing is nice. You will find three more breaks at the other side of the bay. It’s Paradise here! You can see the deep forest from the water, listen to the animals and observe all the exotic wildlife! And the greatest of all is having a nice day of sun and waves.</string>
+    <string name="rioclaro">S-All tides.-Alligators-3.0-Río Claro-If you want to get to this place you must take a boat ride from Sierpe. It is just near Corcovado Jungle Camp and Delphino Amor in the Drake area. This is a normal surf trip and a nice walk too. It is between a 15 to 30 minute walk. You will not find this place easily. You have to look for it. It has a special access by boat, A nice spot as always, preferably surfers with experience, frequently waving. Take care of the reef and the rocks, here you will be able to run the wave to the left, a great left by the way, but will be able to experience a fast and powerful hollow wave. The normal length of the wave is about 50 to 150 meters and even with the right series a long 150 to 300 meters long wave. The undertow is to the south so take that in mind. Starts at 1 or 1.5 meters or 3 feet to 2 meters or 6 feet even. The waves are better during mid tide and high tide. The best movement of waves! They are ascending and descending all the time. You won´t find people here, but here is definitely a point you want to get to know. If you really want to get to know Costa Rica this is the place you need to go to. You need to be careful with sea urchins, sharks, rocky sand, the rocks and the reef. This is an awesome place to visit! Not much people stay around but if you can gather a nice group of surfers it is a nice place to stay! Get ready for an adventure!</string>
+    <string name="riosierpe">S-All tides.-Sharks-4.5-Río Sierpe-Take a boat from the town of Sierpe. It is located in the south side of Dominical. It´s a day surf trip. It is easy to find and the only access is by boat. It´s a regional classic wave. It´s for experienced surfers but it breaks only sometimes. It´s a sand bar type wave, with a sandy bottom. It is a hollow and fast wave from 150 to 300 meters a normal day. When there is a nice swell the wave can run about 300 to 500 meters long. The swell direction is south, starts with 1 to 1.5 meters or 3ft/5ft to 5ft/7ft. Good at all tides and if you’re lucky it’s always empty. You must be careful with the rips and undertow. Keep in mind it´s only reachable from Sierpe boat or Drake area jungle camps. Everything is beautiful here the atmosphere, the fast hollow good waves with a long green beach surrounding you! If you catch this place running, it can be the ride of your life!</string>
+    <string name="playazancudo">S-All tides.-Rips-3.5-Zancudo-This is a normal surf trip. In this trip you will have to walk a little bit. It is more or less a 30 minute walk. It´s easy to find and has public access. It also has special access for only 4x4 cars. Here you will find a regional classic quality wave. This experience is for all kind of surfers from beginners to more experienced ones. The nice waves are very frequent here. The wave type is a beach break. You can go both directions here. There are good lefts and rights. It´s a sandy bottom but take care it’s always very hard to get out if you get drawn by the wave. Take care of your nose and chin. In a normal day you will find 150 to 300 meter waves. But if you catch it when there is a swell, you can get even 300 meter to 500 meter long incredible rides. The swell from the southwest when it’s working produces at 1.5 or 2 meters, 5 or 6 feet and goes till 2.5 meters / 8 feet even. For better results go in with the rising and/or the falling tides. You won´t find much crowd here during the week. To get here it is definitely a long trip, but it is worth it. You will find a very peaceful town, not much going on, inexpensive living and a relaxed atmosphere. You can get here within 25 minutes if you take a boat from Golfito, or 45 minutes driving offroad from Golfito. Pavones is 45 minutes away if you want the ride of your life.</string>
+    <string name="pandulce">S-All tides.-Rips-3.5-Pan Dulce-The only access to this beach is by taking a boat from Sierpe. This is just near Corcovado Jungle Camp and Delphino Amor in Drake area located in the Osa Peninsula. There is a nice lagoon over the beach. It is a normal surf trip and a small walk. It is about 15 to 30 minute walk. It is easy to find. There are quality regional waves here. This place is for experienced surfers. The wave here is a left over a rocky and reef bottom. Be careful with the reef, coral and sharp rocks. It´s a powerful hollow and fast wave with a normal length of 50 to 150 meters and till 150 to 300 meters long also. For the swell direction it´s south and starts working at 1 to 1.5 meters / 3 feet to 5 feet and holds up to 2 meters / 6 feet. For best waves it´s at mid and high tide. Rising and falling tides are good. Always these long waves and isolated points are almost always without people. Take care of urchins, rocks and sharks. We recommend to stay near the Drake Bay area, it´s a great experience just to go there. You will find just a few people surfing regularly. There is a guy that owns a property in the Drake area and a couple of people that are locals. You will definitely find waves here and an isolated place if you are looking to disconnect from normal life.</string>
+    <string name="puntabanco">S-Low to Mid.-Rocks-3.5-Punta Banco-At Punta Banco there are several reef breaks with good lefts and rights. There are not many people here in the water surfing. Like Pavones this break needs swell from the south, so when Pavones is pumping the waves should be good here too. Waves can get big here and hold swells up to 15 feet.</string>
+    <string name="puntaburica">S-Low to Mid.-Rocks-3.5-Punta Burica-This is maybe as remote as it gets in Costa Rica. There are several reef point breaks at Punta Burica. The waves can become big and powerful here. If that is not adventures enough for you try to get out to Isla Burica. You need to find a boat to get there. You can ask fishermen if they can take you there.</string>
+    <string name="islauvita">NE/E-All Tides-Reef.-4.0-Isla Uvita-To drop down to Uvita Island, just take a boat from Limón, you will be able to see the Island from there. The island is bigger than what it looks like. It´s a 10 minutes trip so you don´t get tired. It is easy to find but you can only reach it by boat. The waves quality are world class! There is a coral reef there and the wave is a nice left. Be careful with the bottom there are sharp rocks and edges that you can get really hurt on. The type of the wave is very fast and hollow. It has a normal length of 50 meters to 150 meters, you can surf here at all tides if you are lucky you will find no people during the week. During the weekends you will see just a few surfers. Take some speed, drop into the wave, get some speed through the tube, then make a big twist around and get out of the wave so you can take other ones. Also if you get lucky there is a family that will accept donations for some food if you are hungry. This is one of the best of the Caribbean Coasts waves and is recommended for all surfers!</string>
+    <string name="playanegra">NE/E-Mid to High-Rips.-3.5-Negra-Negra is at the entrance to the Cahuita National Park, which is none the less to say one of the most beautiful costal parks. It is named black beach because of it’s dark volcanic sand. It is a good place for amateurs there are small waves. Be careful with sea urchins. This beach it´s located before Cahuita, you can get there by taking a walk along the beach. It is a 10 to 15 minute walk or you can also walk through the park to check out the fauna and flora till you get to the creek where the best waves are. The wave type is peaky beach break, right to left and sandy bottom and reef at Vargas. The power is kind of fun and you will find only a few surfers. With a very good atmosphere Cahuita is a relaxed Caribbean town, you can enjoy a good chicken at the restaurant, a lot of places to stay and eat, also bars with great reggae music and making a lot of fun with the thieving monkeys at the park.</string>
+    <string name="laescuelita">NE/E-All tides-Reef.-2.5-La Escuelita-In order to reach this beach, you must go to Puerto Viejo. Located in the center of the town just in front of he church it is very easy to find. The waves are fun for kids and beginners. This place has a nice town with restaurants and very nice active night life. So you will definitely have a great time.</string>
+    <string name="salsabrava">NE/E-All tides-Reef.-4.5-Salsa Brava-In order to reach this beach, you must go south from Cahuita which is located in Limón. Salsa Brava is on the east side of town. It is very easy to find and it has public access. The waves are great, but they are for experienced surfers. There is coral reef and this place can get dangerous. The wave is hollow, fast and powerful. The ride can last from 50 to 150 meters. You will have company all the time in the water. You must be very polite to the locals because they are very greedy with their beaches. This place has a nice town with restaurants and very nice active night life. So you will definitely have a great time. Note that Caribbean is only working a few weeks either in January or February, and mostly when there is storm in the Caribbean.</string>
+    <string name="cocles">NE/E-Mid to High-Rips.-3.0-Cocles-This beach is located 1 mile after Puerto Viejo. It is an easy beach to find and it has public access. This beach is blue flagged; meaning the water is crystal clean and safe. The waves are classic and are for experienced surfers. It also has a beach break and runs in both directions. There is no need to worry about the bottom because it is sandy. The ride can last from 300 to 500 meters on a good swell. We advise surfers to go surf in the morning. It´s a nice place to chill with your friends and have a nice time. There is reef around the beach just be careful but you should have a great time.</string>
+    <string name="manzanillo">NE/E-All Tides-Reef.-3.5-Manzanillo-In order to be able to reach this beach you need to first arrive at Limón. At Limón you need to go to Gandoca´s National Park located in Manzanillo. You follow the trail into the park for about 1 mile. It is about a 30 minute walk and not so easy to access. Here you will find world class waves for experienced surfers. The wave is on top of a coral reef so be careful. The wave is a right fast and powerful. It is about 100 meter ride. During the week you will find the spot empty. On weekends you will find a few surfers. You can ask around about how to get there. You will find yourself in paradise with the turquoise water and the vegetation that is surrounding you. It is a place you must visit! It is beautiful!</string>
+    <string name="puntauva">NE/E-All Tides-Reef.-3.0-Punta Uva-If you are getting there by car you can park in front of the beach. You must paddle about 100 meters. It is an easy beach to find and has easy access. The waves are very good and they are for all surfers. The wave is a right and appears over a coral reef. There are sharp rocks and coral reefs, be careful. The wave is fast and fun. The ride can be from 50 to 150 meters. When the swell is good the ride can be about 300 meters long. During the week there is no crowd, but during the weekends there might be some surfers. Be careful with the sea urchins and the rocks. Here you will find some of the nicest places just to chill with your friends, because of the crystal water, and deep forest just in the coastline.</string>
+    <string name="jahhanders">NE/E-Low to Mid-Reef.-3.5-Jah Handlers-This is a kind of hard place to find. Located between Manzanillo and Panama you will have to walk about 30 minutes more or less. There are regional classic waves for experienced surfers. The wave is a right and it is over a coral reef. On normal days the ride is about 50 meters. Be careful with the sea urchins, rips, undertow and the sharks.</string>
+    <string name="lostumbos">NE/E-Mid to High.-Reef-5.0-Los Tumbos Bonita-Across Bonita you will find yourself in this beautiful place. It has public access and is very easy to find. Here you will find world class waves, the waves here are very young because did not break before the big earthquake about 20 years ago. Has a sand bottom and you can try to surf this place all day during all tides. During the week there will be a few people. During the weekend this place can get crowded. Be careful with the rocks and the reef. </string>
+    <string name="playagrandelimon">NE/E-Low to Mid-Pollution-2.5-Grande-After you arrive at Punta Uva you must go through Manzanillo. You take Leila Street. This street will take you to Grande. This beach is just 5 minutes from the main road. It is recommended that you take a 4x4. This place is easy to find and with easy access. The waves are normal sized around 3/6 feet. This place is for all surfers. The wave is considered a beach break wave. You can ride this wave to the right and to your left. This point is over a sandy bottom. The ride can be from 50 to 150 meters. When there is good swell the ride can be about 300 meters. During the week this place is empty almost always. During the weekends this place can get crowded.</string>
+    <string name="elpuerto">SW/S-Mid to High-Pollution-3.-El Puerto-This point is located in the center of Puntarenas, when there´s actual swell it can be really good, the best waves breaks near the pier in the Paseo de los Turistas.</string>
+    <string name="cieneguita">NE/E-Low to Mid-Pollution.-2.5-Cieneguita-In the town of Limón, you can find a decent point break at cieneguita, when there´s actual swell it can be really good.  </string>
+    <string name="lasvaritas">NW/SW-Low to Mid-Sharks.-4.0-Las Varitas-This beach can be accessed by boat only. It is located between Ollie´s Point and Witch´s Rock. In order to get there you must take a boat from Playas del Coco and ask the local that drives the boat to take you there. The wave is no joke, don´t go there unless you have experience. The coral reef is really shallow and builds a very dangerous wave, but worth the ride.</string>
+    <string name="frijolarpoint">NW/SW-Mid to high-Rocks.-3.5-Frijolar Point-When you go to Marbella and you get to the beach, the first point that you see is Frijolar Point, the long left wave sometimes breaks over the rocks only on biggest swells.</string>
+    <string name="golfopercico">NW/SW-Low to Mid-Sharks.-3.5-Golfo Persico-Located 1 km south from Avellanas, this point can be acessed by boat, jet sky or paddling 45 minutes, located in the middle of the sea an outer reef builds some perfect waves.</string>
+    <string name="westfalia">NE/E-Media a Alta-Corrientes.-2-The area in between Cieneguita de Limón and Cahuita (Negra), section of the Caribbean very exposed to the sea wind and that´s because it generates a lot of rip currents, constant waves but turbulent and dangerous.</string>
+    <string name="title_activity_top5" translatable="false">Top5Activity</string>
+    <string name="threeday">3 Day</string>
+    <string name="top5">Top 5 olas de Costa Rica\n1: Roca Bruja (Naranjo)\n2: Salsa Brava\n3: Hermosa de Jacó \n4: Marbella \n5: Santa Teresa-Mal Pais\n\n**************\n\n*******Top 5 Zona de Guanacaste *******\n1: Roca Bruja(Naranjo)\n2: Marbella\n3: Santa Teresa-Mal País\n4: Nosara-Guiones\n5: Grande\n\n ******* Top 5 Pacifico Central ******* \n\n1: Hermosa\n2: Escondida(El Faro)\n3: Los Esterillos\n4: Dominical\n5: Boca Barranca\n\n******* Top 5 Pacífico Sur *******\n\n1: Pavones\n2: Back Wash\n3: Río Sierpe\n4: Río Claro\n5: Zancudo\n\n*******Top 5 Caribe*******\n\n1: Salsa Brava\n2: Isla Uvita\n3: Los Tumbos\n4: Tambia Point(Manzanillo)\n5: Grande.</string>
+    <string name="youneedtoselectadestinationfirst">You need to select a destination first</string>
+    <string name="im_playablanca">When there is good south east swell, the water creates a nice left.</string>
+    <string name="title_activity_interstitial" translatable="false">Interstitial Activity</string>
+    <string name="interstitial_ad_sample" translatable="false">Interstitial Ad Sample</string>
+    <string name="start_level" translatable="false">Level 1</string>
+    <string name="next_level" translatable="false">Next Level</string>
+
+    <string name="getproversion">Get pro version</string>
+    <string name="ok" translatable="false">OK</string>
+    <string name="getpro">To unlock this function get the pro version!</string>
+    <string name="beachandwavedescription">Beach and wave description</string>
+    <string name="yourlocationis">Your Location is</string>
+    <string name="rating">Rating</string>
+    <string name="coordenatesnotavailable">Coordenates not available</string>
+    <string name="low">Low</string>
+    <string name="high">High</string>
+    <string name="hi">"Hi, "</string>
+    <string name="auto">Auto</string>
+    <string name="routes">Routes:</string>
+    <string name="tours">Tours:</string>
+    <string name="savetosd">Save to SD-Card</string>
+    <string name="animatexy">Animate XY</string>
+    <string name="choosedate">Choose date</string>
+    <string name="all_zones">All Zones</string>
+    <string name="moon_desc" translatable="false">Moon</string>
+    <string name="moon_today_prefix" translatable="false">Today the </string>
+    <string name="moon_today_mid" translatable="false"> the moon will be </string>
+    <string name="moon_today_suffix" translatable="false">%1$d%% lit.\n</string>
+    <string name="moon_rises_sj" translatable="false">Moon rises in San Jose at </string>
+    <string name="moon_tomorrow_rise" translatable="false">Tomorrow moon will rise at </string>
+
+</resources>

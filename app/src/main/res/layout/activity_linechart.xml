@@ -1,0 +1,173 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Buttons-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:orientation="horizontal"
+        android:background="@color/black">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/ButtonStyleX"
+            android:onClick="sendMessage1"
+            android:text="@string/day" />
+
+        <Button
+            android:id="@+id/button11"
+            style="@style/ButtonStyleX"
+            android:onClick="sendMessage11"
+            android:paddingLeft="7dp"
+            android:text="@string/threeday"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/ButtonStyleX"
+            android:onClick="sendMessage2"
+            android:paddingLeft="7dp"
+            android:text="@string/week" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/ButtonStyleX"
+            android:onClick="sendMessage3"
+            android:text="@string/month"
+            android:elegantTextHeight="true"
+            android:paddingLeft="7dp" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/ButtonStyleX"
+            android:onClick="sendMessage4"
+            android:text="@string/year"
+            android:visibility="gone"
+            android:paddingLeft="7dp" />
+    </LinearLayout>
+
+    <!-- Metric spinner-->
+
+    <LinearLayout
+        android:id="@+id/llDistance"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtMetric"
+            style="@style/ButtonStyleX"
+            android:gravity="center_horizontal"
+            android:text="@string/unit" />
+
+        <Spinner
+            android:id="@+id/metric_spinner"
+            style="@style/ButtonStyleX"
+            android:foreground="@color/white"/>
+    </LinearLayout>
+
+    <!-- Seek bar 1-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <SeekBar
+            android:id="@+id/seekBar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="@bool/negativo"
+            android:max="500"
+            android:paddingBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvYMax"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="500"
+            android:textSize="@dimen/text_size"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <SeekBar
+            android:id="@+id/seekBar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="@bool/negativo"
+            android:max="200" />
+
+        <TextView
+            android:id="@+id/tvXMax"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:textSize="@dimen/text_size"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+        <!--Chart-->
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:paddingRight="30dp"
+        android:paddingBottom="140dp"
+        android:addStatesFromChildren="true"
+        android:paddingTop="@dimen/bar_height">
+
+        <ImageView
+            android:id="@+id/imgView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/ic_wave"
+            android:contentDescription="@string/tide" />
+
+        <ImageView
+            android:id="@+id/imgView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:foregroundGravity="right"
+            android:src="@drawable/ic_wave" />
+
+    </ViewFlipper>
+
+
+    </LinearLayout>

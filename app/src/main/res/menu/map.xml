@@ -1,0 +1,43 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/tours"
+        android:enabled="@bool/negativo"></item>
+
+    <item
+        android:id="@+id/tournp"
+        android:title="@string/northpacific"></item>
+
+    <item
+        android:id="@+id/tourpc"
+        android:title="@string/centralpacific"></item>
+
+    <item
+        android:id="@+id/tourps"
+        android:title="@string/southpacific"></item>
+
+    <item
+        android:id="@+id/toursc"
+        android:title="@string/southcaribbean"></item>
+
+    <item
+        android:title="@string/routes"
+        android:enabled="@bool/negativo"></item>
+
+    <item
+        android:id="@+id/rutasnp"
+        android:title="@string/northpacific"></item>
+
+    <item
+        android:id="@+id/rutaspc"
+        android:title="@string/centralpacific"></item>
+
+    <item
+        android:id="@+id/rutasps"
+        android:title="@string/southpacific"></item>
+
+    <item
+        android:id="@+id/rutassc"
+        android:title="@string/southcaribbean"></item>
+
+</menu>

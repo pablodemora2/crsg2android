@@ -1,0 +1,256 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.istudio.blureffect.TopCenterImageView
+        android:id="@+id/normal_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:scaleType="fitXY"
+        android:background="@drawable/background" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height">
+
+        <com.istudio.blureffect.ScrollableImageView
+            android:id="@+id/blurred_image_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage1"
+                android:text="@string/info"
+                android:textSize="@dimen/text_size_title"/>
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage2"
+                android:text="@string/beaches"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/button3"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage3"
+                android:text="@string/online"
+                android:textSize="@dimen/text_size_title" />
+
+            <Button
+                android:id="@+id/button4"
+                style="@style/ButtonStyleX"
+                android:onClick="sendMessage4"
+                android:text="@string/gallery"
+                android:textSize="@dimen/text_size_title" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:paddingTop="@dimen/bar_height">
+
+        <ViewFlipper
+            android:id="@+id/viewFlipper2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:addStatesFromChildren="true">
+
+            <ImageView
+                android:id="@+id/imgView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:src="@drawable/ic_star" />
+
+            <ImageView
+                android:id="@+id/imgView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:foregroundGravity="right"
+                android:src="@drawable/ic_star" />
+
+        </ViewFlipper>
+
+    </LinearLayout>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:addStatesFromChildren="true"
+        android:paddingTop="@dimen/bar_height">
+
+        <ImageView
+            android:id="@+id/imgView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:src="@drawable/ic_wave"
+            android:contentDescription="@string/tide" />
+
+        <ImageView
+            android:id="@+id/imgView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="true"
+            android:foregroundGravity="right"
+            android:src="@drawable/ic_wave" />
+
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="140dp"
+        android:paddingEnd="200dp"
+        android:layout_gravity="center_horizontal|center"
+        android:paddingRight="200dp">
+
+        <ImageView
+            android:id="@+id/imgView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/centralpacific"
+            android:src="@drawable/ic_wave" />
+
+        <ImageView
+            android:id="@+id/imgView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:src="@drawable/ic_wave" />
+
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
+        android:paddingBottom="120dp"
+        android:paddingRight="500dp"
+        android:paddingEnd="500dp">
+
+        <ImageView
+            android:id="@+id/imgView41"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/northpacific"
+            android:src="@drawable/ic_witchrock" />
+
+        <ImageView
+            android:id="@+id/imgView42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/northpacific"
+            android:src="@drawable/ic_witchrock" />
+
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp"
+        android:paddingStart="300dp"
+        android:paddingLeft="300dp"
+        android:layout_gravity="center_vertical|center">
+
+
+        <ImageView
+            android:id="@+id/imgView51"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/southcaribbean"
+            android:src="@drawable/ic_wave" />
+
+
+        <ImageView
+            android:id="@+id/imgView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wave" />
+
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_vertical"
+        android:paddingTop="300dp"
+        android:paddingStart="70dp"
+        android:paddingLeft="70dp">
+
+        <ImageView
+            android:id="@+id/imgView61"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/southpacific"
+            android:src="@drawable/ic_palmtree" />
+
+
+        <ImageView
+            android:id="@+id/imgView62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_palmtree" />
+    </ViewFlipper>
+
+    <ViewFlipper
+        android:id="@+id/viewFlipper7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="70dp"
+        android:paddingBottom="30dp"
+        android:layout_gravity="center_vertical|center">
+
+        <ImageView
+            android:id="@+id/imgView71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/sanjose"
+            android:src="@drawable/ic_skate" />
+
+        <ImageView
+            android:id="@+id/imgView72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_skate" />
+
+    </ViewFlipper>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="LEADERBOARD"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_gravity="bottom|center"
+        android:visibility="gone">
+    </com.google.android.gms.ads.AdView>
+
+</FrameLayout>

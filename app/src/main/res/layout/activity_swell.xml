@@ -1,0 +1,195 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/imgswell"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/swell"
+        android:scaleType="centerCrop"
+        android:src="@drawable/swell" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSwell"
+                style="@style/ButtonStyleX"
+                android:color="@color/white"
+                android:onClick="btnSwell"
+                android:text="@string/swell"/>
+
+            <Button
+                android:id="@+id/btnPeriod"
+                style="@style/ButtonStyleX"
+                android:color="@color/white"
+                android:onClick="btnPeriod"
+                android:text="@string/period"/>
+
+            <Button
+                android:id="@+id/btnWind"
+                style="@style/ButtonStyleX"
+                android:color="@color/white"
+                android:onClick="btnWind"
+                android:text="@string/wind"/>
+
+            <Button
+                android:id="@+id/btnPressure"
+                style="@style/ButtonStyleX"
+                android:color="@color/white"
+                android:onClick="btnPressure"
+                android:text="@string/pressure"/>
+
+            <Button
+                android:id="@+id/btnSst"
+                style="@style/ButtonStyleX"
+                android:color="@color/white"
+                android:onClick="btnSst"
+                android:text="@string/sst"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTxt"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:background="@color/black_overlay">
+
+            <TextView
+                android:id="@+id/tvSymbology1"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="@dimen/text_size"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/smb1"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="@dimen/text_size"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/smb2"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology3"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/white"
+                android:text="@string/smb3"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology4"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/white"
+                android:text="@string/smb4"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology5"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textSize="@dimen/text_size"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/smb5"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology6"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:text="@string/smb6"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology7"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                android:text="@string/smb7"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology8"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size"
+                android:text="@string/smb8"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology9"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/white"
+                android:text="@string/smb9"></TextView>
+
+            <TextView
+                android:id="@+id/tvSymbology10"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/white"
+                android:text="@string/smb10"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/black_overlay">
+
+            <ImageView
+                android:id="@+id/imgSymbology"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:contentDescription="@string/gradient"
+                android:text="@string/empty"></ImageView>
+
+            <TextView
+                android:id="@+id/txtUnits"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:textSize="@dimen/text_size"
+                android:text="@string/empty"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/msw_powered_by"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:alpha="0.7"
+        android:contentDescription="@string/swell"
+        android:src="@drawable/msw_powered_by"/>
+
+</FrameLayout>

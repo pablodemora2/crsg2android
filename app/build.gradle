@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "com.istudio.crsurfguide"
+    compileSdkVersion 34
+
+    defaultConfig {
+        applicationId "com.istudio.crsurfguide"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 11
+        versionName "3.528-free"
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            // Se activa R8 con optimizaciones avanzadas
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // AndroidX & Modern libraries
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Google Services
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    implementation 'com.google.android.gms:play-services-ads:22.6.0'
+
+    // UI
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation project(':slib')
+    // New
+    implementation 'com.facebook.android:facebook-android-sdk:[16,17)'
+}

@@ -1,0 +1,117 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".login.SplashActivity">
+
+    <com.istudio.blureffect.TopCenterImageView
+        android:id="@+id/normal_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/splash"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height">
+
+        <com.istudio.blureffect.ScrollableImageView
+            android:id="@+id/blurred_image_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="7dp"
+                android:src="@drawable/ic_eagle"/>
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_title"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_black"
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:gravity="center">
+
+            <com.facebook.login.widget.ProfilePictureView
+            android:id="@+id/picture"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/selection_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:selectable="true"
+                android:textColor="#fff"
+                android:textSize="@dimen/text_size_title" />
+
+            <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_title"
+            android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        android:layout_gravity="bottom">
+
+        <com.istudio.blureffect.ScrollableImageView
+            android:id="@+id/blurred_image_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/bar_height"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash" />
+
+        <Button
+            android:id="@+id/btnNext2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay"
+            android:gravity="center"
+            android:onClick="sendMessage1"
+            android:paddingLeft="10dp"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_title" />
+
+    </FrameLayout>
+
+</FrameLayout>

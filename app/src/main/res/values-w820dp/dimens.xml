@@ -1,0 +1,8 @@
+<resources>
+
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+
+    <dimen name="bar_height">100dp</dimen>
+    <dimen name="text_size">21dp</dimen>
+    <dimen name="text_size_title">28dp</dimen>
+</resources>

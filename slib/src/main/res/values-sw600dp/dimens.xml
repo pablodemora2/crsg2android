@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    Default screen margins, per the Android Design guidelines.
+    Estos valores son para los margenes de las pantallas (Views)
+    -->
+
+    <dimen name="text_size_title">35dp</dimen>
+
+</resources>
