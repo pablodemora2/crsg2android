@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "9562560622",
+    "project_id": "costaricasurfguide-b9b0d",
+    "storage_bucket": "costaricasurfguide-b9b0d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9562560622:android:cd93a78737f54ca5e0ae7f",
+        "android_client_info": {
+          "package_name": "com.istudio.crsurfguide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1RpVV8c0sY6MH-umqTJD3YVVwK14C0IQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

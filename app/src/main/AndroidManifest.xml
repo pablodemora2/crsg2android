@@ -41,6 +41,7 @@
         android:maxSdkVersion="21" />
 
     <application
+        android:name=".CRSurfGuideApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@drawable/ic_eagle"
