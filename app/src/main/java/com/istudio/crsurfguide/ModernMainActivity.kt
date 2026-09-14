@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,6 +28,13 @@ class ModernMainActivity : ComponentActivity() {
             MaterialTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     val navController = rememberNavController()
+                    
+                    val spotIdFromIntent = intent.getStringExtra("spotId")
+                    LaunchedEffect(spotIdFromIntent) {
+                        if (!spotIdFromIntent.isNullOrEmpty()) {
+                            navController.navigate("surf_detail/$spotIdFromIntent")
+                        }
+                    }
                     
                     NavHost(navController = navController, startDestination = "auth") {
                         composable("auth") {

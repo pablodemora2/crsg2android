@@ -8,6 +8,7 @@ import com.istudio.crsurfguide.data.local.dao.FavoriteSpotDao
 import com.istudio.crsurfguide.data.local.entity.FavoriteSpotEntity
 import com.istudio.crsurfguide.domain.model.UserProfile
 import com.istudio.crsurfguide.domain.repository.UserRepository
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
@@ -65,9 +66,11 @@ class UserRepositoryImpl @Inject constructor(
         if (currentFavorites.contains(spotId)) {
             userDoc.update("favoriteSurfSpotIds", FieldValue.arrayRemove(spotId)).await()
             favoriteSpotDao.removeFavorite(spotId)
+            com.google.firebase.messaging.FirebaseMessaging.getInstance().unsubscribeFromTopic("topic_spot_$spotId")
         } else {
             userDoc.update("favoriteSurfSpotIds", FieldValue.arrayUnion(spotId)).await()
             favoriteSpotDao.insertFavorites(listOf(FavoriteSpotEntity(spotId)))
+            com.google.firebase.messaging.FirebaseMessaging.getInstance().subscribeToTopic("topic_spot_$spotId")
         }
         Result.success(true)
     } catch (e: Exception) {
