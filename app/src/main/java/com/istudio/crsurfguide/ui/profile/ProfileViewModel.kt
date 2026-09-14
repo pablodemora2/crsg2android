@@ -1,5 +1,6 @@
 package com.istudio.crsurfguide.ui.profile
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.istudio.crsurfguide.domain.model.UserProfile
@@ -61,6 +62,22 @@ class ProfileViewModel @Inject constructor(
                 }
                 _isUpdating.value = false
             }
+        }
+    }
+
+    fun uploadImage(uri: Uri) {
+        val uid = authRepository.getCurrentUserId() ?: return
+        viewModelScope.launch {
+            _isUpdating.value = true
+            userRepository.uploadProfileImage(uid, uri).onSuccess { newUrl ->
+                val currentState = _profileState.value
+                if (currentState is ProfileState.Success) {
+                    _profileState.value = ProfileState.Success(
+                        currentState.profile.copy(profileImageUrl = newUrl)
+                    )
+                }
+            }
+            _isUpdating.value = false
         }
     }
 }

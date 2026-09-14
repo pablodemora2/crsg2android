@@ -2,6 +2,7 @@ package com.istudio.crsurfguide.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import com.istudio.crsurfguide.data.repository.AuthRepositoryImpl
 import com.istudio.crsurfguide.data.repository.SurfRepositoryImpl
 import com.istudio.crsurfguide.data.repository.UserRepositoryImpl
@@ -28,6 +29,10 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideFirebaseStorage(): FirebaseStorage = FirebaseStorage.getInstance()
+
+    @Provides
+    @Singleton
     fun provideAuthRepository(auth: FirebaseAuth, firestore: FirebaseFirestore): AuthRepository = 
         AuthRepositoryImpl(auth, firestore)
 
@@ -38,6 +43,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(firestore: FirebaseFirestore): UserRepository = 
-        UserRepositoryImpl(firestore)
+    fun provideUserRepository(firestore: FirebaseFirestore, storage: FirebaseStorage): UserRepository = 
+        UserRepositoryImpl(firestore, storage)
 }
