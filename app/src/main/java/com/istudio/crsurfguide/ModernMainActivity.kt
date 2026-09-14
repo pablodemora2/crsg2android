@@ -11,6 +11,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.istudio.crsurfguide.ui.auth.AuthScreen
 import com.istudio.crsurfguide.ui.auth.AuthViewModel
+import com.istudio.crsurfguide.ui.profile.ProfileScreen
+import com.istudio.crsurfguide.ui.profile.ProfileViewModel
 import com.istudio.crsurfguide.ui.surf.SurfListScreen
 import com.istudio.crsurfguide.ui.surf.SurfViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +40,16 @@ class ModernMainActivity : ComponentActivity() {
                         }
                         composable("surf_list") {
                             val surfViewModel = hiltViewModel<SurfViewModel>()
-                            SurfListScreen(viewModel = surfViewModel)
+                            SurfListScreen(
+                                viewModel = surfViewModel,
+                                onProfileClick = {
+                                    navController.navigate("profile")
+                                }
+                            )
+                        }
+                        composable("profile") {
+                            val profileViewModel = hiltViewModel<ProfileViewModel>()
+                            ProfileScreen(viewModel = profileViewModel)
                         }
                     }
                 }

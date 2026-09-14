@@ -10,19 +10,32 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import com.istudio.crsurfguide.domain.model.SurfSpot
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SurfListScreen(
-    viewModel: SurfViewModel
+    viewModel: SurfViewModel,
+    onProfileClick: () -> Unit
 ) {
     val spots by viewModel.spots.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Costa Rica Surf Guide") })
+            TopAppBar(
+                title = { Text("Costa Rica Surf Guide") },
+                actions = {
+                    IconButton(onClick = onProfileClick) {
+                        Icon(
+                            imageVector = Icons.Default.AccountCircle,
+                            contentDescription = "Perfil"
+                        )
+                    }
+                }
+            )
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
