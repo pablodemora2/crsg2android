@@ -13,6 +13,7 @@ import com.istudio.crsurfguide.ui.auth.AuthScreen
 import com.istudio.crsurfguide.ui.auth.AuthViewModel
 import com.istudio.crsurfguide.ui.profile.ProfileScreen
 import com.istudio.crsurfguide.ui.profile.ProfileViewModel
+import com.istudio.crsurfguide.ui.surf.SurfDetailScreen
 import com.istudio.crsurfguide.ui.surf.SurfListScreen
 import com.istudio.crsurfguide.ui.surf.SurfMapScreen
 import com.istudio.crsurfguide.ui.surf.SurfViewModel
@@ -48,6 +49,9 @@ class ModernMainActivity : ComponentActivity() {
                                 },
                                 onMapClick = {
                                     navController.navigate("surf_map")
+                                },
+                                onSpotClick = { spotId ->
+                                    navController.navigate("surf_detail/$spotId")
                                 }
                             )
                         }
@@ -57,7 +61,20 @@ class ModernMainActivity : ComponentActivity() {
                                 viewModel = surfViewModel,
                                 onBackClick = {
                                     navController.popBackStack()
+                                },
+                                onSpotClick = { spotId ->
+                                    navController.navigate("surf_detail/$spotId")
                                 }
+                            )
+                        }
+                        composable("surf_detail/{spotId}") { backStackEntry ->
+                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                            val surfViewModel = hiltViewModel<SurfViewModel>()
+                            SurfDetailScreen(
+                                spotId = spotId,
+                                viewModel = surfViewModel,
+                                onBackClick = { navController.popBackStack() },
+                                onMapClick = { navController.navigate("surf_map") }
                             )
                         }
                         composable("profile") {

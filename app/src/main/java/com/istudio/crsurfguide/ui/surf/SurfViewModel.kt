@@ -30,6 +30,9 @@ class SurfViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    private val _selectedSpot = MutableStateFlow<SurfSpot?>(null)
+    val selectedSpot: StateFlow<SurfSpot?> = _selectedSpot.asStateFlow()
+
     val spots: StateFlow<List<SurfSpot>> = combine(_rawSpots, _userProfile, _showOnlyFavorites) { spots, profile, onlyFavs ->
         if (onlyFavs) {
             spots.filter { spot -> profile?.favoriteSurfSpotIds?.contains(spot.id) == true }
@@ -61,6 +64,18 @@ class SurfViewModel @Inject constructor(
                     _rawSpots.value = it
                 }
             }
+        }
+    }
+
+    fun loadSpotById(id: String) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            surfRepository.getSpotById(id).onSuccess {
+                _selectedSpot.value = it
+            }.onFailure {
+                // Handle error
+            }
+            _isLoading.value = false
         }
     }
 

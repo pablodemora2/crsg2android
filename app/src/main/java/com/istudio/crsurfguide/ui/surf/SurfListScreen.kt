@@ -1,5 +1,6 @@
 package com.istudio.crsurfguide.ui.surf
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -25,7 +26,8 @@ import com.istudio.crsurfguide.domain.model.UserProfile
 fun SurfListScreen(
     viewModel: SurfViewModel,
     onProfileClick: () -> Unit,
-    onMapClick: () -> Unit
+    onMapClick: () -> Unit,
+    onSpotClick: (String) -> Unit
 ) {
     val spots by viewModel.spots.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -69,7 +71,8 @@ fun SurfListScreen(
                         SurfSpotItem(
                             spot = spot,
                             isFavorite = isFavorite,
-                            onFavoriteClick = { viewModel.toggleFavorite(spot.id) }
+                            onFavoriteClick = { viewModel.toggleFavorite(spot.id) },
+                            onClick = { onSpotClick(spot.id) }
                         )
                     }
                 }
@@ -82,12 +85,14 @@ fun SurfListScreen(
 fun SurfSpotItem(
     spot: SurfSpot,
     isFavorite: Boolean,
-    onFavoriteClick: () -> Unit
+    onFavoriteClick: () -> Unit,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clickable(onClick = onClick)
     ) {
         Row(
             modifier = Modifier

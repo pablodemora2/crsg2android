@@ -14,7 +14,8 @@ import com.google.maps.android.compose.*
 @Composable
 fun SurfMapScreen(
     viewModel: SurfViewModel,
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
+    onSpotClick: (String) -> Unit
 ) {
     val spots by viewModel.spots.collectAsState()
     
@@ -46,7 +47,8 @@ fun SurfMapScreen(
                 Marker(
                     state = MarkerState(position = LatLng(spot.latitude, spot.longitude)),
                     title = spot.name,
-                    snippet = spot.zone
+                    snippet = spot.zone,
+                    onInfoWindowClick = { onSpotClick(spot.id) }
                 )
             }
         }
