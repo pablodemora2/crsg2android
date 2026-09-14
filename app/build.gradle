@@ -41,6 +41,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def timestamp = new Date().format('yyyyMMdd_HHmm')
+            def fileName = "CRSurfGuide_v${variant.versionName}_${timestamp}_${variant.buildType.name}.apk"
+            outputFileName = fileName
+        }
+    }
 }
 
 dependencies {
