@@ -31,7 +31,7 @@ fun SurfListScreen(
 ) {
     val spots by viewModel.spots.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
-    val userProfile by viewModel.userProfile.collectAsState()
+    val favoriteIds by viewModel.favoriteIds.collectAsState()
     val showOnlyFavorites by viewModel.showOnlyFavorites.collectAsState()
 
     Scaffold(
@@ -67,7 +67,7 @@ fun SurfListScreen(
             } else {
                 LazyColumn {
                     items(spots) { spot ->
-                        val isFavorite = userProfile?.favoriteSurfSpotIds?.contains(spot.id) == true
+                        val isFavorite = favoriteIds.contains(spot.id)
                         SurfSpotItem(
                             spot = spot,
                             isFavorite = isFavorite,

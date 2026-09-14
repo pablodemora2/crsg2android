@@ -3,10 +3,12 @@ package com.istudio.crsurfguide.ui.surf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.istudio.crsurfguide.domain.model.SurfSpot
+import com.istudio.crsurfguide.domain.model.SurfWeather
 import com.istudio.crsurfguide.domain.model.UserProfile
 import com.istudio.crsurfguide.domain.repository.AuthRepository
 import com.istudio.crsurfguide.domain.repository.SurfRepository
 import com.istudio.crsurfguide.domain.repository.UserRepository
+import com.istudio.crsurfguide.domain.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -16,7 +18,8 @@ import javax.inject.Inject
 class SurfViewModel @Inject constructor(
     private val surfRepository: SurfRepository,
     private val userRepository: UserRepository,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val weatherRepository: WeatherRepository
 ) : ViewModel() {
 
     private val _rawSpots = MutableStateFlow<List<SurfSpot>>(emptyList())
@@ -33,9 +36,16 @@ class SurfViewModel @Inject constructor(
     private val _selectedSpot = MutableStateFlow<SurfSpot?>(null)
     val selectedSpot: StateFlow<SurfSpot?> = _selectedSpot.asStateFlow()
 
-    val spots: StateFlow<List<SurfSpot>> = combine(_rawSpots, _userProfile, _showOnlyFavorites) { spots, profile, onlyFavs ->
+    private val _surfWeather = MutableStateFlow<SurfWeather?>(null)
+    val surfWeather: StateFlow<SurfWeather?> = _surfWeather.asStateFlow()
+
+    // Favoritos locales reactivos
+    val favoriteIds: StateFlow<List<String>> = userRepository.getLocalFavoriteIds()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    val spots: StateFlow<List<SurfSpot>> = combine(_rawSpots, favoriteIds, _showOnlyFavorites) { spots, favs, onlyFavs ->
         if (onlyFavs) {
-            spots.filter { spot -> profile?.favoriteSurfSpotIds?.contains(spot.id) == true }
+            spots.filter { spot -> favs.contains(spot.id) }
         } else {
             spots
         }
@@ -70,8 +80,10 @@ class SurfViewModel @Inject constructor(
     fun loadSpotById(id: String) {
         viewModelScope.launch {
             _isLoading.value = true
-            surfRepository.getSpotById(id).onSuccess {
-                _selectedSpot.value = it
+            _surfWeather.value = null // Reset weather
+            surfRepository.getSpotById(id).onSuccess { spot ->
+                _selectedSpot.value = spot
+                fetchWeather(spot.latitude, spot.longitude)
             }.onFailure {
                 // Handle error
             }
@@ -79,13 +91,19 @@ class SurfViewModel @Inject constructor(
         }
     }
 
+    private fun fetchWeather(lat: Double, lon: Double) {
+        viewModelScope.launch {
+            weatherRepository.getSurfWeather(lat, lon).onSuccess {
+                _surfWeather.value = it
+            }
+        }
+    }
+
     fun toggleFavorite(spotId: String) {
         val uid = authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
-            userRepository.toggleFavoriteSpot(uid, spotId).onSuccess {
-                // Refresh profile to update UI state
-                loadUserProfile()
-            }
+            userRepository.toggleFavoriteSpot(uid, spotId)
+            // No necesitamos refrescar el perfil completo para los IDs, el flow local se encarga
         }
     }
 

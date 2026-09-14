@@ -24,8 +24,9 @@ fun SurfDetailScreen(
     onMapClick: () -> Unit
 ) {
     val spot by viewModel.selectedSpot.collectAsState()
+    val weather by viewModel.surfWeather.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
-    val userProfile by viewModel.userProfile.collectAsState()
+    val favoriteIds by viewModel.favoriteIds.collectAsState()
 
     LaunchedEffect(spotId) {
         viewModel.loadSpotById(spotId)
@@ -42,7 +43,7 @@ fun SurfDetailScreen(
                 },
                 actions = {
                     spot?.let { s ->
-                        val isFavorite = userProfile?.favoriteSurfSpotIds?.contains(s.id) == true
+                        val isFavorite = favoriteIds.contains(s.id)
                         IconButton(onClick = { viewModel.toggleFavorite(s.id) }) {
                             Icon(
                                 imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
@@ -89,19 +90,25 @@ fun SurfDetailScreen(
 
                         Spacer(modifier = Modifier.height(16.dp))
 
+                        Text(
+                            text = "Condiciones en Tiempo Real",
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier.padding(bottom = 8.dp)
+                        )
+
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
                             ConditionCard(
-                                title = "Tipo de Ola",
-                                value = currentSpot.waveType,
+                                title = "Altura Ola",
+                                value = if (weather != null) "${weather?.waveHeight}m" else "Cargando...",
                                 icon = Icons.Default.Waves
                             )
                             ConditionCard(
-                                title = "Nivel",
-                                value = currentSpot.difficulty,
-                                icon = Icons.Default.Star
+                                title = "Periodo",
+                                value = if (weather != null) "${weather?.wavePeriod}s" else "Cargando...",
+                                icon = Icons.Default.Timer
                             )
                         }
 
@@ -113,15 +120,29 @@ fun SurfDetailScreen(
                         ) {
                             ConditionCard(
                                 title = "Viento",
-                                value = currentSpot.windDirection,
-                                icon = Icons.Default.Info
+                                value = if (weather != null) "${weather?.windSpeed}km/h" else "Cargando...",
+                                icon = Icons.Default.Air
                             )
                             ConditionCard(
-                                title = "Marea",
-                                value = currentSpot.tideHeight,
-                                icon = Icons.Default.Water
+                                title = "Temp.",
+                                value = if (weather != null) "${weather?.temperature}°C" else "Cargando...",
+                                icon = Icons.Default.Thermostat
                             )
                         }
+
+                        Spacer(modifier = Modifier.height(16.dp))
+                        
+                        Divider()
+                        
+                        Spacer(modifier = Modifier.height(16.dp))
+
+                        Text(
+                            text = "Información Técnica",
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                        
+                        ConditionRow(label = "Marea Ideal", value = currentSpot.bestTide)
+                        ConditionRow(label = "Dificultad", value = currentSpot.difficulty)
 
                         Spacer(modifier = Modifier.height(16.dp))
 
@@ -162,7 +183,20 @@ fun ConditionCard(title: String, value: String, icon: ImageVector) {
         Column(modifier = Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(imageVector = icon, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
             Text(text = title, style = MaterialTheme.typography.labelSmall)
-            Text(text = value.ifEmpty { "N/A" }, style = MaterialTheme.typography.bodyMedium)
+            Text(text = value, style = MaterialTheme.typography.bodyMedium)
         }
+    }
+}
+
+@Composable
+fun ConditionRow(label: String, value: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(text = label, style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+        Text(text = value, style = MaterialTheme.typography.bodyMedium)
     }
 }
