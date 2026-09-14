@@ -14,6 +14,7 @@ import com.istudio.crsurfguide.ui.auth.AuthViewModel
 import com.istudio.crsurfguide.ui.profile.ProfileScreen
 import com.istudio.crsurfguide.ui.profile.ProfileViewModel
 import com.istudio.crsurfguide.ui.surf.SurfListScreen
+import com.istudio.crsurfguide.ui.surf.SurfMapScreen
 import com.istudio.crsurfguide.ui.surf.SurfViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,6 +45,18 @@ class ModernMainActivity : ComponentActivity() {
                                 viewModel = surfViewModel,
                                 onProfileClick = {
                                     navController.navigate("profile")
+                                },
+                                onMapClick = {
+                                    navController.navigate("surf_map")
+                                }
+                            )
+                        }
+                        composable("surf_map") {
+                            val surfViewModel = hiltViewModel<SurfViewModel>()
+                            SurfMapScreen(
+                                viewModel = surfViewModel,
+                                onBackClick = {
+                                    navController.popBackStack()
                                 }
                             )
                         }

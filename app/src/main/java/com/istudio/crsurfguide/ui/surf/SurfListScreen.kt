@@ -12,13 +12,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Map
 import com.istudio.crsurfguide.domain.model.SurfSpot
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SurfListScreen(
     viewModel: SurfViewModel,
-    onProfileClick: () -> Unit
+    onProfileClick: () -> Unit,
+    onMapClick: () -> Unit
 ) {
     val spots by viewModel.spots.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -36,6 +38,11 @@ fun SurfListScreen(
                     }
                 }
             )
+        },
+        floatingActionButton = {
+            FloatingActionButton(onClick = onMapClick) {
+                Icon(imageVector = Icons.Default.Map, contentDescription = "Ver Mapa")
+            }
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
