@@ -6,5 +6,6 @@ data class UserProfile(
     val email: String = "",
     val profileImageUrl: String = "",
     val surfLevel: String = "",
-    val favoriteSpot: String = ""
+    val favoriteSpot: String = "",
+    val favoriteSurfSpotIds: List<String> = emptyList()
 )

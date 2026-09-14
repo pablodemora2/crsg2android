@@ -2,6 +2,7 @@ package com.istudio.crsurfguide.data.repository
 
 import android.net.Uri
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.storage.FirebaseStorage
 import com.istudio.crsurfguide.domain.model.UserProfile
 import com.istudio.crsurfguide.domain.repository.UserRepository
@@ -41,6 +42,21 @@ class UserRepositoryImpl @Inject constructor(
         firestore.collection("users").document(uid).update("profileImageUrl", url).await()
         
         Result.success(url)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun toggleFavoriteSpot(uid: String, spotId: String): Result<Boolean> = try {
+        val userDoc = firestore.collection("users").document(uid)
+        val snapshot = userDoc.get().await()
+        val currentFavorites = snapshot.get("favoriteSurfSpotIds") as? List<*>
+        
+        if (currentFavorites?.contains(spotId) == true) {
+            userDoc.update("favoriteSurfSpotIds", FieldValue.arrayRemove(spotId)).await()
+        } else {
+            userDoc.update("favoriteSurfSpotIds", FieldValue.arrayUnion(spotId)).await()
+        }
+        Result.success(true)
     } catch (e: Exception) {
         Result.failure(e)
     }
