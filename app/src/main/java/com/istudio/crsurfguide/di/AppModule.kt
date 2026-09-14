@@ -4,8 +4,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.istudio.crsurfguide.data.repository.AuthRepositoryImpl
 import com.istudio.crsurfguide.data.repository.SurfRepositoryImpl
+import com.istudio.crsurfguide.data.repository.UserRepositoryImpl
 import com.istudio.crsurfguide.domain.repository.AuthRepository
 import com.istudio.crsurfguide.domain.repository.SurfRepository
+import com.istudio.crsurfguide.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,4 +35,9 @@ object AppModule {
     @Singleton
     fun provideSurfRepository(firestore: FirebaseFirestore): SurfRepository = 
         SurfRepositoryImpl(firestore)
+
+    @Provides
+    @Singleton
+    fun provideUserRepository(firestore: FirebaseFirestore): UserRepository = 
+        UserRepositoryImpl(firestore)
 }
