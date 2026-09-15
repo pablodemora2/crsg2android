@@ -46,11 +46,12 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    fun updateProfile(name: String, surfLevel: String, favoriteSpot: String) {
+    fun updateProfile(name: String, bio: String, surfLevel: String, favoriteSpot: String) {
         val currentState = _profileState.value
         if (currentState is ProfileState.Success) {
             val updatedProfile = currentState.profile.copy(
                 name = name,
+                bio = bio,
                 surfLevel = surfLevel,
                 favoriteSpot = favoriteSpot
             )
@@ -63,6 +64,10 @@ class ProfileViewModel @Inject constructor(
                 _isUpdating.value = false
             }
         }
+    }
+
+    fun signOut() {
+        authRepository.signOut()
     }
 
     fun uploadImage(uri: Uri) {

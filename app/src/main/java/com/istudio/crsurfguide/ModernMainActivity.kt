@@ -122,7 +122,14 @@ class ModernMainActivity : ComponentActivity() {
                         }
                         composable("profile") {
                             val profileViewModel = hiltViewModel<ProfileViewModel>()
-                            ProfileScreen(viewModel = profileViewModel)
+                            ProfileScreen(
+                                viewModel = profileViewModel,
+                                onLogout = {
+                                    navController.navigate("auth") {
+                                        popUpTo(0)
+                                    }
+                                }
+                            )
                         }
                     }
                     }
