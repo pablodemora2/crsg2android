@@ -20,6 +20,9 @@ import com.istudio.crsurfguide.ui.auth.AuthScreen
 import com.istudio.crsurfguide.ui.auth.AuthViewModel
 import com.istudio.crsurfguide.ui.profile.ProfileScreen
 import com.istudio.crsurfguide.ui.profile.ProfileViewModel
+import com.istudio.crsurfguide.ui.splash.SplashScreen
+import com.istudio.crsurfguide.ui.swell.SwellScreen
+import com.istudio.crsurfguide.ui.gallery.GalleryScreen
 import com.istudio.crsurfguide.ui.surf.SurfDetailScreen
 import com.istudio.crsurfguide.ui.surf.SurfListScreen
 import com.istudio.crsurfguide.ui.surf.SurfMapScreen
@@ -74,7 +77,17 @@ class ModernMainActivity : ComponentActivity() {
                             }
                         }
                     
-                    NavHost(navController = navController, startDestination = "auth") {
+                    NavHost(navController = navController, startDestination = "splash") {
+                        composable("splash") {
+                            SplashScreen(
+                                navController = navController,
+                                onNavigateNext = {
+                                    navController.navigate("auth") {
+                                        popUpTo("splash") { inclusive = true }
+                                    }
+                                }
+                            )
+                        }
                         composable("auth") {
                             val authViewModel = hiltViewModel<AuthViewModel>()
                             AuthScreen(
@@ -106,16 +119,10 @@ class ModernMainActivity : ComponentActivity() {
                             )
                         }
                         composable("swell") {
-                            // Placeholder
-                            Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
-                                Text("Pantalla de Swell (En desarrollo)")
-                            }
+                            SwellScreen(navController = navController)
                         }
                         composable("gallery") {
-                            // Placeholder
-                            Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
-                                Text("Galería de Fotos (En desarrollo)")
-                            }
+                            GalleryScreen(navController = navController)
                         }
                         composable("surf_map") {
                             val surfViewModel = hiltViewModel<SurfViewModel>()

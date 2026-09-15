@@ -327,4 +327,14 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    public void startModernFlow(View view) {
+        LogBuffer.INSTANCE.d("SplashActivity", "Button Modern Flow clicked.");
+        try {
+            Intent intent = new Intent(this, com.istudio.crsurfguide.ModernMainActivity.class);
+            startActivity(intent);
+        } catch (Exception e) {
+            LogBuffer.INSTANCE.e("SplashActivity", "Error starting Modern Flow", e);
+        }
+    }
+
 }

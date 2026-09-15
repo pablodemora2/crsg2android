@@ -125,6 +125,20 @@
 
     </FrameLayout>
 
+    <!-- Botón para QA: Iniciar flujo moderno -->
+    <Button
+        android:id="@+id/btnModernFlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/shape_black"
+        android:padding="12dp"
+        android:text="🚀 Nuevo flujo: Iniciar acá"
+        android:textColor="#FFEB3B"
+        android:textAllCaps="false"
+        android:onClick="startModernFlow" />
+
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/debug_hud_view"
         android:layout_width="match_parent"
