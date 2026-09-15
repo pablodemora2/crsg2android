@@ -64,4 +64,22 @@ class ChatViewModel @Inject constructor(
             }
         }
     }
+
+    fun deleteMessage(spotId: String, messageId: String) {
+        viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatViewModel", "Eliminando mensaje: $messageId")
+            chatRepository.deleteMessage(spotId, messageId).onFailure {
+                com.istudio.crsurfguide.ui.debug.LogBuffer.e("ChatViewModel", "Error al eliminar mensaje", it)
+            }
+        }
+    }
+
+    fun clearChat(spotId: String) {
+        viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatViewModel", "Limpiando historial del chat: $spotId")
+            chatRepository.clearChatHistory(spotId).onFailure {
+                com.istudio.crsurfguide.ui.debug.LogBuffer.e("ChatViewModel", "Error al limpiar chat", it)
+            }
+        }
+    }
 }

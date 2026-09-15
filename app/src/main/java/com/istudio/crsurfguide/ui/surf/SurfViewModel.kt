@@ -19,7 +19,8 @@ class SurfViewModel @Inject constructor(
     private val userRepository: UserRepository,
     private val authRepository: AuthRepository,
     private val weatherRepository: WeatherRepository,
-    private val reportRepository: SurfReportRepository
+    private val reportRepository: SurfReportRepository,
+    private val seedFakeUserDataUseCase: com.istudio.crsurfguide.domain.usecase.SeedFakeUserDataUseCase
 ) : ViewModel() {
 
     companion object {
@@ -73,6 +74,8 @@ class SurfViewModel @Inject constructor(
             if (uid.startsWith("fake_")) {
                 com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Detectado Fake User, garantizando persistencia local...")
                 userRepository.getOrCreateFakeUser(uid, "", "")
+                // Lanzar el seeding de datos si es necesario
+                seedFakeUserDataUseCase(uid)
             }
             userRepository.getUserProfile(uid).onSuccess {
                 _userProfile.value = it

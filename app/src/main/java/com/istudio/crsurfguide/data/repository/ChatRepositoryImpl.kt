@@ -35,11 +35,43 @@ class ChatRepositoryImpl @Inject constructor(
     }
 
     override suspend fun sendMessage(message: ChatMessage): Result<Boolean> = try {
-        firestore.collection("spots")
+        val docRef = firestore.collection("spots")
             .document(message.spotId)
             .collection("messages")
             .add(message)
             .await()
+        
+        // Actualizar el ID del mensaje con el ID generado por Firestore
+        docRef.update("id", docRef.id).await()
+        
+        Result.success(true)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun deleteMessage(spotId: String, messageId: String): Result<Boolean> = try {
+        firestore.collection("spots")
+            .document(spotId)
+            .collection("messages")
+            .document(messageId)
+            .delete()
+            .await()
+        Result.success(true)
+    } catch (e: Exception) {
+        Result.failure(e)
+    }
+
+    override suspend fun clearChatHistory(spotId: String): Result<Boolean> = try {
+        val messages = firestore.collection("spots")
+            .document(spotId)
+            .collection("messages")
+            .get()
+            .await()
+        
+        val batch = firestore.batch()
+        messages.documents.forEach { batch.delete(it.reference) }
+        batch.commit().await()
+
         Result.success(true)
     } catch (e: Exception) {
         Result.failure(e)

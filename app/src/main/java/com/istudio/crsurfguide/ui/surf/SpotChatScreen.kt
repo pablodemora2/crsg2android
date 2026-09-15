@@ -1,6 +1,8 @@
 package com.istudio.crsurfguide.ui.surf
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -10,6 +12,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.DeleteSweep
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,7 +26,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.istudio.crsurfguide.domain.model.ChatMessage
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun SpotChatScreen(
     spotId: String,
@@ -34,6 +38,8 @@ fun SpotChatScreen(
     val currentUserId = viewModel.getCurrentUserId()
     var messageText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
+    
+    var showClearConfirm by remember { mutableStateOf(false) }
 
     LaunchedEffect(spotId) {
         com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatScreen", "Pantalla de chat abierta para: $spotName (ID: $spotId)")
@@ -50,6 +56,23 @@ fun SpotChatScreen(
         }
     }
 
+    if (showClearConfirm) {
+        AlertDialog(
+            onDismissRequest = { showClearConfirm = false },
+            title = { Text("Limpiar Historial") },
+            text = { Text("¿Estás seguro de que deseas borrar todos los mensajes de este chat? Esta acción no se puede deshacer.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    viewModel.clearChat(spotId)
+                    showClearConfirm = false
+                }) { Text("Borrar Todo", color = Color.Red) }
+            },
+            dismissButton = {
+                TextButton(onClick = { showClearConfirm = false }) { Text("Cancelar") }
+            }
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -57,6 +80,11 @@ fun SpotChatScreen(
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Atrás")
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { showClearConfirm = true }) {
+                        Icon(imageVector = Icons.Default.DeleteSweep, contentDescription = "Limpiar Chat")
                     }
                 }
             )
@@ -110,15 +138,19 @@ fun SpotChatScreen(
                 com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatScreen", "Renderizando mensaje: de=${message.senderName} texto=${message.text.take(10)}")
                 MessageItem(
                     message = message,
-                    isMine = message.senderId == currentUserId
+                    isMine = message.senderId == currentUserId,
+                    onDelete = { viewModel.deleteMessage(spotId, message.id) }
                 )
             }
         }
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MessageItem(message: ChatMessage, isMine: Boolean) {
+fun MessageItem(message: ChatMessage, isMine: Boolean, onDelete: () -> Unit) {
+    var showDeleteIcon by remember { mutableStateOf(false) }
+
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = if (isMine) Alignment.End else Alignment.Start
@@ -148,20 +180,36 @@ fun MessageItem(message: ChatMessage, isMine: Boolean) {
                     bottomStart = if (isMine) 16.dp else 0.dp,
                     bottomEnd = if (isMine) 0.dp else 16.dp
                 ),
-                modifier = Modifier.widthIn(max = 280.dp)
+                modifier = Modifier
+                    .widthIn(max = 280.dp)
+                    .combinedClickable(
+                        onClick = { showDeleteIcon = !showDeleteIcon },
+                        onLongClick = { showDeleteIcon = true }
+                    )
             ) {
-                Column(modifier = Modifier.padding(12.dp)) {
-                    if (!isMine) {
+                Row(
+                    modifier = Modifier.padding(12.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f, fill = false)) {
+                        if (!isMine) {
+                            Text(
+                                text = message.senderName,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.secondary
+                            )
+                        }
                         Text(
-                            text = message.senderName,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.secondary
+                            text = message.text,
+                            style = MaterialTheme.typography.bodyMedium
                         )
                     }
-                    Text(
-                        text = message.text,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
+                    
+                    if (showDeleteIcon && isMine) {
+                        IconButton(onClick = onDelete, modifier = Modifier.size(24.dp)) {
+                            Icon(Icons.Default.Delete, contentDescription = "Eliminar", tint = Color.Red)
+                        }
+                    }
                 }
             }
         }
