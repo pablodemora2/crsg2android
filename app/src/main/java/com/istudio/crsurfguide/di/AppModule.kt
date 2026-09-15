@@ -68,4 +68,19 @@ object AppModule {
     @Singleton
     fun provideWeatherRepository(api: WeatherApi): WeatherRepository = 
         WeatherRepositoryImpl(api)
+
+    @Provides
+    @Singleton
+    fun provideSurfReportRepository(
+        firestore: FirebaseFirestore,
+        storage: FirebaseStorage
+    ): com.istudio.crsurfguide.domain.repository.SurfReportRepository = 
+        com.istudio.crsurfguide.data.repository.SurfReportRepositoryImpl(firestore, storage)
+
+    @Provides
+    @Singleton
+    fun provideChatRepository(
+        firestore: FirebaseFirestore
+    ): com.istudio.crsurfguide.domain.repository.ChatRepository = 
+        com.istudio.crsurfguide.data.repository.ChatRepositoryImpl(firestore)
 }

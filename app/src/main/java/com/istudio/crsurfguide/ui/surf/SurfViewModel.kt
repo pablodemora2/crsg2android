@@ -5,21 +5,21 @@ import androidx.lifecycle.viewModelScope
 import com.istudio.crsurfguide.domain.model.SurfSpot
 import com.istudio.crsurfguide.domain.model.SurfWeather
 import com.istudio.crsurfguide.domain.model.UserProfile
-import com.istudio.crsurfguide.domain.repository.AuthRepository
-import com.istudio.crsurfguide.domain.repository.SurfRepository
-import com.istudio.crsurfguide.domain.repository.UserRepository
-import com.istudio.crsurfguide.domain.repository.WeatherRepository
+import com.istudio.crsurfguide.domain.model.SpotReport
+import com.istudio.crsurfguide.domain.repository.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import android.net.Uri
 
 @HiltViewModel
 class SurfViewModel @Inject constructor(
     private val surfRepository: SurfRepository,
     private val userRepository: UserRepository,
     private val authRepository: AuthRepository,
-    private val weatherRepository: WeatherRepository
+    private val weatherRepository: WeatherRepository,
+    private val reportRepository: SurfReportRepository
 ) : ViewModel() {
 
     private val _rawSpots = MutableStateFlow<List<SurfSpot>>(emptyList())
@@ -41,6 +41,9 @@ class SurfViewModel @Inject constructor(
 
     private val _surfWeather = MutableStateFlow<SurfWeather?>(null)
     val surfWeather: StateFlow<SurfWeather?> = _surfWeather.asStateFlow()
+
+    private val _spotReports = MutableStateFlow<List<SpotReport>>(emptyList())
+    val spotReports: StateFlow<List<SpotReport>> = _spotReports.asStateFlow()
 
     // Favoritos locales reactivos
     val favoriteIds: StateFlow<List<String>> = userRepository.getLocalFavoriteIds()
@@ -91,8 +94,40 @@ class SurfViewModel @Inject constructor(
             surfRepository.getSpotById(id).onSuccess { spot ->
                 _selectedSpot.value = spot
                 fetchWeather(spot.latitude, spot.longitude)
+                loadReports(id)
             }.onFailure {
                 _errorMessage.value = "Error al cargar el spot: ${it.localizedMessage}"
+            }
+            _isLoading.value = false
+        }
+    }
+
+    private fun loadReports(spotId: String) {
+        viewModelScope.launch {
+            reportRepository.getReportsForSpot(spotId).collect {
+                _spotReports.value = it
+            }
+        }
+    }
+
+    fun uploadReport(spotId: String, imageUri: Uri, comment: String, waveHeight: String, windCondition: String) {
+        val user = _userProfile.value ?: return
+        val report = SpotReport(
+            spotId = spotId,
+            userId = user.uid,
+            userName = user.name,
+            userProfileImageUrl = user.profileImageUrl,
+            comment = comment,
+            waveHeight = waveHeight,
+            windCondition = windCondition
+        )
+        
+        viewModelScope.launch {
+            _isLoading.value = true
+            reportRepository.uploadReport(report, imageUri).onSuccess {
+                _errorMessage.value = "Reporte subido con éxito"
+            }.onFailure {
+                _errorMessage.value = "Error al subir reporte: ${it.localizedMessage}"
             }
             _isLoading.value = false
         }

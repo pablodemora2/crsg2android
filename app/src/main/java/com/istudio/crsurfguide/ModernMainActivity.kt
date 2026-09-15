@@ -22,8 +22,10 @@ import com.istudio.crsurfguide.ui.profile.ProfileViewModel
 import com.istudio.crsurfguide.ui.surf.SurfDetailScreen
 import com.istudio.crsurfguide.ui.surf.SurfListScreen
 import com.istudio.crsurfguide.ui.surf.SurfMapScreen
-import com.istudio.crsurfguide.ui.surf.SurfMapScreen
+import com.istudio.crsurfguide.ui.surf.UploadSpotPhotoScreen
+import com.istudio.crsurfguide.ui.surf.SpotChatScreen
 import com.istudio.crsurfguide.ui.surf.SurfViewModel
+import com.istudio.crsurfguide.ui.surf.ChatViewModel
 import com.istudio.crsurfguide.ui.debug.LogBuffer
 import com.istudio.crsurfguide.ui.debug.DebugHud
 import com.istudio.crsurfguide.ui.theme.ThemeManager
@@ -117,7 +119,30 @@ class ModernMainActivity : ComponentActivity() {
                                 spotId = spotId,
                                 viewModel = surfViewModel,
                                 onBackClick = { navController.popBackStack() },
-                                onMapClick = { navController.navigate("surf_map") }
+                                onMapClick = { navController.navigate("surf_map") },
+                                onAddPhotoClick = { id -> navController.navigate("upload_photo/$id") },
+                                onChatClick = { id, name -> navController.navigate("spot_chat/$id/$name") }
+                            )
+                        }
+                        composable("upload_photo/{spotId}") { backStackEntry ->
+                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                            val surfViewModel = hiltViewModel<SurfViewModel>()
+                            UploadSpotPhotoScreen(
+                                spotId = spotId,
+                                viewModel = surfViewModel,
+                                onBackClick = { navController.popBackStack() },
+                                onUploadSuccess = { navController.popBackStack() }
+                            )
+                        }
+                        composable("spot_chat/{spotId}/{spotName}") { backStackEntry ->
+                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                            val spotName = backStackEntry.arguments?.getString("spotName") ?: ""
+                            val chatViewModel = hiltViewModel<ChatViewModel>()
+                            SpotChatScreen(
+                                spotId = spotId,
+                                spotName = spotName,
+                                viewModel = chatViewModel,
+                                onBackClick = { navController.popBackStack() }
                             )
                         }
                         composable("profile") {

@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -15,6 +17,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import com.istudio.crsurfguide.domain.model.SpotReport
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.clip
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,10 +29,13 @@ fun SurfDetailScreen(
     spotId: String,
     viewModel: SurfViewModel,
     onBackClick: () -> Unit,
-    onMapClick: () -> Unit
+    onMapClick: () -> Unit,
+    onAddPhotoClick: (String) -> Unit,
+    onChatClick: (String, String) -> Unit
 ) {
     val spot by viewModel.selectedSpot.collectAsState()
     val weather by viewModel.surfWeather.collectAsState()
+    val spotReports by viewModel.spotReports.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
     val favoriteIds by viewModel.favoriteIds.collectAsState()
@@ -55,6 +65,9 @@ fun SurfDetailScreen(
                 },
                 actions = {
                     spot?.let { s ->
+                        IconButton(onClick = { onChatClick(s.id, s.name) }) {
+                            Icon(imageVector = Icons.AutoMirrored.Filled.Chat, contentDescription = "Chat del Spot")
+                        }
                         val isFavorite = favoriteIds.contains(s.id)
                         IconButton(onClick = { viewModel.toggleFavorite(s.id) }) {
                             Icon(
@@ -176,6 +189,45 @@ fun SurfDetailScreen(
                         )
 
                         Spacer(modifier = Modifier.height(24.dp))
+                        
+                        // Sección de Reportes de la Comunidad
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Reportes de la Comunidad",
+                                style = MaterialTheme.typography.titleLarge
+                            )
+                            TextButton(onClick = { onAddPhotoClick(currentSpot.id) }) {
+                                Icon(Icons.Default.AddAPhoto, contentDescription = null)
+                                Spacer(Modifier.width(4.dp))
+                                Text("Añadir")
+                            }
+                        }
+                        
+                        if (spotReports.isEmpty()) {
+                            Text(
+                                text = "Sé el primero en subir una foto de hoy",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = Color.Gray,
+                                modifier = Modifier.padding(vertical = 16.dp)
+                            )
+                        } else {
+                            LazyRow(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 8.dp),
+                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                            ) {
+                                items(spotReports) { report ->
+                                    SpotReportItem(report)
+                                }
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(24.dp))
 
                         Button(
                             onClick = onMapClick,
@@ -217,5 +269,51 @@ fun ConditionRow(label: String, value: String) {
     ) {
         Text(text = label, style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
         Text(text = value, style = MaterialTheme.typography.bodyMedium)
+    }
+}
+
+@Composable
+fun SpotReportItem(report: SpotReport) {
+    Card(
+        modifier = Modifier
+            .width(220.dp)
+            .height(280.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Column {
+            AsyncImage(
+                model = report.imageUrl,
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(150.dp),
+                contentScale = ContentScale.Crop
+            )
+            Column(modifier = Modifier.padding(8.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    AsyncImage(
+                        model = report.userProfileImageUrl,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(24.dp)
+                            .clip(CircleShape)
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(text = report.userName, style = MaterialTheme.typography.labelMedium)
+                }
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = "Ola: ${report.waveHeight} | ${report.windCondition}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    text = report.comment,
+                    style = MaterialTheme.typography.bodySmall,
+                    maxLines = 2,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+            }
+        }
     }
 }
