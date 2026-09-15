@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.istudio.crsurfguide.domain.model.UserProfile
 import com.istudio.crsurfguide.domain.repository.AuthRepository
 import com.istudio.crsurfguide.domain.repository.UserRepository
+import com.istudio.crsurfguide.ui.surf.SurfViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -30,7 +31,7 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun loadProfile() {
-        val uid = authRepository.getCurrentUserId()
+        val uid = SurfViewModel.forcedFakeUid ?: authRepository.getCurrentUserId()
         if (uid == null) {
             _profileState.value = ProfileState.Error("User not authenticated")
             return
@@ -67,11 +68,12 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun signOut() {
+        SurfViewModel.forcedFakeUid = null
         authRepository.signOut()
     }
 
     fun uploadImage(uri: Uri) {
-        val uid = authRepository.getCurrentUserId() ?: return
+        val uid = SurfViewModel.forcedFakeUid ?: authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
             _isUpdating.value = true
             userRepository.uploadProfileImage(uid, uri).onSuccess { newUrl ->

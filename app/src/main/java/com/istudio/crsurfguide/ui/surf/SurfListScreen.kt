@@ -23,11 +23,14 @@ import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Refresh
 import com.istudio.crsurfguide.domain.model.SurfSpot
 import com.istudio.crsurfguide.domain.model.UserProfile
+import com.istudio.crsurfguide.ui.components.SurfTopBar
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SurfListScreen(
     viewModel: SurfViewModel,
+    navController: NavController,
     onProfileClick: () -> Unit,
     onMapClick: () -> Unit,
     onSpotClick: (String) -> Unit
@@ -50,8 +53,9 @@ fun SurfListScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text("Costa Rica Surf Guide") },
+            SurfTopBar(
+                title = "Costa Rica Surf Guide",
+                navController = navController,
                 actions = {
                     IconButton(onClick = { viewModel.loadSpots() }) {
                         Icon(imageVector = Icons.Default.Refresh, contentDescription = "Refrescar")
@@ -61,12 +65,6 @@ fun SurfListScreen(
                             imageVector = Icons.Default.FilterList,
                             contentDescription = "Filtrar",
                             tint = if (showOnlyFavorites) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                    IconButton(onClick = onProfileClick) {
-                        Icon(
-                            imageVector = Icons.Default.AccountCircle,
-                            contentDescription = "Perfil"
                         )
                     }
                 }

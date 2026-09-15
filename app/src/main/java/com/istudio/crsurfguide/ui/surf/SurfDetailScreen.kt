@@ -22,12 +22,15 @@ import androidx.compose.foundation.lazy.items
 import com.istudio.crsurfguide.domain.model.SpotReport
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.draw.clip
+import com.istudio.crsurfguide.ui.components.SurfTopBar
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SurfDetailScreen(
     spotId: String,
     viewModel: SurfViewModel,
+    navController: NavController,
     onBackClick: () -> Unit,
     onMapClick: () -> Unit,
     onAddPhotoClick: (String) -> Unit,
@@ -56,13 +59,11 @@ fun SurfDetailScreen(
     Scaffold(
         snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
-            TopAppBar(
-                title = { Text(spot?.name ?: "Detalles") },
-                navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Atrás")
-                    }
-                },
+            SurfTopBar(
+                title = spot?.name ?: "Detalles",
+                navController = navController,
+                showBackButton = true,
+                onBackClick = onBackClick,
                 actions = {
                     spot?.let { s ->
                         IconButton(onClick = { onChatClick(s.id, s.name) }) {

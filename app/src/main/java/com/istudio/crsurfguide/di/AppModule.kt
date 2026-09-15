@@ -22,6 +22,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+import com.istudio.crsurfguide.data.local.dao.UserDao
+
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
@@ -61,8 +63,9 @@ object AppModule {
     fun provideUserRepository(
         firestore: FirebaseFirestore,
         storage: FirebaseStorage,
-        favoriteSpotDao: FavoriteSpotDao
-    ): UserRepository = UserRepositoryImpl(firestore, storage, favoriteSpotDao)
+        favoriteSpotDao: FavoriteSpotDao,
+        userDao: com.istudio.crsurfguide.data.local.dao.UserDao
+    ): UserRepository = UserRepositoryImpl(firestore, storage, favoriteSpotDao, userDao)
 
     @Provides
     @Singleton

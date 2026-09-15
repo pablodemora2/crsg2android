@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.istudio.crsurfguide.data.local.AppDatabase
 import com.istudio.crsurfguide.data.local.dao.FavoriteSpotDao
 import com.istudio.crsurfguide.data.local.dao.SurfSpotDao
+import com.istudio.crsurfguide.data.local.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +37,11 @@ object DatabaseModule {
     @Singleton
     fun provideFavoriteSpotDao(db: AppDatabase): FavoriteSpotDao {
         return db.favoriteSpotDao
+    }
+
+    @Provides
+    @Singleton
+    fun provideUserDao(db: AppDatabase): UserDao {
+        return db.userDao
     }
 }

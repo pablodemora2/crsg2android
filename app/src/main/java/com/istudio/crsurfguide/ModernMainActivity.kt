@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -78,7 +79,10 @@ class ModernMainActivity : ComponentActivity() {
                             val authViewModel = hiltViewModel<AuthViewModel>()
                             AuthScreen(
                                 viewModel = authViewModel,
-                                onAuthSuccess = {
+                                onAuthSuccess = { fakeUidOpt ->
+                                    if (fakeUidOpt != null) {
+                                        com.istudio.crsurfguide.ui.surf.SurfViewModel.forcedFakeUid = fakeUidOpt
+                                    }
                                     navController.navigate("surf_list") {
                                         popUpTo("auth") { inclusive = true }
                                     }
@@ -89,6 +93,7 @@ class ModernMainActivity : ComponentActivity() {
                             val surfViewModel = hiltViewModel<SurfViewModel>()
                             SurfListScreen(
                                 viewModel = surfViewModel,
+                                navController = navController,
                                 onProfileClick = {
                                     navController.navigate("profile")
                                 },
@@ -99,6 +104,18 @@ class ModernMainActivity : ComponentActivity() {
                                     navController.navigate("surf_detail/$spotId")
                                 }
                             )
+                        }
+                        composable("swell") {
+                            // Placeholder
+                            Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
+                                Text("Pantalla de Swell (En desarrollo)")
+                            }
+                        }
+                        composable("gallery") {
+                            // Placeholder
+                            Box(modifier = androidx.compose.ui.Modifier.fillMaxSize(), contentAlignment = androidx.compose.ui.Alignment.Center) {
+                                Text("Galería de Fotos (En desarrollo)")
+                            }
                         }
                         composable("surf_map") {
                             val surfViewModel = hiltViewModel<SurfViewModel>()
@@ -118,6 +135,7 @@ class ModernMainActivity : ComponentActivity() {
                             SurfDetailScreen(
                                 spotId = spotId,
                                 viewModel = surfViewModel,
+                                navController = navController,
                                 onBackClick = { navController.popBackStack() },
                                 onMapClick = { navController.navigate("surf_map") },
                                 onAddPhotoClick = { id -> navController.navigate("upload_photo/$id") },

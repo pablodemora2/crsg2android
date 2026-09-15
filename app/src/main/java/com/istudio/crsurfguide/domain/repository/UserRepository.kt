@@ -10,4 +10,5 @@ interface UserRepository {
     suspend fun uploadProfileImage(uid: String, imageUri: Uri): Result<String>
     suspend fun toggleFavoriteSpot(uid: String, spotId: String): Result<Boolean>
     fun getLocalFavoriteIds(): Flow<List<String>>
+    suspend fun getOrCreateFakeUser(name: String, email: String, avatarUrl: String): UserProfile
 }

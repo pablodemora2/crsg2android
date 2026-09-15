@@ -3,6 +3,7 @@ package com.istudio.crsurfguide.ui.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.istudio.crsurfguide.domain.repository.AuthRepository
+import com.istudio.crsurfguide.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val userRepository: UserRepository
 ) : ViewModel() {
 
     private val _authState = MutableStateFlow<AuthState>(AuthState.Idle)
@@ -39,11 +41,32 @@ class AuthViewModel @Inject constructor(
             }
         }
     }
+
+    fun loginWithFakeUser(name: String) {
+        viewModelScope.launch {
+            _authState.value = AuthState.Loading
+            try {
+                val formattedName = name.replace(" ", "+")
+                val avatarUrl = "https://ui-avatars.com/api/?name=$formattedName&background=0D8ABC&color=fff"
+                val email = "${name.lowercase().replace(" ", "")}@example.com"
+                
+                // Creación o selección del usuario mockeado en la BD local
+                val fakeProfile = userRepository.getOrCreateFakeUser(name, email, avatarUrl)
+                
+                // Forzamos un login simulado inyectando temporalmente un token/ID alternativo si es necesario
+                // Como pasamos a SurfListScreen mediante AuthState.Success, la app cargará los datos de este UID
+                _authState.value = AuthState.SuccessFake(fakeProfile.uid)
+            } catch (e: Exception) {
+                _authState.value = AuthState.Error(e.message ?: "Error simulando login")
+            }
+        }
+    }
 }
 
 sealed class AuthState {
     object Idle : AuthState()
     object Loading : AuthState()
     object Success : AuthState()
+    data class SuccessFake(val fakeUid: String) : AuthState()
     data class Error(val message: String) : AuthState()
 }

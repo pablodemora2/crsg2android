@@ -22,6 +22,10 @@ class SurfViewModel @Inject constructor(
     private val reportRepository: SurfReportRepository
 ) : ViewModel() {
 
+    companion object {
+        var forcedFakeUid: String? = null
+    }
+
     private val _rawSpots = MutableStateFlow<List<SurfSpot>>(emptyList())
     
     private val _userProfile = MutableStateFlow<UserProfile?>(null)
@@ -45,7 +49,6 @@ class SurfViewModel @Inject constructor(
     private val _spotReports = MutableStateFlow<List<SpotReport>>(emptyList())
     val spotReports: StateFlow<List<SpotReport>> = _spotReports.asStateFlow()
 
-    // Favoritos locales reactivos
     val favoriteIds: StateFlow<List<String>> = userRepository.getLocalFavoriteIds()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
@@ -62,8 +65,8 @@ class SurfViewModel @Inject constructor(
         loadUserProfile()
     }
 
-    private fun loadUserProfile() {
-        val uid = authRepository.getCurrentUserId() ?: return
+    fun loadUserProfile() {
+        val uid = forcedFakeUid ?: authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
             userRepository.getUserProfile(uid).onSuccess {
                 _userProfile.value = it
@@ -90,7 +93,7 @@ class SurfViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
-            _surfWeather.value = null // Reset weather
+            _surfWeather.value = null
             surfRepository.getSpotById(id).onSuccess { spot ->
                 _selectedSpot.value = spot
                 fetchWeather(spot.latitude, spot.longitude)
@@ -142,10 +145,9 @@ class SurfViewModel @Inject constructor(
     }
 
     fun toggleFavorite(spotId: String) {
-        val uid = authRepository.getCurrentUserId() ?: return
+        val uid = forcedFakeUid ?: authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
             userRepository.toggleFavoriteSpot(uid, spotId)
-            // No necesitamos refrescar el perfil completo para los IDs, el flow local se encarga
         }
     }
 

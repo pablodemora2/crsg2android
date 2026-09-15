@@ -5,43 +5,56 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.storage.FirebaseStorage
 import com.istudio.crsurfguide.data.local.dao.FavoriteSpotDao
+import com.istudio.crsurfguide.data.local.dao.UserDao
 import com.istudio.crsurfguide.data.local.entity.FavoriteSpotEntity
+import com.istudio.crsurfguide.data.local.entity.UserEntity
 import com.istudio.crsurfguide.domain.model.UserProfile
 import com.istudio.crsurfguide.domain.repository.UserRepository
-import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.tasks.await
+import java.util.UUID
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val storage: FirebaseStorage,
-    private val favoriteSpotDao: FavoriteSpotDao
+    private val favoriteSpotDao: FavoriteSpotDao,
+    private val userDao: UserDao
 ) : UserRepository {
 
     override suspend fun getUserProfile(uid: String): Result<UserProfile> = try {
-        val snapshot = firestore.collection("users").document(uid).get().await()
-        val profile = snapshot.toObject(UserProfile::class.java)
-        if (profile != null) {
-            // Sincronizar favoritos locales
-            val favorites = profile.favoriteSurfSpotIds.map { FavoriteSpotEntity(it) }
-            favoriteSpotDao.clearAll()
-            favoriteSpotDao.insertFavorites(favorites)
-            
-            Result.success(profile)
+        // Primero ver si es un Fake User almacenado localmente
+        val localUser = userDao.getUserById(uid)
+        if (localUser != null) {
+            Result.success(localUser.toUserProfile())
         } else {
-            Result.failure(Exception("Profile not found"))
+            val snapshot = firestore.collection("users").document(uid).get().await()
+            val profile = snapshot.toObject(UserProfile::class.java)
+            if (profile != null) {
+                val favorites = profile.favoriteSurfSpotIds.map { FavoriteSpotEntity(it) }
+                favoriteSpotDao.clearAll()
+                favoriteSpotDao.insertFavorites(favorites)
+                Result.success(profile)
+            } else {
+                Result.failure(Exception("Profile not found"))
+            }
         }
     } catch (e: Exception) {
-        // Intentar construir perfil parcial si hay favoritos locales en caso de offline
-        // Pero UserProfile tiene más datos. Por ahora retornamos error si falla red.
-        Result.failure(e)
+        val localUser = userDao.getUserById(uid)
+        if (localUser != null) Result.success(localUser.toUserProfile())
+        else Result.failure(e)
     }
 
     override suspend fun updateUserProfile(user: UserProfile): Result<Boolean> = try {
-        firestore.collection("users").document(user.uid).set(user).await()
-        Result.success(true)
+        val localUser = userDao.getUserById(user.uid)
+        if (localUser != null) {
+            userDao.insertUser(UserEntity(user.uid, user.name, user.email, user.profileImageUrl, user.bio, user.surfLevel, user.favoriteSpot))
+            Result.success(true)
+        } else {
+            firestore.collection("users").document(user.uid).set(user).await()
+            Result.success(true)
+        }
     } catch (e: Exception) {
         Result.failure(e)
     }
@@ -52,7 +65,6 @@ class UserRepositoryImpl @Inject constructor(
         val url = ref.downloadUrl.await().toString()
         
         firestore.collection("users").document(uid).update("profileImageUrl", url).await()
-        
         Result.success(url)
     } catch (e: Exception) {
         Result.failure(e)
@@ -74,7 +86,6 @@ class UserRepositoryImpl @Inject constructor(
         }
         Result.success(true)
     } catch (e: Exception) {
-        // En caso de fallo de red, intentar actualizar localmente al menos
         try {
             favoriteSpotDao.insertFavorites(listOf(FavoriteSpotEntity(spotId)))
             Result.success(true)
@@ -85,4 +96,23 @@ class UserRepositoryImpl @Inject constructor(
 
     override fun getLocalFavoriteIds(): Flow<List<String>> = 
         favoriteSpotDao.getAllFavorites().map { entities -> entities.map { it.spotId } }
+
+    override suspend fun getOrCreateFakeUser(name: String, email: String, avatarUrl: String): UserProfile {
+        val existing = userDao.getUserByName(name)
+        if (existing != null) {
+            return existing.toUserProfile()
+        }
+        val newUid = "fake_" + UUID.randomUUID().toString()
+        val newEntity = UserEntity(
+            uid = newUid,
+            name = name,
+            email = email,
+            profileImageUrl = avatarUrl,
+            bio = "Surfista apasionado testeando la app.",
+            surfLevel = "Principiante",
+            favoriteSpot = "Playa Jacó"
+        )
+        userDao.insertUser(newEntity)
+        return newEntity.toUserProfile()
+    }
 }

@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun AuthScreen(
     viewModel: AuthViewModel,
-    onAuthSuccess: () -> Unit
+    onAuthSuccess: (String?) -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -23,7 +23,8 @@ fun AuthScreen(
 
     LaunchedEffect(authState) {
         when (authState) {
-            is AuthState.Success -> onAuthSuccess()
+            is AuthState.Success -> onAuthSuccess(null)
+            is AuthState.SuccessFake -> onAuthSuccess((authState as AuthState.SuccessFake).fakeUid)
             is AuthState.Error -> {
                 snackbarHostState.showSnackbar((authState as AuthState.Error).message)
             }
@@ -91,6 +92,42 @@ fun AuthScreen(
             if (authState is AuthState.Loading) {
                 CircularProgressIndicator()
             } else {
+                // Selector de Fake Users de prueba
+                var expanded by remember { mutableStateOf(false) }
+                val fakeUsers = listOf("Fake User 1", "Fake User 2", "Fake User 3")
+                var selectedUser by remember { mutableStateOf("") }
+
+                ExposedDropdownMenuBox(
+                    expanded = expanded,
+                    onExpandedChange = { expanded = !expanded }
+                ) {
+                    OutlinedTextField(
+                        value = if (selectedUser.isEmpty()) "Seleccionar Fake User de Prueba" else selectedUser,
+                        onValueChange = {},
+                        readOnly = true,
+                        trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+                        modifier = Modifier.fillMaxWidth().menuAnchor(),
+                        colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors()
+                    )
+                    ExposedDropdownMenu(
+                        expanded = expanded,
+                        onDismissRequest = { expanded = false }
+                    ) {
+                        fakeUsers.forEach { fakeName ->
+                            DropdownMenuItem(
+                                text = { Text(fakeName) },
+                                onClick = {
+                                    selectedUser = fakeName
+                                    expanded = false
+                                    viewModel.loginWithFakeUser(fakeName)
+                                }
+                            )
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
                 Button(
                     onClick = {
                         if (email.isEmpty() || password.isEmpty()) return@Button
