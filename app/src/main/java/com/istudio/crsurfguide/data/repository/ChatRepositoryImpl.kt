@@ -21,11 +21,13 @@ class ChatRepositoryImpl @Inject constructor(
             .orderBy("timestamp", Query.Direction.ASCENDING)
             .addSnapshotListener { snapshot, error ->
                 if (error != null) {
+                    com.istudio.crsurfguide.ui.debug.LogBuffer.e("ChatRepository", "Error en SnapshotListener para spot: $spotId", error)
                     close(error)
                     return@addSnapshotListener
                 }
                 if (snapshot != null) {
                     val messages = snapshot.toObjects(ChatMessage::class.java)
+                    com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatRepository", "Recibidos ${messages.size} mensajes de Firestore para spot: $spotId")
                     trySend(messages)
                 }
             }

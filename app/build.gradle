@@ -44,9 +44,31 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            def timestamp = new Date().format('yyyyMMdd_HHmm')
-            def fileName = "CRSurfGuide_v${variant.versionName}_${timestamp}_${variant.buildType.name}.apk"
+            // 1. Definir el nombre con el timestamp solicitado: app-debug-yyyy-MM-dd_HH-mm.apk
+            def timestamp = new Date().format('yyyy-MM-dd_HH-mm')
+            def fileName = "app-${variant.buildType.name}-${timestamp}.apk"
             outputFileName = fileName
+
+            // 2. Configurar una acción al finalizar la tarea de assemble para archivar el APK
+            variant.assembleProvider.configure { assembleTask ->
+                assembleTask.doLast {
+                    def apkFile = output.outputFile
+                    // Carpeta de destino (fuera de build/ para que no se borre con 'clean')
+                    def archiveDir = new File("${project.projectDir}/historical_builds")
+                    
+                    if (!archiveDir.exists()) {
+                        archiveDir.mkdirs()
+                    }
+
+                    if (apkFile != null && apkFile.exists()) {
+                        copy {
+                            from apkFile
+                            into archiveDir
+                        }
+                        println "\n[Build Successful] APK archivado permanentemente en: ${archiveDir.path}/${fileName}\n"
+                    }
+                }
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun DebugHud() {
-    var expanded by remember { mutableStateOf(true) } // Ahora expandido por defecto
+    var expanded by remember { mutableStateOf(false) } // Por defecto colapsado para no tapar la UI
     val logs by LogBuffer.logs.collectAsState()
     val listState = rememberLazyListState()
 
@@ -33,14 +33,18 @@ fun DebugHud() {
 
     Box(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+            .fillMaxWidth() // Solo ocupa el ancho, no el alto completo por defecto
+            .padding(horizontal = 16.dp)
+            .padding(top = 96.dp), // Bajado significativamente para no solapar con los 3 puntos del SurfTopBar
         contentAlignment = Alignment.TopEnd
     ) {
         Column(horizontalAlignment = Alignment.End) {
             // Botón flotante para alternar visibilidad de la consola
             FloatingActionButton(
-                onClick = { expanded = !expanded },
+                onClick = { 
+                    expanded = !expanded 
+                    LogBuffer.d("DebugHUD", "HUD consola ${if(expanded) "expandida" else "colapsada"}")
+                },
                 containerColor = if (expanded) Color.Red else MaterialTheme.colorScheme.tertiary,
                 contentColor = Color.White,
                 modifier = Modifier.size(46.dp)

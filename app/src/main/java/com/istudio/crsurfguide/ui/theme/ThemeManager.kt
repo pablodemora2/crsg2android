@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 enum class AppTheme {
-    LIGHT, DARK, SYSTEM
+    LIGHT, DARK, SYSTEM, CLASSIC, MODERN_PURPLE, TURQUOISE
 }
 
 object ThemeManager {

@@ -40,6 +40,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.graphics.Color
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -56,19 +57,47 @@ class ModernMainActivity : ComponentActivity() {
 
         setContent {
             val currentTheme by ThemeManager.currentTheme.collectAsState()
-            val useDarkTheme = when (currentTheme) {
-                AppTheme.LIGHT -> false
-                AppTheme.DARK -> true
-                AppTheme.SYSTEM -> isSystemInDarkTheme()
+            
+            val colorScheme = when (currentTheme) {
+                AppTheme.LIGHT -> lightColorScheme()
+                AppTheme.DARK -> darkColorScheme()
+                AppTheme.SYSTEM -> if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
+                AppTheme.CLASSIC -> darkColorScheme(
+                    primary = Color(0xFF1DE9B6),
+                    surface = Color(0xFF121212),
+                    background = Color.Black,
+                    primaryContainer = Color(0xFF004D40),
+                    onPrimaryContainer = Color(0xFFB2DFDB)
+                )
+                AppTheme.MODERN_PURPLE -> lightColorScheme(
+                    primary = Color(0xFF6200EE),
+                    secondary = Color(0xFF03DAC6),
+                    tertiary = Color(0xFF3700B3),
+                    surface = Color(0xFFF3E5F5),
+                    background = Color.White
+                )
+                AppTheme.TURQUOISE -> lightColorScheme(
+                    primary = Color(0xFF00897B),
+                    secondary = Color(0xFF4DB6AC),
+                    background = Color(0xFFE0F2F1),
+                    surface = Color(0xFFB2DFDB)
+                )
             }
 
             MaterialTheme(
-                colorScheme = if (useDarkTheme) darkColorScheme() else lightColorScheme()
+                colorScheme = colorScheme
             ) {
                 Box(modifier = androidx.compose.ui.Modifier.fillMaxSize()) {
                     Surface(color = MaterialTheme.colorScheme.background, modifier = androidx.compose.ui.Modifier.fillMaxSize()) {
                         val navController = rememberNavController()
                         
+                        // Observador de Navegación para LogBuffer
+                        LaunchedEffect(navController) {
+                            navController.currentBackStackEntryFlow.collect { entry ->
+                                LogBuffer.d("Navigation", "Ruta actual: ${entry.destination.route}")
+                            }
+                        }
+
                         LaunchedEffect(pendingSpotId) {
                             pendingSpotId?.let { spotId ->
                                 LogBuffer.d("ModernMainActivity", "Navegando a través de Deep Link al spot: $spotId")
@@ -77,111 +106,119 @@ class ModernMainActivity : ComponentActivity() {
                             }
                         }
                     
-                    NavHost(navController = navController, startDestination = "splash") {
-                        composable("splash") {
-                            SplashScreen(
-                                navController = navController,
-                                onNavigateNext = {
-                                    navController.navigate("auth") {
-                                        popUpTo("splash") { inclusive = true }
+                        NavHost(navController = navController, startDestination = "splash") {
+                            composable("splash") {
+                                SplashScreen(
+                                    navController = navController,
+                                    onNavigateNext = {
+                                        navController.navigate("auth") {
+                                            popUpTo("splash") { inclusive = true }
+                                        }
+                                    },
+                                    onBypass = {
+                                        // Bypass: Forzar un Fake User por defecto para QA
+                                        LogBuffer.d("Splash", "Iniciando bypass de 'Nueva Experiencia' con fake_qa_default")
+                                        com.istudio.crsurfguide.ui.surf.SurfViewModel.forcedFakeUid = "fake_qa_default"
+                                        navController.navigate("surf_list") {
+                                            popUpTo("splash") { inclusive = true }
+                                        }
                                     }
-                                }
-                            )
-                        }
-                        composable("auth") {
-                            val authViewModel = hiltViewModel<AuthViewModel>()
-                            AuthScreen(
-                                viewModel = authViewModel,
-                                onAuthSuccess = { fakeUidOpt ->
-                                    if (fakeUidOpt != null) {
-                                        com.istudio.crsurfguide.ui.surf.SurfViewModel.forcedFakeUid = fakeUidOpt
+                                )
+                            }
+                            composable("auth") {
+                                val authViewModel = hiltViewModel<AuthViewModel>()
+                                AuthScreen(
+                                    viewModel = authViewModel,
+                                    onAuthSuccess = { fakeUidOpt ->
+                                        if (fakeUidOpt != null) {
+                                            com.istudio.crsurfguide.ui.surf.SurfViewModel.forcedFakeUid = fakeUidOpt
+                                        }
+                                        navController.navigate("surf_list") {
+                                            popUpTo("auth") { inclusive = true }
+                                        }
                                     }
-                                    navController.navigate("surf_list") {
-                                        popUpTo("auth") { inclusive = true }
+                                )
+                            }
+                            composable("surf_list") {
+                                val surfViewModel = hiltViewModel<SurfViewModel>()
+                                SurfListScreen(
+                                    viewModel = surfViewModel,
+                                    navController = navController,
+                                    onProfileClick = {
+                                        navController.navigate("profile")
+                                    },
+                                    onMapClick = {
+                                        navController.navigate("surf_map")
+                                    },
+                                    onSpotClick = { spotId ->
+                                        navController.navigate("surf_detail/$spotId")
                                     }
-                                }
-                            )
-                        }
-                        composable("surf_list") {
-                            val surfViewModel = hiltViewModel<SurfViewModel>()
-                            SurfListScreen(
-                                viewModel = surfViewModel,
-                                navController = navController,
-                                onProfileClick = {
-                                    navController.navigate("profile")
-                                },
-                                onMapClick = {
-                                    navController.navigate("surf_map")
-                                },
-                                onSpotClick = { spotId ->
-                                    navController.navigate("surf_detail/$spotId")
-                                }
-                            )
-                        }
-                        composable("swell") {
-                            SwellScreen(navController = navController)
-                        }
-                        composable("gallery") {
-                            GalleryScreen(navController = navController)
-                        }
-                        composable("surf_map") {
-                            val surfViewModel = hiltViewModel<SurfViewModel>()
-                            SurfMapScreen(
-                                viewModel = surfViewModel,
-                                onBackClick = {
-                                    navController.popBackStack()
-                                },
-                                onSpotClick = { spotId ->
-                                    navController.navigate("surf_detail/$spotId")
-                                }
-                            )
-                        }
-                        composable("surf_detail/{spotId}") { backStackEntry ->
-                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
-                            val surfViewModel = hiltViewModel<SurfViewModel>()
-                            SurfDetailScreen(
-                                spotId = spotId,
-                                viewModel = surfViewModel,
-                                navController = navController,
-                                onBackClick = { navController.popBackStack() },
-                                onMapClick = { navController.navigate("surf_map") },
-                                onAddPhotoClick = { id -> navController.navigate("upload_photo/$id") },
-                                onChatClick = { id, name -> navController.navigate("spot_chat/$id/$name") }
-                            )
-                        }
-                        composable("upload_photo/{spotId}") { backStackEntry ->
-                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
-                            val surfViewModel = hiltViewModel<SurfViewModel>()
-                            UploadSpotPhotoScreen(
-                                spotId = spotId,
-                                viewModel = surfViewModel,
-                                onBackClick = { navController.popBackStack() },
-                                onUploadSuccess = { navController.popBackStack() }
-                            )
-                        }
-                        composable("spot_chat/{spotId}/{spotName}") { backStackEntry ->
-                            val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
-                            val spotName = backStackEntry.arguments?.getString("spotName") ?: ""
-                            val chatViewModel = hiltViewModel<ChatViewModel>()
-                            SpotChatScreen(
-                                spotId = spotId,
-                                spotName = spotName,
-                                viewModel = chatViewModel,
-                                onBackClick = { navController.popBackStack() }
-                            )
-                        }
-                        composable("profile") {
-                            val profileViewModel = hiltViewModel<ProfileViewModel>()
-                            ProfileScreen(
-                                viewModel = profileViewModel,
-                                onLogout = {
-                                    navController.navigate("auth") {
-                                        popUpTo(0)
+                                )
+                            }
+                            composable("swell") {
+                                SwellScreen(navController = navController)
+                            }
+                            composable("gallery") {
+                                GalleryScreen(navController = navController)
+                            }
+                            composable("surf_map") {
+                                val surfViewModel = hiltViewModel<SurfViewModel>()
+                                SurfMapScreen(
+                                    viewModel = surfViewModel,
+                                    onBackClick = {
+                                        navController.popBackStack()
+                                    },
+                                    onSpotClick = { spotId ->
+                                        navController.navigate("surf_detail/$spotId")
                                     }
-                                }
-                            )
+                                )
+                            }
+                            composable("surf_detail/{spotId}") { backStackEntry ->
+                                val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                                val surfViewModel = hiltViewModel<SurfViewModel>()
+                                SurfDetailScreen(
+                                    spotId = spotId,
+                                    viewModel = surfViewModel,
+                                    navController = navController,
+                                    onBackClick = { navController.popBackStack() },
+                                    onMapClick = { navController.navigate("surf_map") },
+                                    onAddPhotoClick = { id -> navController.navigate("upload_photo/$id") },
+                                    onChatClick = { id, name -> navController.navigate("spot_chat/$id/$name") }
+                                )
+                            }
+                            composable("upload_photo/{spotId}") { backStackEntry ->
+                                val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                                val surfViewModel = hiltViewModel<SurfViewModel>()
+                                UploadSpotPhotoScreen(
+                                    spotId = spotId,
+                                    viewModel = surfViewModel,
+                                    onBackClick = { navController.popBackStack() },
+                                    onUploadSuccess = { navController.popBackStack() }
+                                )
+                            }
+                            composable("spot_chat/{spotId}/{spotName}") { backStackEntry ->
+                                val spotId = backStackEntry.arguments?.getString("spotId") ?: ""
+                                val spotName = backStackEntry.arguments?.getString("spotName") ?: ""
+                                val chatViewModel = hiltViewModel<ChatViewModel>()
+                                SpotChatScreen(
+                                    spotId = spotId,
+                                    spotName = spotName,
+                                    viewModel = chatViewModel,
+                                    onBackClick = { navController.popBackStack() }
+                                )
+                            }
+                            composable("profile") {
+                                val profileViewModel = hiltViewModel<ProfileViewModel>()
+                                ProfileScreen(
+                                    viewModel = profileViewModel,
+                                    onLogout = {
+                                        navController.navigate("auth") {
+                                            popUpTo(0)
+                                        }
+                                    }
+                                )
+                            }
                         }
-                    }
                     }
                     
                     // In-App Diagnóstico Terminal HUD Flotante

@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Logout
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Save
 import androidx.compose.material3.*
@@ -160,22 +161,49 @@ fun ProfileScreen(
 
                         Spacer(modifier = Modifier.height(24.dp))
                         
-                        // Selector de Temas Integrado
-                        Text("Personalización", style = MaterialTheme.typography.titleMedium, modifier = Modifier.align(Alignment.Start))
+                        // Selector de Temas Modernos y Clásicos
+                        Text("Temas de Experiencia Surf", style = MaterialTheme.typography.titleMedium, modifier = Modifier.align(Alignment.Start))
                         val context = LocalContext.current
                         val currentTheme by ThemeManager.currentTheme.collectAsState()
                         
-                        Row(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            AppTheme.values().forEach { theme ->
-                                FilterChip(
-                                    selected = currentTheme == theme,
-                                    onClick = { ThemeManager.setTheme(context, theme) },
-                                    label = { Text(theme.name) }
-                                )
+                        var themeExpanded by remember { mutableStateOf(false) }
+                        
+                        Box(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)) {
+                            OutlinedCard(
+                                onClick = { themeExpanded = true },
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(16.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text(text = "Tema actual: ${currentTheme.name}")
+                                    Icon(Icons.Default.ArrowDropDown, contentDescription = null)
+                                }
+                            }
+                            
+                            DropdownMenu(
+                                expanded = themeExpanded,
+                                onDismissRequest = { themeExpanded = false },
+                                modifier = Modifier.fillMaxWidth(0.9f)
+                            ) {
+                                AppTheme.values().forEach { theme ->
+                                    val themeDesc = when(theme) {
+                                        AppTheme.CLASSIC -> "Clásico (Dark Overlay)"
+                                        AppTheme.MODERN_PURPLE -> "Morado Moderno"
+                                        AppTheme.TURQUOISE -> "Turquesa Océano"
+                                        else -> theme.name
+                                    }
+                                    DropdownMenuItem(
+                                        text = { Text(themeDesc) },
+                                        onClick = {
+                                            com.istudio.crsurfguide.ui.debug.LogBuffer.d("Profile", "Cambiando tema a: $theme")
+                                            ThemeManager.setTheme(context, theme)
+                                            themeExpanded = false
+                                        }
+                                    )
+                                }
                             }
                         }
 

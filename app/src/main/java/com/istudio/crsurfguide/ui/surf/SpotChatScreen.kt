@@ -31,12 +31,17 @@ fun SpotChatScreen(
     onBackClick: () -> Unit
 ) {
     val messages by viewModel.messages.collectAsState()
-    val currentUserId = viewModel.currentUserId
+    val currentUserId = viewModel.getCurrentUserId()
     var messageText by remember { mutableStateOf("") }
     val listState = rememberLazyListState()
 
     LaunchedEffect(spotId) {
+        com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatScreen", "Pantalla de chat abierta para: $spotName (ID: $spotId)")
         viewModel.loadMessages(spotId)
+    }
+
+    LaunchedEffect(messages) {
+        com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatScreen", "Actualización de UI: ${messages.size} mensajes en lista")
     }
 
     LaunchedEffect(messages.size) {
@@ -102,6 +107,7 @@ fun SpotChatScreen(
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(messages) { message ->
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatScreen", "Renderizando mensaje: de=${message.senderName} texto=${message.text.take(10)}")
                 MessageItem(
                     message = message,
                     isMine = message.senderId == currentUserId

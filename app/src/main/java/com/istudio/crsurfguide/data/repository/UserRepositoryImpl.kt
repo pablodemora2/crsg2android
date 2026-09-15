@@ -98,16 +98,17 @@ class UserRepositoryImpl @Inject constructor(
         favoriteSpotDao.getAllFavorites().map { entities -> entities.map { it.spotId } }
 
     override suspend fun getOrCreateFakeUser(name: String, email: String, avatarUrl: String): UserProfile {
-        val existing = userDao.getUserByName(name)
+        val searchName = if (name == "fake_qa_default") "QA Tester" else name
+        val existing = userDao.getUserByName(searchName)
         if (existing != null) {
             return existing.toUserProfile()
         }
-        val newUid = "fake_" + UUID.randomUUID().toString()
+        val newUid = if (name == "fake_qa_default") "fake_qa_default" else "fake_" + UUID.randomUUID().toString()
         val newEntity = UserEntity(
             uid = newUid,
-            name = name,
-            email = email,
-            profileImageUrl = avatarUrl,
+            name = searchName,
+            email = email.ifEmpty { "qa@example.com" },
+            profileImageUrl = avatarUrl.ifEmpty { "https://ui-avatars.com/api/?name=QA+Tester" },
             bio = "Surfista apasionado testeando la app.",
             surfLevel = "Principiante",
             favoriteSpot = "Playa Jacó"

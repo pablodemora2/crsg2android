@@ -45,6 +45,7 @@ class AuthViewModel @Inject constructor(
     fun loginWithFakeUser(name: String) {
         viewModelScope.launch {
             _authState.value = AuthState.Loading
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("AuthViewModel", "Intentando login simulado para: $name")
             try {
                 val formattedName = name.replace(" ", "+")
                 val avatarUrl = "https://ui-avatars.com/api/?name=$formattedName&background=0D8ABC&color=fff"
@@ -53,10 +54,13 @@ class AuthViewModel @Inject constructor(
                 // Creación o selección del usuario mockeado en la BD local
                 val fakeProfile = userRepository.getOrCreateFakeUser(name, email, avatarUrl)
                 
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("AuthViewModel", "Fake User creado/recuperado: ${fakeProfile.uid}")
+                
                 // Forzamos un login simulado inyectando temporalmente un token/ID alternativo si es necesario
                 // Como pasamos a SurfListScreen mediante AuthState.Success, la app cargará los datos de este UID
                 _authState.value = AuthState.SuccessFake(fakeProfile.uid)
             } catch (e: Exception) {
+                com.istudio.crsurfguide.ui.debug.LogBuffer.e("AuthViewModel", "Error en login fake", e)
                 _authState.value = AuthState.Error(e.message ?: "Error simulando login")
             }
         }

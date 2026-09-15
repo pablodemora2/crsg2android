@@ -18,7 +18,8 @@ import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(
     navController: NavController,
-    onNavigateNext: () -> Unit
+    onNavigateNext: () -> Unit,
+    onBypass: () -> Unit
 ) {
     // Simular un tiempo de carga y navegar automáticamente
     LaunchedEffect(Unit) {
@@ -70,9 +71,9 @@ fun SplashScreen(
             )
         }
 
-        // Botón de QA solicitado en la parte inferior
+        // Botón de QA solicitado en la parte inferior para bypass
         Button(
-            onClick = onNavigateNext,
+            onClick = onBypass,
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 64.dp)

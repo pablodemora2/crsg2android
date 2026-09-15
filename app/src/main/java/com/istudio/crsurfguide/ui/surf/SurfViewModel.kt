@@ -68,8 +68,15 @@ class SurfViewModel @Inject constructor(
     fun loadUserProfile() {
         val uid = forcedFakeUid ?: authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Cargando perfil para UID: $uid")
+            // Aseguramos que si es un usuario fake (QA), exista en el repositorio local
+            if (uid.startsWith("fake_")) {
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Detectado Fake User, garantizando persistencia local...")
+                userRepository.getOrCreateFakeUser(uid, "", "")
+            }
             userRepository.getUserProfile(uid).onSuccess {
                 _userProfile.value = it
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Perfil cargado con éxito: ${it.name}")
             }
         }
     }
@@ -78,12 +85,15 @@ class SurfViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             _errorMessage.value = null
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Iniciando carga de spots desde repositorio...")
             surfRepository.getSurfSpots().collect { result ->
                 _isLoading.value = false
                 result.onSuccess {
                     _rawSpots.value = it
+                    com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Cargados ${it.size} spots exitosamente.")
                 }.onFailure {
                     _errorMessage.value = "Error al cargar playas: ${it.localizedMessage}"
+                    com.istudio.crsurfguide.ui.debug.LogBuffer.e("SurfViewModel", "Fallo en carga de spots", it)
                 }
             }
         }
@@ -94,12 +104,15 @@ class SurfViewModel @Inject constructor(
             _isLoading.value = true
             _errorMessage.value = null
             _surfWeather.value = null
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Cargando detalle de spot ID: $id")
             surfRepository.getSpotById(id).onSuccess { spot ->
                 _selectedSpot.value = spot
                 fetchWeather(spot.latitude, spot.longitude)
                 loadReports(id)
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Spot '${spot.name}' cargado con éxito.")
             }.onFailure {
                 _errorMessage.value = "Error al cargar el spot: ${it.localizedMessage}"
+                com.istudio.crsurfguide.ui.debug.LogBuffer.e("SurfViewModel", "Fallo al cargar spot ID: $id", it)
             }
             _isLoading.value = false
         }
@@ -107,8 +120,10 @@ class SurfViewModel @Inject constructor(
 
     private fun loadReports(spotId: String) {
         viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Cargando reportes para spot: $spotId")
             reportRepository.getReportsForSpot(spotId).collect {
                 _spotReports.value = it
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Recibidos ${it.size} reportes.")
             }
         }
     }
@@ -147,6 +162,7 @@ class SurfViewModel @Inject constructor(
     fun toggleFavorite(spotId: String) {
         val uid = forcedFakeUid ?: authRepository.getCurrentUserId() ?: return
         viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("SurfViewModel", "Alternando favorito para spot: $spotId (User: $uid)")
             userRepository.toggleFavoriteSpot(uid, spotId)
         }
     }

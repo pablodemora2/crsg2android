@@ -24,22 +24,32 @@ class ChatViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
-    private val _currentUserId = authRepository.getCurrentUserId()
-    val currentUserId: String? = _currentUserId
+    private var messagesJob: kotlinx.coroutines.Job? = null
+
+    fun getCurrentUserId(): String? {
+        return SurfViewModel.forcedFakeUid ?: authRepository.getCurrentUserId()
+    }
 
     fun loadMessages(spotId: String) {
-        viewModelScope.launch {
+        messagesJob?.cancel()
+        messagesJob = viewModelScope.launch {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatViewModel", "Cargando mensajes para spot: $spotId")
             chatRepository.getMessages(spotId).collect {
                 _messages.value = it
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatViewModel", "Actualizados ${it.size} mensajes en el StateFlow")
             }
         }
     }
 
     fun sendMessage(spotId: String, text: String) {
-        if (text.isBlank() || _currentUserId == null) return
+        val uid = getCurrentUserId()
+        if (text.isBlank() || uid == null) {
+            com.istudio.crsurfguide.ui.debug.LogBuffer.e("ChatViewModel", "Fallo al enviar: texto vacío o UID nulo (uid=$uid)")
+            return
+        }
 
         viewModelScope.launch {
-            userRepository.getUserProfile(_currentUserId).onSuccess { profile ->
+            userRepository.getUserProfile(uid).onSuccess { profile ->
                 val message = ChatMessage(
                     spotId = spotId,
                     senderId = profile.uid,
@@ -47,7 +57,10 @@ class ChatViewModel @Inject constructor(
                     senderAvatarUrl = profile.profileImageUrl,
                     text = text
                 )
+                com.istudio.crsurfguide.ui.debug.LogBuffer.d("ChatViewModel", "Enviando mensaje de ${profile.name}: ${text.take(15)}...")
                 chatRepository.sendMessage(message)
+            }.onFailure {
+                com.istudio.crsurfguide.ui.debug.LogBuffer.e("ChatViewModel", "Error obteniendo perfil para chat", it)
             }
         }
     }
