@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun DebugHud() {
-    var expanded by remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(true) } // Ahora expandido por defecto
     val logs by LogBuffer.logs.collectAsState()
     val listState = rememberLazyListState()
 

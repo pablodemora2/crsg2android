@@ -53,6 +53,9 @@ import com.istudio.crsurfguide.custom.Top5Activity;
 import com.istudio.crsurfguide.gallery.ImageGallery;
 import com.istudio.crsurfguide.map.MapActivity;
 import com.istudio.crsurfguide.obj.Constante;
+import androidx.compose.ui.platform.ComposeView;
+import com.istudio.crsurfguide.ui.debug.DebugHudHelper;
+import com.istudio.crsurfguide.ui.debug.LogBuffer;
 
 import org.shredzone.commons.suncalc.MoonIllumination;
 import org.shredzone.commons.suncalc.MoonTimes;
@@ -81,12 +84,26 @@ public class MainActivity extends BaseActivity {
     // Metodo inicial
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            LogBuffer.INSTANCE.e("CRITICAL", "Uncaught Exception in MainActivity", throwable);
+            try { Thread.sleep(2000); } catch (InterruptedException e) {}
+        });
+        com.istudio.crsurfguide.ui.debug.LogBuffer.INSTANCE.d("MainActivity", "onCreate: Iniciando...");
         super.Custom();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.Constante = com.istudio.crsurfguide.obj.Constante.getInstance(this);
+        
+        try {
+            ComposeView debugHudView = findViewById(R.id.debug_hud_view);
+            if (debugHudView != null) {
+                DebugHudHelper.attachHud(debugHudView);
+            }
+        } catch (Exception e) {
+            LogBuffer.INSTANCE.e("MainActivity", "Error al inyectar DebugHud", e);
+        }
+
         this.ParentItems = new String[this.Constante.getZoneList().size()];
 
         this.LoadArrays();

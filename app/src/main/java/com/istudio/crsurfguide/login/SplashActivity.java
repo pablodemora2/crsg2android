@@ -39,6 +39,9 @@ import com.istudio.crsurfguide.MainActivity;
 import com.istudio.crsurfguide.R;
 import com.istudio.crsurfguide.custom.BaseActivity;
 import com.istudio.crsurfguide.obj.Constante;
+import com.istudio.crsurfguide.ui.debug.LogBuffer;
+import com.istudio.crsurfguide.ui.debug.DebugHudKt;
+import androidx.compose.ui.platform.ComposeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,11 +70,28 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            LogBuffer.INSTANCE.e("CRITICAL", "Uncaught Exception in SplashActivity", throwable);
+            // Dar un momento para que el log se procese (aunque sea en memoria)
+            try { Thread.sleep(1000); } catch (InterruptedException e) {}
+        });
+
+        LogBuffer.INSTANCE.d("SplashActivity", "onCreate: Iniciando Splash...");
+
+        try {
+            ComposeView debugHudView = findViewById(R.id.debug_hud_view);
+            if (debugHudView != null) {
+                com.istudio.crsurfguide.ui.debug.DebugHudHelper.attachHud(debugHudView);
+            }
+        } catch (Exception e) {
+            LogBuffer.INSTANCE.e("SplashActivity", "Error al inyectar DebugHud", e);
+        }
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
-                // AdMob initialized
+                LogBuffer.INSTANCE.d("SplashActivity", "MobileAds inicializado.");
             }
         });
 
@@ -102,13 +122,14 @@ public class SplashActivity extends BaseActivity {
         accessTokenTracker= new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldToken, AccessToken newToken) {
-
+                LogBuffer.INSTANCE.d("Facebook", "AccessToken changed: " + (newToken != null ? "Logged In" : "Logged Out"));
             }
         };
 
         profileTracker = new ProfileTracker() {
             @Override
             protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+                LogBuffer.INSTANCE.d("Facebook", "Profile changed: " + (newProfile != null ? newProfile.getName() : "None"));
                 displayMessage(newProfile);
             }
         };
@@ -297,10 +318,15 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void sendMessage1(View view) {
-
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-
+        LogBuffer.INSTANCE.d("SplashActivity", "Button NEXT clicked. Attempting to start MainActivity...");
+        try {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            LogBuffer.INSTANCE.d("SplashActivity", "MainActivity started successfully.");
+        } catch (Exception e) {
+            LogBuffer.INSTANCE.e("SplashActivity", "CRASH in sendMessage1 (Next Button)", e);
+            Toast.makeText(this, "Error al iniciar: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
 }
