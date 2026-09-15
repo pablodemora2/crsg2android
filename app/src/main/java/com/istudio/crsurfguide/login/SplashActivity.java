@@ -4,7 +4,6 @@
 
 package com.istudio.crsurfguide.login;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -79,9 +78,15 @@ public class SplashActivity extends BaseActivity {
 
         LogBuffer.INSTANCE.d("SplashActivity", "onCreate: Iniciando Splash...");
 
+        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        setContentView(R.layout.activity_splash);
+
+        // Inicializar el ComposeView del HUD de depuración de forma segura
         try {
             ComposeView debugHudView = findViewById(R.id.debug_hud_view);
             if (debugHudView != null) {
+                androidx.lifecycle.ViewTreeLifecycleOwner.set(debugHudView, this);
+                androidx.savedstate.ViewTreeSavedStateRegistryOwner.set(debugHudView, this);
                 com.istudio.crsurfguide.ui.debug.DebugHudHelper.attachHud(debugHudView);
             }
         } catch (Exception e) {
@@ -100,9 +105,6 @@ public class SplashActivity extends BaseActivity {
 
         InitTracker();
 
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.activity_splash);
-
         mBlurredImageHeader = (ScrollableImageView) findViewById(R.id.blurred_image_header);
         mBlurredImageBottom = (ScrollableImageView) findViewById(R.id.blurred_image_bottom);
 
@@ -110,11 +112,7 @@ public class SplashActivity extends BaseActivity {
 
         constante = Constante.getInstance(this);
 
-        //this.InitFB();
-        //InitFrame();
-
         InitFonts();
-        //Toast.makeText(this, "Costa Rica Surf Guide™ 2018.", Toast.LENGTH_LONG).show();
     }
 
     private void InitTracker(){

@@ -98,6 +98,8 @@ public class MainActivity extends BaseActivity {
         try {
             ComposeView debugHudView = findViewById(R.id.debug_hud_view);
             if (debugHudView != null) {
+                androidx.lifecycle.ViewTreeLifecycleOwner.set(debugHudView, this);
+                androidx.savedstate.ViewTreeSavedStateRegistryOwner.set(debugHudView, this);
                 DebugHudHelper.attachHud(debugHudView);
             }
         } catch (Exception e) {

@@ -8,7 +8,7 @@
 
 package com.istudio.crsurfguide.custom;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -17,7 +17,7 @@ import android.view.WindowManager;
 import com.istudio.crsurfguide.R;
 
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
