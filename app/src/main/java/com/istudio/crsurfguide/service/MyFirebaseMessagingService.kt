@@ -11,15 +11,19 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.istudio.crsurfguide.ModernMainActivity
 import com.istudio.crsurfguide.R
+import com.istudio.crsurfguide.ui.debug.LogBuffer
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         super.onMessageReceived(remoteMessage)
+        LogBuffer.d("FCM_Service", "Notificación Push Recibida de Firebase.")
 
         val title = remoteMessage.notification?.title ?: remoteMessage.data["title"] ?: "Alerta de Oleaje"
         val body = remoteMessage.notification?.body ?: remoteMessage.data["body"] ?: "Hay nuevas condiciones en tu spot favorito"
         val spotId = remoteMessage.data["spotId"] ?: ""
+        
+        LogBuffer.d("FCM_Service", "Payload -> Title: $title, SpotId: $spotId")
 
         sendNotification(title, body, spotId)
     }
@@ -64,5 +68,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
+        LogBuffer.d("FCM_Service", "Nuevo Token FCM generado: $token")
     }
 }

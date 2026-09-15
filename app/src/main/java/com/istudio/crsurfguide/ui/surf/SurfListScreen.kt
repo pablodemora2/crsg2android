@@ -6,8 +6,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -18,6 +20,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Map
+import androidx.compose.material.icons.filled.Refresh
 import com.istudio.crsurfguide.domain.model.SurfSpot
 import com.istudio.crsurfguide.domain.model.UserProfile
 
@@ -31,14 +34,28 @@ fun SurfListScreen(
 ) {
     val spots by viewModel.spots.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
     val favoriteIds by viewModel.favoriteIds.collectAsState()
     val showOnlyFavorites by viewModel.showOnlyFavorites.collectAsState()
+    
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            snackbarHostState.showSnackbar(it)
+            viewModel.clearError()
+        }
+    }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text("Costa Rica Surf Guide") },
                 actions = {
+                    IconButton(onClick = { viewModel.loadSpots() }) {
+                        Icon(imageVector = Icons.Default.Refresh, contentDescription = "Refrescar")
+                    }
                     IconButton(onClick = { viewModel.toggleShowOnlyFavorites() }) {
                         Icon(
                             imageVector = Icons.Default.FilterList,
@@ -62,8 +79,24 @@ fun SurfListScreen(
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
-            if (isLoading) {
+            if (isLoading && spots.isEmpty()) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            } else if (spots.isEmpty()) {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = if (showOnlyFavorites) "No tienes playas favoritas aún" else "No se encontraron playas",
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                    if (!showOnlyFavorites) {
+                        Button(onClick = { viewModel.loadSpots() }, modifier = Modifier.padding(top = 8.dp)) {
+                            Text("Reintentar")
+                        }
+                    }
+                }
             } else {
                 LazyColumn {
                     items(spots) { spot ->

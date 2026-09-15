@@ -33,6 +33,9 @@ class SurfViewModel @Inject constructor(
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
 
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
+
     private val _selectedSpot = MutableStateFlow<SurfSpot?>(null)
     val selectedSpot: StateFlow<SurfSpot?> = _selectedSpot.asStateFlow()
 
@@ -68,10 +71,13 @@ class SurfViewModel @Inject constructor(
     fun loadSpots() {
         viewModelScope.launch {
             _isLoading.value = true
+            _errorMessage.value = null
             surfRepository.getSurfSpots().collect { result ->
                 _isLoading.value = false
                 result.onSuccess {
                     _rawSpots.value = it
+                }.onFailure {
+                    _errorMessage.value = "Error al cargar playas: ${it.localizedMessage}"
                 }
             }
         }
@@ -80,12 +86,13 @@ class SurfViewModel @Inject constructor(
     fun loadSpotById(id: String) {
         viewModelScope.launch {
             _isLoading.value = true
+            _errorMessage.value = null
             _surfWeather.value = null // Reset weather
             surfRepository.getSpotById(id).onSuccess { spot ->
                 _selectedSpot.value = spot
                 fetchWeather(spot.latitude, spot.longitude)
             }.onFailure {
-                // Handle error
+                _errorMessage.value = "Error al cargar el spot: ${it.localizedMessage}"
             }
             _isLoading.value = false
         }
@@ -109,5 +116,9 @@ class SurfViewModel @Inject constructor(
 
     fun toggleShowOnlyFavorites() {
         _showOnlyFavorites.value = !_showOnlyFavorites.value
+    }
+
+    fun clearError() {
+        _errorMessage.value = null
     }
 }

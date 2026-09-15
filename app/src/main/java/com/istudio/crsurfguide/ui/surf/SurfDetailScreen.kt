@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,19 +27,30 @@ fun SurfDetailScreen(
     val spot by viewModel.selectedSpot.collectAsState()
     val weather by viewModel.surfWeather.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val errorMessage by viewModel.errorMessage.collectAsState()
     val favoriteIds by viewModel.favoriteIds.collectAsState()
+    
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            snackbarHostState.showSnackbar(it)
+            viewModel.clearError()
+        }
+    }
 
     LaunchedEffect(spotId) {
         viewModel.loadSpotById(spotId)
     }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = { Text(spot?.name ?: "Detalles") },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Atrás")
+                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Atrás")
                     }
                 },
                 actions = {
@@ -57,8 +69,15 @@ fun SurfDetailScreen(
         }
     ) { padding ->
         Box(modifier = Modifier.padding(padding).fillMaxSize()) {
-            if (isLoading) {
+            if (isLoading && spot == null) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            } else if (spot == null) {
+                Column(modifier = Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("No se pudo cargar la información del spot.")
+                    Button(onClick = { viewModel.loadSpotById(spotId) }) {
+                        Text("Reintentar")
+                    }
+                }
             } else if (spot != null) {
                 val currentSpot = spot!!
                 Column(

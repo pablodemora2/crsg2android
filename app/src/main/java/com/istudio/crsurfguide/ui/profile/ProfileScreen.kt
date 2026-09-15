@@ -14,8 +14,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.istudio.crsurfguide.ui.theme.AppTheme
+import com.istudio.crsurfguide.ui.theme.ThemeManager
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -110,6 +113,27 @@ fun ProfileScreen(
                             label = { Text("Spot Favorito") },
                             modifier = Modifier.fillMaxWidth()
                         )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        
+                        // Selector de Temas Integrado
+                        Text("Tema de la Aplicación", style = MaterialTheme.typography.titleMedium, modifier = Modifier.align(Alignment.Start))
+                        val context = LocalContext.current
+                        val currentTheme by ThemeManager.currentTheme.collectAsState()
+                        
+                        Row(
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            AppTheme.values().forEach { theme ->
+                                FilterChip(
+                                    selected = currentTheme == theme,
+                                    onClick = { ThemeManager.setTheme(context, theme) },
+                                    label = { Text(theme.name) }
+                                )
+                            }
+                        }
+
                         Spacer(modifier = Modifier.height(16.dp))
                         
                         if (isUpdating) {
